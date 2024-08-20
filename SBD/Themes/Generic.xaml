@@ -190,7 +190,28 @@
     </DataTemplate>
 
 
+    <DataTemplate x:Key="HeightMark">
+        <Grid>
+            <Path Width="1"
+                  Height="110"
+                  HorizontalAlignment="Left"
+                  Data="M8.8,0 L8.8,43.976802"
+                  Fill="#FFFFFFFF"
+                  Stretch="Fill"
+                  Stroke="#FF000000"
+                  StrokeLineJoin="Round" />
+            <TextBlock HorizontalAlignment="Center" FontSize="36"><Run Text="(" /><Run Text="W" /><Run Text=")" /></TextBlock>
+            <Path Width="1"
+                  Height="110"
+                  HorizontalAlignment="Right"
+                  Data="M8.8,0 L8.8,43.976802"
+                  Fill="#FFFFFFFF"
+                  Stretch="Fill"
+                  Stroke="#FF000000"
+                  StrokeLineJoin="Round" />
+        </Grid>
 
+    </DataTemplate>
 
 
 

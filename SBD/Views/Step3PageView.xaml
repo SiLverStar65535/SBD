@@ -287,46 +287,18 @@
                     </Grid.ColumnDefinitions>
 
 
-
-
-                    <Path Width="1"
-                          Height="44.977"
-                          Margin="-20,-29,0,0"
-                          HorizontalAlignment="Left"
-                          VerticalAlignment="Top"
-                          Data="M8.8,0 L8.8,43.976802"
-                          Fill="#FFFFFFFF"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <TextBlock Width="63"
-                               Height="50"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               FontSize="36"
-                               RenderTransformOrigin="0.393,0.4"
-                               TextWrapping="Wrap"><Run Text="(" /><Run Text="W" /><Run Text=")" /></TextBlock>
-                    <Path Width="1"
-                          Height="44.977"
-                          Margin="33.416,-17.201,0,0"
-                          HorizontalAlignment="Left"
-                          VerticalAlignment="Top"
-                          Data="M8.8,0 L8.8,43.976802"
-                          Fill="#FFFFFFFF"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <!--<Path Grid.Column="1"
+                    <Path Grid.Column="1"
                           Width="1"
                           Height="44.977"
-                          Margin="15.031,-17.201,0,0"
-                          HorizontalAlignment="Left"
-                          VerticalAlignment="Top"
                           Data="M8.8,0 L8.8,43.976802"
                           Fill="#FFFFFFFF"
                           Stretch="Fill"
                           Stroke="#FF000000"
-                          StrokeLineJoin="Round" />-->
+                          StrokeLineJoin="Round" />
+
+
+
+
                     <!--<Path Grid.Column="1"
                           Width="1"
                           Height="44.977"
@@ -344,7 +316,7 @@
             </Viewbox>
 
 
-            <ContentPresenter Width="250"
+            <!--<ContentPresenter Width="250"
                               Margin="690,268,0,0"
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
@@ -364,10 +336,14 @@
                               VerticalAlignment="Top"
                               ContentTemplate="{StaticResource LWHDetail}" />
 
+        
 
-
-
-
+            <ContentPresenter Width="83"
+                              Margin="66,31,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              ContentTemplate="{StaticResource HeightMark}" />-->
+          
             <!--
             <TextBlock Grid.Column="2"
                        Width="51"
