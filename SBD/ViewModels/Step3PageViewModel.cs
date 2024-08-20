@@ -7,23 +7,20 @@ namespace SBD.ViewModels
     {
         public Step3PageViewModel()
         {
+            IsGettedData = true;
         }
 
 
-   
+        public bool IsGettedData { get; set; }
 
-        private DelegateCommand _againCommand;
-        public DelegateCommand AgainCommand => _againCommand ??= new DelegateCommand(ExcuteAgainCommand);
-        private void ExcuteAgainCommand()
+        private DelegateCommand _scanCommand;
+        public DelegateCommand ScanCommand => _scanCommand ??= new DelegateCommand(ExcuteScanCommand);
+        private void ExcuteScanCommand()
         {
+            IsGettedData = true;
+            RaisePropertyChanged(nameof(IsGettedData));
+
             
-        }
-
-        private DelegateCommand _confirmCommand;
-        public DelegateCommand ConfirmCommand => _confirmCommand ??= new DelegateCommand(ExcuteCancelCommand);
-        private void ExcuteCancelCommand()
-        {
-            ApplicationCommands.NavigateCommand.Execute(NavigatePath.Step4PageView);
         }
     }
 }

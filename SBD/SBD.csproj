@@ -63,7 +63,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM64'">
     <DebugSymbols>true</DebugSymbols>
@@ -100,10 +100,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="tsclibnet, Version=9.9.9.9, Culture=neutral, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\ThermSticker\bin\Debug\tsclibnet.dll</HintPath>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -113,6 +109,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="NavigatePath.cs" />
     <Compile Include="Other\DataSet1.Designer.cs">
@@ -253,6 +251,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\PathImages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Step1PageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -353,10 +355,6 @@
     <ProjectReference Include="..\Thermal_Printer\Thermal_Printer.csproj">
       <Project>{8d665066-07f7-491e-9d2e-5fd0de421b0a}</Project>
       <Name>Thermal_Printer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ThermSticker\Therm_Sticker.csproj">
-      <Project>{a6d05d46-a489-4eee-95af-e64979d005e5}</Project>
-      <Name>Therm_Sticker</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

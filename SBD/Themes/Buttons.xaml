@@ -85,4 +85,98 @@
         <Setter Property="Padding" Value="1" />
 
     </Style>
+
+
+
+
+    <Style x:Key="ScanButton" TargetType="{x:Type Button}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="BorderBrush" Value="#FF727272" />
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="Foreground" Value="White" />
+
+        <Setter Property="Template">
+
+            <Setter.Value>
+
+                <ControlTemplate TargetType="Button">
+
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="ButtonLineStoryboard" AutoReverse="True">
+                            <PointAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(LinearGradientBrush.EndPoint)">
+                                <EasingPointKeyFrame KeyTime="0" Value="0.771514,0.850254" />
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.293,0.117" />
+                            </PointAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Fill).(LinearGradientBrush.StartPoint)">
+                                <EasingPointKeyFrame KeyTime="0" Value="0.169991,0.187817" />
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.518,0.947" />
+                            </PointAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+
+                    <Grid>
+                        <Ellipse Width="138.35"
+                                 Height="146.773"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Fill="#FF0772EE"
+                                 Stretch="Fill" />
+                        <ContentPresenter Margin="45.816,69.296,40.983,67.161"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" />
+                        <Path Width="137.912"
+                              Height="97.542"
+                              Margin="0,18,0,0"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              Data="F1 M 85.1645,312.281C 106.98,312.281 124.665,329.966 124.665,351.781C 124.665,373.596 108.657,363.844 92.4146,349.281C 85.1646,342.781 45.9145,371.596 45.9145,349.781C 45.9145,327.966 63.3493,312.281 85.1645,312.281 Z "
+                              Stretch="Fill">
+                            <Path.Fill>
+                                <LinearGradientBrush StartPoint="1.31429,-0.741429" EndPoint="4.36892,-0.741429">
+                                    <LinearGradientBrush.RelativeTransform>
+                                        <TransformGroup>
+                                            <SkewTransform AngleX="-21.4113" AngleY="0" CenterX="1.31429" CenterY="-0.741429" />
+                                            <RotateTransform Angle="114.302" CenterX="1.31429" CenterY="-0.741429" />
+                                        </TransformGroup>
+                                    </LinearGradientBrush.RelativeTransform>
+                                    <GradientStop Offset="0" Color="#FFFFFFFF" />
+                                    <GradientStop Offset="0.925532" Color="#11FFFFFF" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                        <Path x:Name="path"
+                              Width="172.5"
+                              Height="183.833"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="M 83.4205,302.031C 110.62,302.031 132.67,324.081 132.67,351.281C 132.67,378.481 110.62,400.531 83.4205,400.531C 56.2204,400.531 34.1705,378.481 34.1705,351.281C 34.1705,324.081 56.2205,302.031 83.4205,302.031 Z M 83.6645,312.281C 105.48,312.281 123.165,329.966 123.165,351.781C 123.165,373.596 105.48,391.281 83.6645,391.281C 61.8493,391.281 44.1645,373.596 44.1645,351.781C 44.1645,329.966 61.8493,312.281 83.6645,312.281 Z "
+                              Stretch="Fill">
+                            <Path.Fill>
+                                <LinearGradientBrush StartPoint="0.169991,0.187817" EndPoint="0.771514,0.850254">
+                                    <GradientStop Offset="0.0496454" Color="#FFFFFFFF" />
+                                    <GradientStop Offset="0.925532" Color="#70111111" />
+                                </LinearGradientBrush>
+                            </Path.Fill>
+                        </Path>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="UIElement.TouchDown">
+                            <BeginStoryboard Storyboard="{StaticResource ButtonLineStoryboard}" />
+                        </EventTrigger>
+
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+
+
+
+            </Setter.Value>
+
+
+        </Setter>
+
+
+
+
+    </Style>
 </ResourceDictionary>

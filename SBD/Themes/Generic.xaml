@@ -67,6 +67,9 @@
 
 
 
+
+
+
     <Style x:Key="PageStyle" TargetType="{x:Type UserControl}">
         <Setter Property="Width" Value="1080" />
         <Setter Property="Background" Value="White" />
