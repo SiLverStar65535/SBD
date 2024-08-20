@@ -1,0 +1,127 @@
+﻿<UserControl x:Class="SBD.Views.Step6PageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:local="clr-namespace:SBD.Views"
+             xmlns:viewModels="clr-namespace:SBD.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Style="{StaticResource PageStyle}"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:Step6PageViewModel,
+                                              IsDesignTimeCreatable=True}"
+             d:Height="1800">
+    <Grid x:Name="Step3Page" Visibility="Visible">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="102*" />
+                <ColumnDefinition Width="107*" />
+                <ColumnDefinition Width="114*" />
+                <ColumnDefinition Width="93*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="452*" />
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="64*" />
+                <RowDefinition Height="145*" />
+            </Grid.RowDefinitions>
+            <Canvas x:Name="ToolBar1"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="5"
+                    Margin="10,5,10,1" />
+            <Image Grid.RowSpan="4"
+                   Grid.ColumnSpan="5"
+                   Source="/Assest/Image8.png"
+                   Stretch="Fill" />
+            <Button x:Name="OKUSERDATA"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Grid.ColumnSpan="2"
+                    Width="267.432"
+                    Height="111"
+                    Margin="148.568,24,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="列印優惠卷"
+                    FontSize="48"
+                    Foreground="White"
+                    Style="{DynamicResource BasicButton}" />
+            <TextBlock Grid.Column="3"
+                       Grid.ColumnSpan="2"
+                       Width="350"
+                       Height="64"
+                       Margin="10,42,0,0"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="48"
+                       Foreground="#FFFF9700"
+                       TextWrapping="Wrap"><Run Text="來碗牛肉麵吧" /><Run Text="!" /></TextBlock>
+            <TextBlock Grid.Row="3"
+                       Grid.ColumnSpan="5"
+                       Width="958"
+                       Height="172"
+                       Margin="0,49.02,0,-76.02"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       FontSize="48"
+                       Foreground="Red"
+                       Text="原價250元，現憑特惠券僅需180元。"
+                       TextWrapping="Wrap" />
+
+        </Grid>
+
+        <ContentPresenter Grid.Row="1" ContentTemplate="{StaticResource StepBar}" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="102*" />
+                <ColumnDefinition Width="107*" />
+                <ColumnDefinition Width="114*" />
+                <ColumnDefinition Width="93*" />
+                <ColumnDefinition Width="120*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="452*" />
+                <RowDefinition Height="80*" />
+                <RowDefinition Height="64*" />
+                <RowDefinition Height="145*" />
+            </Grid.RowDefinitions>
+            <Canvas x:Name="ToolBar11"
+                    Grid.Row="3"
+                    Grid.ColumnSpan="5">
+                <Button x:Name="OKUSERDATA1"
+                        Canvas.Left="581.06"
+                        Canvas.Top="-392.88"
+                        Width="456.779"
+                        Height="381.659"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="完成行李託運"
+                        FontSize="72"
+                        Foreground="White"
+                        Style="{DynamicResource BasicButton}" />
+                <Button x:Name="CancelBT"
+                        Canvas.Left="13.08"
+                        Canvas.Top="-392.88"
+                        Width="438.98"
+                        Height="381.659"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Content="下一件行李"
+                        FontSize="72"
+                        Foreground="White"
+                        Style="{DynamicResource BasicButton}" />
+            </Canvas>
+
+        </Grid>
+
+    </Grid>
+</UserControl>
