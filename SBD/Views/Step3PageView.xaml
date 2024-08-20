@@ -29,8 +29,7 @@
 
 
 
-                <ContentPresenter Width="708"
-                                  Height="517"
+                <ContentPresenter Height="517"
                                   Margin="0,230,0,0"
                                   HorizontalAlignment="Center"
                                   VerticalAlignment="Top"
@@ -263,9 +262,9 @@
               Visibility="{Binding IsGettedData, Converter={converters:BooleanToVisibilityConverter}}">
 
             <TextBlock x:Name="BWeight"
-                       Width="203.675"
-                       Height="72.339"
-                       Margin="0,196,-4,0"
+                       Width="204"
+                       Height="72"
+                       Margin="0,211,103,0"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Top"
                        FontSize="48"
@@ -274,7 +273,7 @@
                        Text="72.6 KG"
                        TextWrapping="Wrap" />
 
-            <!--<Viewbox Grid.ColumnSpan="4"
+            <Viewbox Grid.ColumnSpan="4"
                      Width="549"
                      Height="350.719"
                      Margin="128,99,0,0"
@@ -286,48 +285,13 @@
                         <ColumnDefinition Width="64*" />
                         <ColumnDefinition Width="153*" />
                     </Grid.ColumnDefinitions>
-                    <Path Grid.Column="1"
-                          Margin="16.031,26.219,-28.876,2.5"
-                          Data="F1 M 71.5813,97.4999L 226.415,97.4999C 229.176,97.4999 231.415,99.7385 231.415,102.5L 231.415,204.281C 231.415,207.042 229.176,209.281 226.415,209.281L 71.5813,209.281C 68.8198,209.281 66.5813,207.042 66.5813,204.281L 66.5813,102.5C 66.5813,99.7385 68.8198,97.4999 71.5813,97.4999 Z "
-                          Fill="#FF0A74B2"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <Path Grid.Column="1"
-                          Margin="48.45,28.219,74.957,5.833"
-                          Data="F1 M 104,99.5L 122.581,99.5C 125.343,99.5 127.581,101.739 127.581,104.5L 127.581,200.948C 127.581,203.709 125.343,205.948 122.581,205.948L 104,205.948C 101.239,205.948 99,203.709 99,200.948L 99,104.5C 99,101.739 101.239,99.5 104,99.5 Z "
-                          Fill="#FFFFFFFF"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <Path Grid.Column="1"
-                          Margin="81.283,-1.948,30.957,115.5"
-                          Data="M 139.783,69.3334L 163.632,69.3334C 168.022,69.3334 171.581,72.3496 171.581,76.0703L 171.581,89.5442C 171.581,93.2649 168.022,96.2811 163.632,96.2811L 139.783,96.2811C 135.392,96.2811 131.833,93.2649 131.833,89.5442L 131.833,76.0703C 131.833,72.3496 135.392,69.3334 139.783,69.3334 Z M 143.758,72.0279L 159.259,72.0279C 163.65,72.0279 167.209,75.0441 167.209,78.7648L 167.209,86.8491C 167.209,90.5698 163.65,93.586 159.259,93.586L 143.758,93.586C 139.367,93.586 135.808,90.5698 135.808,86.8491L 135.808,78.7648C 135.808,75.0441 139.367,72.0279 143.758,72.0279 Z "
-                          Fill="#FF0A74B2"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <Path Grid.Column="1"
-                          Margin="123.407,27.776,0,6.276"
-                          Data="F1 M 178.957,99.0572L 197.539,99.0572C 200.3,99.0572 202.539,101.296 202.539,104.057L 202.539,200.505C 202.539,203.266 200.3,205.505 197.539,205.505L 178.957,205.505C 176.196,205.505 173.957,203.266 173.957,200.505L 173.957,104.057C 173.957,101.296 176.196,99.0572 178.957,99.0572 Z "
-                          Fill="#FFFFFFFF"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <Path Margin="0,27.776,29.345,0.943"
-                          Data="F1 M 20.6646,96.5572L 44.0812,96.5572C 46.8426,96.5572 49.0812,98.7958 49.0812,101.557L 49.0812,203.338C 49.0812,206.1 46.8426,208.338 44.0812,208.338L 20.6646,208.338C 17.9032,208.338 15.6646,206.1 15.6646,203.338L 15.6646,101.557C 15.6646,98.7958 17.9032,96.5572 20.6646,96.5572 Z "
-                          Fill="#FF0A74B2"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-                    <Ellipse Margin="13.8,0,42.561,113.833"
-                             Fill="#FF0A74B2"
-                             Stretch="Fill"
-                             Stroke="#FF000000"
-                             StrokeLineJoin="Round" />
+
+
+
+
                     <Path Width="1"
                           Height="44.977"
-                          Margin="-1,-17.31,0,0"
+                          Margin="-20,-29,0,0"
                           HorizontalAlignment="Left"
                           VerticalAlignment="Top"
                           Data="M8.8,0 L8.8,43.976802"
@@ -335,8 +299,14 @@
                           Stretch="Fill"
                           Stroke="#FF000000"
                           StrokeLineJoin="Round" />
-            -->
-            <!--<Path Width="1"
+                    <TextBlock Width="63"
+                               Height="50"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               FontSize="36"
+                               RenderTransformOrigin="0.393,0.4"
+                               TextWrapping="Wrap"><Run Text="(" /><Run Text="W" /><Run Text=")" /></TextBlock>
+                    <Path Width="1"
                           Height="44.977"
                           Margin="33.416,-17.201,0,0"
                           HorizontalAlignment="Left"
@@ -345,8 +315,8 @@
                           Fill="#FFFFFFFF"
                           Stretch="Fill"
                           Stroke="#FF000000"
-                          StrokeLineJoin="Round" />-->
-            <!--<Path Grid.Column="1"
+                          StrokeLineJoin="Round" />
+                    <!--<Path Grid.Column="1"
                           Width="1"
                           Height="44.977"
                           Margin="15.031,-17.201,0,0"
@@ -357,7 +327,7 @@
                           Stretch="Fill"
                           Stroke="#FF000000"
                           StrokeLineJoin="Round" />-->
-            <!--<Path Grid.Column="1"
+                    <!--<Path Grid.Column="1"
                           Width="1"
                           Height="44.977"
                           Margin="181.699,-17.201,-29.876,0"
@@ -368,41 +338,37 @@
                           Stretch="Fill"
                           Stroke="#FF000000"
                           StrokeLineJoin="Round" />-->
-            <!--
+
 
                 </Grid>
-            </Viewbox>-->
+            </Viewbox>
+
+
             <ContentPresenter Width="250"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Center"
+                              Margin="690,268,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
                               ContentTemplate="{StaticResource LuggagePuttingImage}" />
+            <ContentPresenter Width="380"
+                              Margin="212,136,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              ContentTemplate="{StaticResource LuggageImage}" />
+            <ContentPresenter Height="340"
+                              Margin="66,77,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              ContentTemplate="{StaticResource LuggageImage2}" />
+            <ContentPresenter Margin="44,440,0,0"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              ContentTemplate="{StaticResource LWHDetail}" />
 
-            <UniformGrid HorizontalAlignment="Center"
-                         VerticalAlignment="Center"
-                         Columns="3"
-                         Rows="2">
-                <TextBlock FontSize="36"><Run Text="長度" /><Run Text="(L)" /></TextBlock>
-                <TextBlock FontSize="36"><Run Text="寬度" /><Run Text="(W)" /></TextBlock>
-                <TextBlock FontSize="36"><Run Text="高度" /><Run Text="(H)" /></TextBlock>
-                <TextBlock x:Name="BLength"
-                           FontSize="36"
-                           Text="30cm" />
-                <TextBlock x:Name="BWidth"
-                           FontSize="36"
-                           Text="30cm" />
-                <TextBlock x:Name="BHeight"
-                           FontSize="36"
-                           Text="30cm" />
-            </UniformGrid>
 
-            <!--<TextBlock Width="63"
-                       Height="50"
-                       Margin="141,49,0,0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       FontSize="36"
-                       RenderTransformOrigin="0.393,0.4"
-                       TextWrapping="Wrap"><Run Text="(" /><Run Text="W" /><Run Text=")" /></TextBlock>
+
+
+
+            <!--
             <TextBlock Grid.Column="2"
                        Width="51"
                        Height="50"
@@ -436,8 +402,8 @@
                   Fill="#FFFFFFFF"
                   Stretch="Fill"
                   Stroke="#FF000000"
-                  StrokeLineJoin="Round" />-->
-            <!--<TextBlock Grid.Column="3"
+                  StrokeLineJoin="Round" />
+            <TextBlock Grid.Column="3"
                        Width="54"
                        Height="50"
                        Margin="122,279,0,0"
@@ -446,67 +412,15 @@
                        FontSize="36"
                        Text="(H)"
                        TextWrapping="Wrap" />-->
-            <!--<Rectangle Grid.Row="1"
-                       Grid.RowSpan="2"
-                       Grid.Column="1"
-                       Grid.ColumnSpan="3"
-                       Width="608"
-                       Height="128"
-                       Margin="10,0,0,0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       RadiusX="25"
-                       RadiusY="25"
-                       Stroke="#FF0AC3E0"
-                       StrokeLineJoin="Round"
-                       StrokeThickness="6" />
-            <Path Grid.Row="1"
-                  Grid.Column="1"
-                  Grid.ColumnSpan="3"
-                  Width="614"
-                  Height="6"
-                  Margin="7,57,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  Data="M214,528 L822,528"
-                  Stretch="Fill"
-                  Stroke="#FF0AC3E0"
-                  StrokeLineJoin="Round"
-                  StrokeThickness="6" />
 
-            <Canvas x:Name="ToolBar1"
-                    Grid.Row="3"
-                    Grid.ColumnSpan="5"
-                    Margin="10,5,-10,1">
-                <Button x:Name="OKUSERDATA"
-                        Canvas.Left="781.5"
-                        Width="226"
-                        Height="133"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="確認"
-                        FontSize="72"
-                        Foreground="White"
-                        Style="{DynamicResource BasicButton}" />
-                <Button x:Name="CancelBT"
-                        Canvas.Left="28"
-                        Width="250"
-                        Height="133"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="再一次"
-                        FontSize="72"
-                        Foreground="White"
-                        Style="{DynamicResource BasicButton}" />
-            </Canvas>
-            <Grid Grid.Column="4"
-                  Margin="26,325,-4,10"
+
+
+            <!--<Grid HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
                   Opacity="0.5">
                 <TextBlock Width="200"
                            Height="98"
                            Margin="4,15,0,0"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Top"
                            Cursor="No"
                            FontSize="72"
                            Text="30KG"
@@ -520,44 +434,43 @@
                            Stroke="#FFFB0000"
                            StrokeLineJoin="Round"
                            StrokeThickness="5" />
-                <TextBlock Margin="27,32,32,28"
+                <TextBlock HorizontalAlignment="Left"
+                           VerticalAlignment="Top"
                            FontSize="36"
                            Foreground="#FFFF0808"
                            Text="重量不符"
                            TextWrapping="Wrap" />
-
-            </Grid>
-            <Grid Grid.Row="1"
-                  Grid.RowSpan="2"
-                  Grid.Column="4"
-                  Margin="22,11.437,0,15.563"
-                  Opacity="0.5">
-                <TextBlock Width="200"
-                           Height="98"
-                           Margin="4,15,0,0"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Top"
-                           Cursor="No"
-                           FontSize="72"
-                           Text="30KG"
-                           TextWrapping="Wrap" />
-                <Rectangle Width="204"
-                           Height="116"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Top"
-                           RadiusX="30"
-                           RadiusY="30"
-                           Stroke="#FFFB0000"
-                           StrokeLineJoin="Round"
-                           StrokeThickness="5" />
-                <TextBlock Margin="27,32,32,28"
-                           FontSize="36"
-                           Foreground="#FFFF0808"
-                           Text="重量不符"
-                           TextWrapping="Wrap" />
-
             </Grid>-->
 
         </Grid>
+
+
+
+
+        <!--<Canvas x:Name="ToolBar1"
+                Grid.Row="3"
+                Grid.ColumnSpan="5"
+                Margin="10,5,-10,1">
+            <Button x:Name="OKUSERDATA"
+                    Canvas.Left="781.5"
+                    Width="226"
+                    Height="133"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="確認"
+                    FontSize="72"
+                    Foreground="White"
+                    Style="{DynamicResource BasicButton}" />
+            <Button x:Name="CancelBT"
+                    Canvas.Left="28"
+                    Width="250"
+                    Height="133"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="再一次"
+                    FontSize="72"
+                    Foreground="White"
+                    Style="{DynamicResource BasicButton}" />
+        </Canvas>-->
     </Grid>
 </UserControl>

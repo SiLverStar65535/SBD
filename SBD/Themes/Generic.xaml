@@ -139,4 +139,59 @@
 
 
 
+    <DataTemplate x:Key="LWHDetail">
+
+        <Grid>
+            <Rectangle Width="608"
+                       Height="128"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       RadiusX="25"
+                       RadiusY="25"
+                       Stroke="#FF0AC3E0"
+                       StrokeLineJoin="Round"
+                       StrokeThickness="6" />
+            <Path Width="614"
+                  Height="6"
+                  Margin="-4,58,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Data="M214,528 L822,528"
+                  Stretch="Fill"
+                  Stroke="#FF0AC3E0"
+                  StrokeLineJoin="Round"
+                  StrokeThickness="6" />
+            <UniformGrid Width="608"
+                         Height="115"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Columns="3"
+                         Rows="2">
+                <TextBlock FontSize="36"><Run Text="長度" /><Run Text="(L)" /></TextBlock>
+                <TextBlock FontSize="36"><Run Text="寬度" /><Run Text="(W)" /></TextBlock>
+                <TextBlock FontSize="36"><Run Text="高度" /><Run Text="(H)" /></TextBlock>
+                <TextBlock x:Name="BLength"
+                           FontSize="36"
+                           Text="30cm" />
+                <TextBlock x:Name="BWidth"
+                           FontSize="36"
+                           Text="30cm" />
+                <TextBlock x:Name="BHeight"
+                           FontSize="36"
+                           Text="30cm" />
+            </UniformGrid>
+
+
+        </Grid>
+
+
+
+
+    </DataTemplate>
+
+
+
+
+
+
 </ResourceDictionary>
