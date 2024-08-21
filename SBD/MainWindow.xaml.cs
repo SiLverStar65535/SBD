@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using DataLibrary;
 using SBD.InterfacePool;
+using SBD.Provider;
 using Thermal_Printer;
 
 namespace SBD

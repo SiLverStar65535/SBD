@@ -205,7 +205,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Other\Config.cs" />
+    <Compile Include="Provider\Config.cs" />
     <Compile Include="InterfacePool\DataLinkInterface.cs" />
     <Compile Include="InterfacePool\PageInterface.cs" />
     <Compile Include="InterfacePool\WorkStepInterface.cs" />

@@ -89,43 +89,8 @@
                 <TextBlock x:Name="BWidth" Text="30cm" />
                 <TextBlock x:Name="BHeight" Text="30cm" />
             </UniformGrid>
-
-
         </Grid>
     </DataTemplate>
-
-
-
-
-
-
-
-
-
 
     
-
-
-
-    <DataTemplate x:Key="ConditionNotFit">
-        <Grid Opacity="0.5">
-
-            <Rectangle Width="204"
-                       Height="116"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       RadiusX="30"
-                       RadiusY="30"
-                       Stroke="#FFFB0000"
-                       StrokeLineJoin="Round"
-                       StrokeThickness="5" />
-            <TextBlock HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="36"
-                       Foreground="#FFFF0808"
-                       Text="條件不符"
-                       TextWrapping="Wrap" />
-        </Grid>
-
-    </DataTemplate>
 </ResourceDictionary>

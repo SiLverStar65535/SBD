@@ -6,7 +6,6 @@
     <SolidColorBrush x:Key="PrimaryBrush" Color="#FF17567F" />
     <SolidColorBrush x:Key="PrimaryLightBrush" Color="#63a4ff" />
 
-
     <Style x:Key="FieldLabel" TargetType="{x:Type TextBlock}">
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
@@ -20,8 +19,6 @@
         <Setter Property="FontSize" Value="36" />
         <Setter Property="Foreground" Value="#FFE76100" />
     </Style>
-
-
 
     <DataTemplate x:Key="Arrow">
         <Grid Width="56.5" Height="28">
@@ -65,16 +62,10 @@
         </Grid>
     </DataTemplate>
 
-
-
-
-
-
     <Style x:Key="PageStyle" TargetType="{x:Type UserControl}">
         <Setter Property="Width" Value="1080" />
         <Setter Property="Background" Value="White" />
     </Style>
-
 
     <DataTemplate x:Key="PageHeader">
         <Border Height="120"
@@ -136,13 +127,5 @@
         </StackPanel>
 
     </DataTemplate>
-
-
-
-  
-
-   
-
-
 
 </ResourceDictionary>

@@ -1,4 +1,4 @@
-﻿namespace SBD
+﻿namespace SBD.Provider
 {
     class Config
     {
