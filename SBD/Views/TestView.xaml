@@ -4,61 +4,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:local="clr-namespace:SBD.Views"
-             Style="{StaticResource PageStyle}"
-             mc:Ignorable="d"
-             d:DesignHeight="450"
-             d:DesignWidth="800">
-    <Viewbox Height="300">
-
-        <Grid>
-            <Path Width="1"
-                  Height="23"
-                  Margin="2,5,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  Data="M8.8,0 L8.8,43.976802"
-                  Fill="#FFFFFFFF"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <Path Width="1"
-                  Height="26"
-                  Margin="180,2,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  Data="M8.8,0 L8.8,43.976802"
-                  Fill="#FFFFFFFF"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <Path Margin="0,30,0,0"
-                  Data="F1 M 71.5813,97.4999L 226.415,97.4999C 229.176,97.4999 231.415,99.7385 231.415,102.5L 231.415,204.281C 231.415,207.042 229.176,209.281 226.415,209.281L 71.5813,209.281C 68.8198,209.281 66.5813,207.042 66.5813,204.281L 66.5813,102.5C 66.5813,99.7385 68.8198,97.4999 71.5813,97.4999 Z "
-                  Fill="#FF0A74B2"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <Path Margin="43,38,104,6"
-                  Data="F1 M 104,99.5L 122.581,99.5C 125.343,99.5 127.581,101.739 127.581,104.5L 127.581,200.948C 127.581,203.709 125.343,205.948 122.581,205.948L 104,205.948C 101.239,205.948 99,203.709 99,200.948L 99,104.5C 99,101.739 101.239,99.5 104,99.5 Z "
-                  Fill="#FFFFFFFF"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <Path Margin="109,38,38,6"
-                  Data="F1 M 104,99.5L 122.581,99.5C 125.343,99.5 127.581,101.739 127.581,104.5L 127.581,200.948C 127.581,203.709 125.343,205.948 122.581,205.948L 104,205.948C 101.239,205.948 99,203.709 99,200.948L 99,104.5C 99,101.739 101.239,99.5 104,99.5 Z "
-                  Fill="#FFFFFFFF"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <Path Margin="66,2,64,121"
-                  Data="M 139.783,69.3334L 163.632,69.3334C 168.022,69.3334 171.581,72.3496 171.581,76.0703L 171.581,89.5442C 171.581,93.2649 168.022,96.2811 163.632,96.2811L 139.783,96.2811C 135.392,96.2811 131.833,93.2649 131.833,89.5442L 131.833,76.0703C 131.833,72.3496 135.392,69.3334 139.783,69.3334 Z M 143.758,72.0279L 159.259,72.0279C 163.65,72.0279 167.209,75.0441 167.209,78.7648L 167.209,86.8491C 167.209,90.5698 163.65,93.586 159.259,93.586L 143.758,93.586C 139.367,93.586 135.808,90.5698 135.808,86.8491L 135.808,78.7648C 135.808,75.0441 139.367,72.0279 143.758,72.0279 Z "
-                  Fill="#FF0A74B2"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-
-        </Grid>
-
-
-    </Viewbox>
+             Background="White"
+             mc:Ignorable="d">
+    <Grid Opacity="0.5">
+        <TextBlock Height="98"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Cursor="No"
+                   FontSize="72"
+                   Text="30KG"
+                   TextWrapping="Wrap" />
+        <Rectangle Width="204"
+                   Height="116"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   RadiusX="30"
+                   RadiusY="30"
+                   Stroke="#FFFB0000"
+                   StrokeLineJoin="Round"
+                   StrokeThickness="5" />
+        <TextBlock HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="36"
+                   Foreground="#FFFF0808"
+                   Text="重量不符"
+                   TextWrapping="Wrap" />
+    </Grid>
 
 </UserControl>

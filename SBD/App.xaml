@@ -6,7 +6,8 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Themes/Generic.xaml" />
-                <ResourceDictionary Source="/Themes/PathImages.xaml" />
+                <ResourceDictionary Source="/Themes/ViewBoxImages.xaml" />
+                <ResourceDictionary Source="/Themes/ContentTemplate.xaml" />
                 <ResourceDictionary Source="/Themes/Buttons.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

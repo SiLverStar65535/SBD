@@ -14,7 +14,7 @@
              d:Height="1800">
     <Grid x:Name="Step3Page" Visibility="Visible">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>

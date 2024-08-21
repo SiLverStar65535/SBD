@@ -1,0 +1,131 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="SizeContentTemplate">
+        <Grid>
+            <Rectangle Width="608"
+                       Height="128"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       RadiusX="25"
+                       RadiusY="25"
+                       Stroke="#FF0AC3E0"
+                       StrokeLineJoin="Round"
+                       StrokeThickness="6" />
+            <Path Width="608"
+                  Height="6"
+                  Margin="0,58,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Data="M214,528 L822,528"
+                  Stretch="Fill"
+                  Stroke="#FF0AC3E0"
+                  StrokeLineJoin="Round"
+                  StrokeThickness="6" />
+            <UniformGrid Width="608"
+                         Height="115"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Columns="3"
+                         Rows="2">
+                <UniformGrid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="36" />
+                    </Style>
+                </UniformGrid.Resources>
+                <TextBlock Text="長度(L)" />
+                <TextBlock Text="寬度(W)" />
+                <TextBlock Text="高度(H)" />
+                <TextBlock x:Name="BLength" Text="30cm" />
+                <TextBlock x:Name="BWidth" Text="30cm" />
+                <TextBlock x:Name="BHeight" Text="30cm" />
+            </UniformGrid>
+
+
+        </Grid>
+    </DataTemplate>
+
+
+
+    <DataTemplate x:Key="CurrentSizeContentTemplate">
+        <Grid>
+            <Rectangle Width="608"
+                       Height="128"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       RadiusX="25"
+                       RadiusY="25"
+                       Stroke="#FF17FF00"
+                       StrokeLineJoin="Round"
+                       StrokeThickness="6" />
+            <Path Width="608"
+                  Height="6"
+                  Margin="0,58,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Data="M214,528 L822,528"
+                  Stretch="Fill"
+                  Stroke="#FF17FF00"
+                  StrokeLineJoin="Round"
+                  StrokeThickness="6" />
+            <UniformGrid Width="608"
+                         Height="115"
+                         HorizontalAlignment="Left"
+                         VerticalAlignment="Top"
+                         Columns="3"
+                         Rows="2">
+                <UniformGrid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="VerticalAlignment" Value="Center" />
+                        <Setter Property="FontSize" Value="36" />
+                    </Style>
+                </UniformGrid.Resources>
+                <TextBlock Text="長度(L)" />
+                <TextBlock Text="寬度(W)" />
+                <TextBlock Text="高度(H)" />
+                <TextBlock x:Name="BLength" Text="30cm" />
+                <TextBlock x:Name="BWidth" Text="30cm" />
+                <TextBlock x:Name="BHeight" Text="30cm" />
+            </UniformGrid>
+
+
+        </Grid>
+    </DataTemplate>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <DataTemplate x:Key="ConditionNotFit">
+        <Grid Opacity="0.5">
+
+            <Rectangle Width="204"
+                       Height="116"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       RadiusX="30"
+                       RadiusY="30"
+                       Stroke="#FFFB0000"
+                       StrokeLineJoin="Round"
+                       StrokeThickness="5" />
+            <TextBlock HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="36"
+                       Foreground="#FFFF0808"
+                       Text="條件不符"
+                       TextWrapping="Wrap" />
+        </Grid>
+
+    </DataTemplate>
+</ResourceDictionary>

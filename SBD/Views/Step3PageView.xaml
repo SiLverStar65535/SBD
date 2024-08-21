@@ -16,33 +16,31 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.3*" />
+            <RowDefinition Height="1*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid x:Name="Page4A"
-                  Width="1072"
-                  Height="891"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top">
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
 
 
 
                 <ContentPresenter Height="517"
-                                  Margin="0,230,0,0"
-                                  HorizontalAlignment="Center"
+                                  Margin="158,108,0,0"
+                                  HorizontalAlignment="Left"
                                   VerticalAlignment="Top"
                                   ContentTemplate="{StaticResource LuggageImage}" />
 
                 <ContentPresenter Width="906"
-                                  Margin="94,752,0,0"
+                                  Margin="72,666,0,0"
                                   HorizontalAlignment="Left"
                                   VerticalAlignment="Top"
                                   ContentTemplate="{StaticResource LuggageDeskImage}" />
 
                 <Path x:Name="path1"
-                      Margin="32.414,293.781,10,555.667"
+                      Margin="34,222,8,565"
                       Data="F1 M 37.4145,162.281L 266.414,162.281C 268.9,162.281 270.914,164.296 270.914,166.781L 270.914,166.781C 270.914,169.266 268.9,171.281 266.414,171.281L 37.4145,171.281C 34.9293,171.281 32.9145,169.266 32.9145,166.781L 32.9145,166.781C 32.9145,164.296 34.9293,162.281 37.4145,162.281 Z "
                       RenderTransformOrigin="0.5,0.5"
                       Stretch="Fill"
@@ -61,7 +59,7 @@
                     </Path.RenderTransform>
                 </Path>
                 <Path x:Name="path2"
-                      Margin="32.414,641.281,10,213.667"
+                      Margin="32,545,10,244"
                       Data="F1 M 37.4145,162.281L 266.414,162.281C 268.9,162.281 270.914,164.296 270.914,166.781L 270.914,166.781C 270.914,169.266 268.9,171.281 266.414,171.281L 37.4145,171.281C 34.9293,171.281 32.9145,169.266 32.9145,166.781L 32.9145,166.781C 32.9145,164.296 34.9293,162.281 37.4145,162.281 Z "
                       RenderTransformOrigin="0.5,0.5"
                       Stretch="Fill"
@@ -72,7 +70,7 @@
                     </Path.Fill>
                     <Path.RenderTransform>
                         <TransformGroup>
-                            <ScaleTransform />
+                            <ScaleTransform ScaleY="-1" />
                             <SkewTransform />
                             <RotateTransform />
                             <TranslateTransform />
@@ -82,7 +80,7 @@
                 <Path x:Name="path3"
                       Width="40"
                       Height="700"
-                      Margin="144,156,888,34"
+                      Margin="134,66,906,71"
                       Data="F1 M 245.415,48.7812L 245.415,277.781C 245.415,280.266 243.4,282.281 240.915,282.281L 240.915,282.281C 238.429,282.281 236.415,280.266 236.415,277.781L 236.415,48.7812C 236.415,46.2959 238.429,44.2812 240.915,44.2812L 240.915,44.2812C 243.4,44.2812 245.415,46.2959 245.415,48.7812 Z "
                       RenderTransformOrigin="0.5,0.5"
                       Stretch="Fill"
@@ -112,7 +110,9 @@
         <ContentPresenter Grid.Row="1" ContentTemplate="{StaticResource StepBar}" />
 
 
-        <Grid Grid.Row="2" Visibility="{Binding IsGettedData, Converter={converters:InversBooleanToVisibilityConverter}, Mode=TwoWay}">
+        <Grid Grid.Row="2"
+              Visibility="{Binding IsGettedData, Converter={converters:InversBooleanToVisibilityConverter}}"
+              d:Visibility="Collapsed">
             <Button x:Name="ScanButton"
                     Command="{Binding ScanCommand}"
                     Content="Scan"
@@ -257,196 +257,154 @@
             </Grid>
         </Grid>
 
+
         <Grid Grid.Row="2"
-              Margin="30"
-              Visibility="{Binding IsGettedData, Converter={converters:BooleanToVisibilityConverter}}">
+              Background="#FFCFCFCF"
+              Visibility="{Binding IsGettedData, Converter={converters:BooleanToVisibilityConverter}}"
+              d:Visibility="Visible">
 
-            <TextBlock x:Name="BWeight"
-                       Width="204"
-                       Height="72"
-                       Margin="0,211,103,0"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       FontSize="48"
-                       FontWeight="Bold"
-                       Foreground="#FF17FF00"
-                       Text="72.6 KG"
-                       TextWrapping="Wrap" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
 
-            <Viewbox Grid.ColumnSpan="4"
-                     Width="549"
-                     Height="350.719"
-                     Margin="128,99,0,0"
-                     HorizontalAlignment="Left"
-                     VerticalAlignment="Top"
-                     Stretch="Fill">
-                <Grid Width="216.749" Height="141.5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="64*" />
-                        <ColumnDefinition Width="153*" />
-                    </Grid.ColumnDefinitions>
+            </Grid.RowDefinitions>
 
-
-                    <Path Grid.Column="1"
-                          Width="1"
-                          Height="44.977"
-                          Data="M8.8,0 L8.8,43.976802"
-                          Fill="#FFFFFFFF"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />
-
-
-
-
-                    <!--<Path Grid.Column="1"
-                          Width="1"
-                          Height="44.977"
-                          Margin="181.699,-17.201,-29.876,0"
-                          HorizontalAlignment="Left"
-                          VerticalAlignment="Top"
-                          Data="M8.8,0 L8.8,43.976802"
-                          Fill="#FFFFFFFF"
-                          Stretch="Fill"
-                          Stroke="#FF000000"
-                          StrokeLineJoin="Round" />-->
-
-
-                </Grid>
-            </Viewbox>
-
-
-            <!--<ContentPresenter Width="250"
-                              Margin="690,268,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource LuggagePuttingImage}" />
-            <ContentPresenter Width="380"
-                              Margin="212,136,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource LuggageImage}" />
-            <ContentPresenter Height="340"
-                              Margin="66,77,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource LuggageImage2}" />
-            <ContentPresenter Margin="44,440,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource LWHDetail}" />
-
-        
-
-            <ContentPresenter Width="83"
-                              Margin="66,31,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource HeightMark}" />-->
-          
-            <!--
-            <TextBlock Grid.Column="2"
-                       Width="51"
-                       Height="50"
-                       Margin="108.5,44,0,0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       FontSize="36"
-                       RenderTransformOrigin="0.626,0.6"
-                       Text="(L)"
-                       TextWrapping="Wrap" />-->
-            <!--<Path Grid.Column="3"
-                  Grid.ColumnSpan="2"
-                  Width="78.515"
-                  Height="1"
-                  Margin="108.5,168,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  Data="M754.5,168 L832.01451,168"
-                  Fill="#FFFFFFFF"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <Path Grid.Column="3"
-                  Grid.ColumnSpan="2"
-                  Width="78.515"
-                  Height="1"
-                  Margin="108.5,441,0,0"
-                  HorizontalAlignment="Left"
-                  VerticalAlignment="Top"
-                  Data="M754.5,168 L832.01451,168"
-                  Fill="#FFFFFFFF"
-                  Stretch="Fill"
-                  Stroke="#FF000000"
-                  StrokeLineJoin="Round" />
-            <TextBlock Grid.Column="3"
-                       Width="54"
-                       Height="50"
-                       Margin="122,279,0,0"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       FontSize="36"
-                       Text="(H)"
-                       TextWrapping="Wrap" />-->
-
-
-
-            <!--<Grid HorizontalAlignment="Center"
-                  VerticalAlignment="Center"
-                  Opacity="0.5">
-                <TextBlock Width="200"
-                           Height="98"
-                           Margin="4,15,0,0"
-                           Cursor="No"
-                           FontSize="72"
-                           Text="30KG"
+            <Grid>
+                <TextBlock x:Name="BeforeWeight"
+                           Width="204"
+                           Height="72"
+                           Margin="0,586,48,0"
+                           HorizontalAlignment="Right"
+                           VerticalAlignment="Top"
+                           FontSize="48"
+                           FontWeight="Bold"
+                           Foreground="#FF17FF00"
+                           Text="72.6 KG"
                            TextWrapping="Wrap" />
-                <Rectangle Width="204"
-                           Height="116"
+
+
+
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
+                    <ContentPresenter Width="250"
+                                      Margin="758,210,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ContentTemplate="{StaticResource LuggagePuttingImage}" />
+                    <ContentPresenter Width="380"
+                                      Margin="212,136,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ContentTemplate="{StaticResource LuggageImage}" />
+                    <ContentPresenter Height="340"
+                                      Margin="33,80,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ContentTemplate="{StaticResource LuggageImage2}" />
+
+                    <Grid Margin="31,14,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top">
+                        <ContentPresenter Height="130"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource VerticalLine}" />
+                        <ContentPresenter Width="70"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource WidthMark}" />
+                        <ContentPresenter Height="130"
+                                          Margin="82,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          ContentTemplate="{StaticResource VerticalLine}" />
+                    </Grid>
+                    <Grid Margin="213,59,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top">
+                        <ContentPresenter Height="130"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource VerticalLine}" />
+                        <ContentPresenter Width="74"
+                                          Height="66"
+                                          Margin="154,-54,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource LengthMark}" />
+                        <ContentPresenter Height="130"
+                                          Margin="374,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource VerticalLine}" />
+                    </Grid>
+                    <Grid Margin="596,191,0,0"
+                          HorizontalAlignment="Left"
+                          VerticalAlignment="Top">
+                        <ContentPresenter Width="118"
+                                          Height="5"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource HorizonLine}" />
+                        <ContentPresenter Width="74"
+                                          Height="66"
+                                          Margin="26,0,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Center"
+                                          ContentTemplate="{StaticResource HeightMark}"
+                                          RenderTransformOrigin="0.712,1.43" />
+                        <ContentPresenter Width="118"
+                                          Height="5"
+                                          Margin="0,220,0,0"
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          ContentTemplate="{StaticResource HorizonLine}" />
+                    </Grid>
+                </Grid>
+
+
+                <ContentPresenter Margin="44,430,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  ContentTemplate="{StaticResource SizeContentTemplate}" />
+                <ContentPresenter Margin="46,570,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  ContentTemplate="{StaticResource CurrentSizeContentTemplate}" />
+                <TextBlock Height="98"
+                           Margin="825,446,0,0"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Top"
-                           RadiusX="30"
-                           RadiusY="30"
-                           Stroke="#FFFB0000"
-                           StrokeLineJoin="Round"
-                           StrokeThickness="5" />
-                <TextBlock HorizontalAlignment="Left"
-                           VerticalAlignment="Top"
-                           FontSize="36"
-                           Foreground="#FFFF0808"
-                           Text="重量不符"
+                           Cursor="No"
+                           FontSize="72"
+                           Opacity="0.5"
+                           Text="30KG"
                            TextWrapping="Wrap" />
-            </Grid>-->
+                <ContentPresenter Margin="637,504,0,0"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  ContentTemplate="{StaticResource ConditionNotFit}" />
 
+
+
+
+
+
+
+            </Grid>
+
+            <UniformGrid Grid.Row="1"
+                         Margin="0,0,0,10"
+                         VerticalAlignment="Bottom"
+                         Columns="2">
+                <Button x:Name="CancelBT"
+                        Command="{Binding AgainCommand}"
+                        Content="再一次"
+                        Style="{DynamicResource BasicButton}" />
+                <Button x:Name="OKUSERDATA"
+                        Command="{Binding ConfirmCommand}"
+                        Content="確認"
+                        Style="{DynamicResource BasicButton}" />
+            </UniformGrid>
         </Grid>
-
-
-
-
-        <!--<Canvas x:Name="ToolBar1"
-                Grid.Row="3"
-                Grid.ColumnSpan="5"
-                Margin="10,5,-10,1">
-            <Button x:Name="OKUSERDATA"
-                    Canvas.Left="781.5"
-                    Width="226"
-                    Height="133"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="確認"
-                    FontSize="72"
-                    Foreground="White"
-                    Style="{DynamicResource BasicButton}" />
-            <Button x:Name="CancelBT"
-                    Canvas.Left="28"
-                    Width="250"
-                    Height="133"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="再一次"
-                    FontSize="72"
-                    Foreground="White"
-                    Style="{DynamicResource BasicButton}" />
-        </Canvas>-->
     </Grid>
 </UserControl>

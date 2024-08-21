@@ -134,59 +134,60 @@ namespace SBD
             System.Windows.Input.InputMethod.SetIsInputMethodEnabled(this, false);
 
             // 檢查comport與VID、PID，並檢查是否與預定的VID和PID匹配。
-            void ScanForUsbDevices()
+           
+            ScanForUsbDevices();
+            //LEDMOVIE(label1);
+        }
+        void ScanForUsbDevices()
+        {
+            // 清除之前掃描的COM端口列表和顯示結果
+            comPorts.Clear();
+            //ComText.Text = "";
+
+            // 使用WMI來搜索系統中的所有設備，篩選出含有COM端口描述的設備
+            var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'");
+            // 正則表達式，用於從設備描述中提取COM端口編號
+            var comRegex = new Regex(@"\(COM(\d+)\)");
+
+            try
             {
-                // 清除之前掃描的COM端口列表和顯示結果
-                comPorts.Clear();
-                //ComText.Text = "";
-
-                // 使用WMI來搜索系統中的所有設備，篩選出含有COM端口描述的設備
-                var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'");
-                // 正則表達式，用於從設備描述中提取COM端口編號
-                var comRegex = new Regex(@"\(COM(\d+)\)");
-
-                try
+                // 遍歷搜索結果
+                foreach (ManagementObject queryObj in searcher.Get())
                 {
-                    // 遍歷搜索結果
-                    foreach (ManagementObject queryObj in searcher.Get())
+                    // 獲取設備描述信息
+                    string caption = queryObj["Caption"].ToString();
+                    // 使用正則表達式匹配COM端口
+                    var matchCom = comRegex.Match(caption);
+                    if (matchCom.Success)
                     {
-                        // 獲取設備描述信息
-                        string caption = queryObj["Caption"].ToString();
-                        // 使用正則表達式匹配COM端口
-                        var matchCom = comRegex.Match(caption);
-                        if (matchCom.Success)
+                        // 成功匹配後提取COM端口號碼
+                        string comPortNumberStr = matchCom.Groups[1].Value;
+                        // 嘗試將提取的端口號碼字符串轉換為整數
+                        if (int.TryParse(comPortNumberStr, out int comPortNumber))
                         {
-                            // 成功匹配後提取COM端口號碼
-                            string comPortNumberStr = matchCom.Groups[1].Value;
-                            // 嘗試將提取的端口號碼字符串轉換為整數
-                            if (int.TryParse(comPortNumberStr, out int comPortNumber))
+                            // 提取設備ID，用於進一步匹配VID和PID
+                            string deviceId = queryObj["DeviceID"].ToString();
+                            // 正則表達式，用於從設備ID中提取VID和PID
+                            var vidPidRegex = new Regex(@"VID_([0-9A-F]+)&PID_([0-9A-F]+)");
+                            var matchVidPid = vidPidRegex.Match(deviceId);
+                            // 檢查VID和PID是否與配置文件中設定的相符
+                            if (matchVidPid.Success && matchVidPid.Groups[1].Value == Config.PosVID && matchVidPid.Groups[2].Value == Config.PosPID)
                             {
-                                // 提取設備ID，用於進一步匹配VID和PID
-                                string deviceId = queryObj["DeviceID"].ToString();
-                                // 正則表達式，用於從設備ID中提取VID和PID
-                                var vidPidRegex = new Regex(@"VID_([0-9A-F]+)&PID_([0-9A-F]+)");
-                                var matchVidPid = vidPidRegex.Match(deviceId);
-                                // 檢查VID和PID是否與配置文件中設定的相符
-                                if (matchVidPid.Success && matchVidPid.Groups[1].Value == Config.PosVID && matchVidPid.Groups[2].Value == Config.PosPID)
-                                {
-                                    // 如果匹配成功，設定全域變數為提取的COM端口號碼
-                                    PosComPort_scanRes = comPortNumber;
-                                    // 組合顯示文字並更新界面上的顯示
-                                    string displayText = $"COM{comPortNumber} (VID={Config.PosVID}, PID={Config.PosPID}) detected and saved.";
-                                    //ComText.Text += displayText + "\n";
-                                }
+                                // 如果匹配成功，設定全域變數為提取的COM端口號碼
+                                PosComPort_scanRes = comPortNumber;
+                                // 組合顯示文字並更新界面上的顯示
+                                string displayText = $"COM{comPortNumber} (VID={Config.PosVID}, PID={Config.PosPID}) detected and saved.";
+                                //ComText.Text += displayText + "\n";
                             }
                         }
                     }
                 }
-                catch (ManagementException ex)
-                {
-                    // 處理可能的異常，並在異常發生時彈出提示
-                    MessageBox.Show("An error occurred while querying for WMI data: " + ex.Message);
-                }
             }
-            ScanForUsbDevices();
-            //LEDMOVIE(label1);
+            catch (ManagementException ex)
+            {
+                // 處理可能的異常，並在異常發生時彈出提示
+                MessageBox.Show("An error occurred while querying for WMI data: " + ex.Message);
+            }
         }
         private void Window_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
@@ -194,42 +195,42 @@ namespace SBD
             inputBuffer.Append(e.Text);
             // 显示输入的字符
            // KeyInfoTextBlock.Text = inputBuffer.ToString();
-        }
+         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
-        {    
-            if (e.Key == Key.Enter)
-            {
-                // 获取输入的完整数据
-                string input = inputBuffer.ToString();
+        //private void Window_KeyDown(object sender, KeyEventArgs e)
+        //{    
+        //    if (e.Key == Key.Enter)
+        //    {
+        //        // 获取输入的完整数据
+        //        string input = inputBuffer.ToString();
 
-                try
-                {
+        //        try
+        //        {
 
-                   // _BoardingPassData.FlightNumber = input.Substring(36, 7); 
-                   // _BoardingPassData.SeatNumber = input.Substring(49, 3);
-                   // _BoardingPassData.DepartureAirport = input.Substring(31, 3); 
-                   // _BoardingPassData.ArrivalAirport = input.Substring(33, 3); 
-                   // string[] PassengerNamewords = input.Split(',');
-                   // _BoardingPassData.PassengerName = PassengerNamewords[1]; //"先生/小姐 您好 :"; 
-                   //_BoardingPassData.TicketNumber = input.Substring(53, 3);
+        //           // _BoardingPassData.FlightNumber = input.Substring(36, 7); 
+        //           // _BoardingPassData.SeatNumber = input.Substring(49, 3);
+        //           // _BoardingPassData.DepartureAirport = input.Substring(31, 3); 
+        //           // _BoardingPassData.ArrivalAirport = input.Substring(33, 3); 
+        //           // string[] PassengerNamewords = input.Split(',');
+        //           // _BoardingPassData.PassengerName = PassengerNamewords[1]; //"先生/小姐 您好 :"; 
+        //           //_BoardingPassData.TicketNumber = input.Substring(53, 3);
 
-                   // this.Page1A1.InputDataUser(_BoardingPassData);
+        //           // this.Page1A1.InputDataUser(_BoardingPassData);
 
-                   // this.Step1();
-                    //this.ToolBar1.Visibility = Visibility.Visible;
+        //           // this.Step1();
+        //            //this.ToolBar1.Visibility = Visibility.Visible;
 
-                }
-                catch (ArgumentOutOfRangeException ex)
-                {
-                    // 捕获索引超出范围的异常
+        //        }
+        //        catch (ArgumentOutOfRangeException ex)
+        //        {
+        //            // 捕获索引超出范围的异常
                  
-                }
+        //        }
 
 
-                inputBuffer.Clear();
-            }
-        }
+        //        inputBuffer.Clear();
+        //    }
+        //}
         private void LEDMOVIE(System.Windows.Controls.Label USlabe )
         {
             LEDLIGHT.Children.Clear();
