@@ -12,14 +12,21 @@ namespace SBD.ViewModels
             
         }
 
-   
 
-        private DelegateCommand _keyDownCommand2;
-        public DelegateCommand KeyDownCommand2 => _keyDownCommand2 ??= new DelegateCommand(ExcuteKeyDownCommand2);
-        private void ExcuteKeyDownCommand2( )
+        public string ScandedString { get; set; }
+        private DelegateCommand<TextCompositionEventArgs> _previewTextInputCommand;
+        public DelegateCommand<TextCompositionEventArgs> PreviewTextInputCommand => _previewTextInputCommand ??= new DelegateCommand<TextCompositionEventArgs>(ExcutePreviewTextInputCommand);
+        private void ExcutePreviewTextInputCommand(TextCompositionEventArgs args)
         {
 
+            ScandedString = args.Text;
+        }
+        private DelegateCommand<KeyEventArgs> _previewTextInputCommand;
+        public DelegateCommand<KeyEventArgs> PreviewTextInputCommand => _previewTextInputCommand ??= new DelegateCommand<KeyEventArgs>(ExcutePreviewTextInputCommand);
+        private void ExcutePreviewTextInputCommand(TextCompositionEventArgs args)
+        {
 
+            ScandedString = args.Text;
         }
 
     }

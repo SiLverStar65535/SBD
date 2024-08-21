@@ -114,12 +114,12 @@ namespace SBD
         }
 
 
-        public string ScandedString { get; set; }
+    
         private DelegateCommand<TextCompositionEventArgs> _previewTextInputCommand;
         public DelegateCommand<TextCompositionEventArgs> PreviewTextInputCommand => _previewTextInputCommand ??= new DelegateCommand<TextCompositionEventArgs>(ExcutePreviewTextInputCommand);
         private void ExcutePreviewTextInputCommand(TextCompositionEventArgs args)
         {
-            ScandedString = args.Text;
+        
         }
 
 
