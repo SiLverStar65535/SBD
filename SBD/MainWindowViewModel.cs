@@ -110,26 +110,6 @@ namespace SBD
         public DelegateCommand UnloadedCommand => _unloadedCommand ??= new DelegateCommand(ExcuteUnloadedCommand);
         private void ExcuteUnloadedCommand()
         {
-            
         }
-
-
-    
-        private DelegateCommand<TextCompositionEventArgs> _previewTextInputCommand;
-        public DelegateCommand<TextCompositionEventArgs> PreviewTextInputCommand => _previewTextInputCommand ??= new DelegateCommand<TextCompositionEventArgs>(ExcutePreviewTextInputCommand);
-        private void ExcutePreviewTextInputCommand(TextCompositionEventArgs args)
-        {
-        
-        }
-
-
-        private DelegateCommand<KeyEventArgs> _keyDownCommand;
-        public DelegateCommand<KeyEventArgs> KeyDownCommand => _keyDownCommand ??= new DelegateCommand<KeyEventArgs>(ExcuteKeyDownCommand);
-        private void ExcuteKeyDownCommand(KeyEventArgs args)
-        {
-
-
-        }
-
     }
 }

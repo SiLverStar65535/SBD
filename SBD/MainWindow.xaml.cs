@@ -197,40 +197,40 @@ namespace SBD
            // KeyInfoTextBlock.Text = inputBuffer.ToString();
          }
 
-        //private void Window_KeyDown(object sender, KeyEventArgs e)
-        //{    
-        //    if (e.Key == Key.Enter)
-        //    {
-        //        // 获取输入的完整数据
-        //        string input = inputBuffer.ToString();
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // 获取输入的完整数据
+                string input = inputBuffer.ToString();
 
-        //        try
-        //        {
+                try
+                {
 
-        //           // _BoardingPassData.FlightNumber = input.Substring(36, 7); 
-        //           // _BoardingPassData.SeatNumber = input.Substring(49, 3);
-        //           // _BoardingPassData.DepartureAirport = input.Substring(31, 3); 
-        //           // _BoardingPassData.ArrivalAirport = input.Substring(33, 3); 
-        //           // string[] PassengerNamewords = input.Split(',');
-        //           // _BoardingPassData.PassengerName = PassengerNamewords[1]; //"先生/小姐 您好 :"; 
-        //           //_BoardingPassData.TicketNumber = input.Substring(53, 3);
+                    // _BoardingPassData.FlightNumber = input.Substring(36, 7); 
+                    // _BoardingPassData.SeatNumber = input.Substring(49, 3);
+                    // _BoardingPassData.DepartureAirport = input.Substring(31, 3); 
+                    // _BoardingPassData.ArrivalAirport = input.Substring(33, 3); 
+                    // string[] PassengerNamewords = input.Split(',');
+                    // _BoardingPassData.PassengerName = PassengerNamewords[1]; //"先生/小姐 您好 :"; 
+                    //_BoardingPassData.TicketNumber = input.Substring(53, 3);
 
-        //           // this.Page1A1.InputDataUser(_BoardingPassData);
+                    // this.Page1A1.InputDataUser(_BoardingPassData);
 
-        //           // this.Step1();
-        //            //this.ToolBar1.Visibility = Visibility.Visible;
+                    // this.Step1();
+                    //this.ToolBar1.Visibility = Visibility.Visible;
 
-        //        }
-        //        catch (ArgumentOutOfRangeException ex)
-        //        {
-        //            // 捕获索引超出范围的异常
-                 
-        //        }
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    // 捕获索引超出范围的异常
+
+                }
 
 
-        //        inputBuffer.Clear();
-        //    }
-        //}
+                inputBuffer.Clear();
+            }
+        }
         private void LEDMOVIE(System.Windows.Controls.Label USlabe )
         {
             LEDLIGHT.Children.Clear();
