@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:prism="http://prismlibrary.com/"
         xmlns:local="clr-namespace:SBD"
+        xmlns:provider="clr-namespace:SBD.Provider"
         Title="MainWindow"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
@@ -249,7 +250,7 @@
 
                 <ContentPresenter Grid.Row="0" ContentTemplate="{StaticResource PageHeader}" />
 
-                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static local:RegionNames.ContentRegion}" />
+                <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static provider:RegionNames.ContentRegion}" />
 
                 <ContentPresenter Grid.Row="2" ContentTemplate="{StaticResource PageFooter}" />
 

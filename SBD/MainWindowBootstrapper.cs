@@ -8,6 +8,7 @@ using System.Windows;
 using Prism.Ioc;
 using Prism.Unity;
 using System.Windows.Input;
+using SBD.Provider;
 using SBD.Views;
 
 namespace SBD

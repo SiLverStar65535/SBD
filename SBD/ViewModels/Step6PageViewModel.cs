@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Commands;
-using System.Windows.Threading;
+﻿using Prism.Commands;
 using Prism.Mvvm;
+using SBD.Provider;
 
 namespace SBD.ViewModels
 {

@@ -1,5 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
+using SBD.Provider;
 
 namespace SBD.ViewModels
 {

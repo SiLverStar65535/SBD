@@ -113,7 +113,7 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="NavigatePath.cs" />
+    <Compile Include="Provider\NavigatePath.cs" />
     <Compile Include="Other\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,7 +121,8 @@
     </Compile>
     <Compile Include="enumPool\BaggageEnum.cs" />
     <Compile Include="MainWindowBootstrapper.cs" />
-    <Compile Include="RegionNames.cs" />
+    <Compile Include="Provider\DesignTimeData.cs" />
+    <Compile Include="Provider\RegionNames.cs" />
     <Compile Include="Old\Page1AControl.xaml.cs">
       <DependentUpon>Page1AControl.xaml</DependentUpon>
     </Compile>

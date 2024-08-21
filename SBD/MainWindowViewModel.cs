@@ -6,6 +6,7 @@ using System.Windows;
 using System.Windows.Input;
 using Prism.Commands;
 using Prism.Regions;
+using SBD.Provider;
 
 namespace SBD
 {
