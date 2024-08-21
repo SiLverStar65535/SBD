@@ -12,7 +12,7 @@
              d:DataContext="{d:DesignInstance viewModels:Step6PageViewModel,
                                               IsDesignTimeCreatable=True}"
              d:Height="1800">
-    <Grid x:Name="Step3Page" Visibility="Visible">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="Auto" />
@@ -81,47 +81,22 @@
         <ContentPresenter Grid.Row="1" ContentTemplate="{StaticResource StepBar}" />
 
         <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="102*" />
-                <ColumnDefinition Width="107*" />
-                <ColumnDefinition Width="114*" />
-                <ColumnDefinition Width="93*" />
-                <ColumnDefinition Width="120*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="452*" />
-                <RowDefinition Height="80*" />
-                <RowDefinition Height="64*" />
-                <RowDefinition Height="145*" />
-            </Grid.RowDefinitions>
-            <Canvas x:Name="ToolBar11"
-                    Grid.Row="3"
-                    Grid.ColumnSpan="5">
-                <Button x:Name="OKUSERDATA1"
-                        Canvas.Left="581.06"
-                        Canvas.Top="-392.88"
-                        Width="456.779"
-                        Height="381.659"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="完成行李託運"
-                        FontSize="72"
-                        Foreground="White"
-                        Style="{DynamicResource BasicButton}" />
-                <Button x:Name="CancelBT"
-                        Canvas.Left="13.08"
-                        Canvas.Top="-392.88"
-                        Width="438.98"
-                        Height="381.659"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
+
+            <UniformGrid x:Name="ToolBar11"
+                         VerticalAlignment="Center"
+                         Columns="2">
+                <Button Width="500"
+                        Height="380"
+                        Command="{Binding NextLuggageCommand}"
                         Content="下一件行李"
-                        FontSize="72"
-                        Foreground="White"
-                        Style="{DynamicResource BasicButton}" />
-            </Canvas>
+                        Style="{StaticResource BasicButton}" />
 
+                <Button Width="500"
+                        Height="380"
+                        Command="{Binding FinishedCommand}"
+                        Content="完成行李託運"
+                        Style="{StaticResource BasicButton}" />
+            </UniformGrid>
         </Grid>
-
     </Grid>
 </UserControl>

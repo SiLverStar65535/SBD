@@ -20,6 +20,7 @@ namespace SBD.ViewModels
             IsGettedData = true;
             RaisePropertyChanged(nameof(IsGettedData));
         }
+
         private DelegateCommand _againCommand;
         public DelegateCommand AgainCommand => _againCommand ??= new DelegateCommand(ExcuteAgainCommand);
         private void ExcuteAgainCommand()

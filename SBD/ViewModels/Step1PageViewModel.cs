@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using System.Windows.Input;
-using DataLibrary;
 using Prism.Commands;
 using Prism.Mvvm;
 
@@ -36,19 +35,19 @@ namespace SBD.ViewModels
             RaisePropertyChanged(nameof(ScandedString));
 
 
-            var boardingPassData = new BoardingPassData
-            {
-                PassengerName = null,
-                FlightNumber = ScandedString.Substring(36, 7),
-                SeatNumber = ScandedString.Substring(49, 3),
-                DepartureAirport = ScandedString.Substring(31, 3),
-                ArrivalAirport = ScandedString.Substring(33, 3),
-                DepartureTime = null,
-                ArrivalTime = null,
-                BoardingGate = null,
-                TicketNumber = ScandedString.Substring(53, 3),
-                LuggageList = null
-            };
+            //var boardingPassData = new BoardingPassData
+            //{
+            //    PassengerName = null,
+            //    FlightNumber = ScandedString.Substring(36, 7),
+            //    SeatNumber = ScandedString.Substring(49, 3),
+            //    DepartureAirport = ScandedString.Substring(31, 3),
+            //    ArrivalAirport = ScandedString.Substring(33, 3),
+            //    DepartureTime = null,
+            //    ArrivalTime = null,
+            //    BoardingGate = null,
+            //    TicketNumber = ScandedString.Substring(53, 3),
+            //    LuggageList = null
+            //};
 
             ApplicationCommands.NavigateCommand.Execute(NavigatePath.Step2PageView);
         }

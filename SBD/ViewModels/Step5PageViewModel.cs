@@ -27,7 +27,7 @@ namespace SBD.ViewModels
         public DelegateCommand ConfirmCommand => _confirmCommand ??= new DelegateCommand(ExcuteCancelCommand);
         private void ExcuteCancelCommand()
         {
-            ApplicationCommands.NavigateCommand.Execute(NavigatePath.Step5PageView);
+            ApplicationCommands.NavigateCommand.Execute(NavigatePath.Step6PageView);
         }
     }
 }

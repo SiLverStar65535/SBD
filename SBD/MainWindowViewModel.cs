@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Management;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Prism.Commands;
@@ -13,11 +9,6 @@ using Prism.Regions;
 
 namespace SBD
 {
-    public static class ApplicationCommands
-    {
-        public static CompositeCommand NavigateCommand = new CompositeCommand();
-       
-    }
     public class MainWindowViewModel
     {
         private readonly IRegionManager _regionManager;
@@ -62,18 +53,21 @@ namespace SBD
 
             // 使用WMI來搜索系統中的所有設備，篩選出含有COM端口描述的設備
             var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'");
+            var managmentObjects=  searcher.Get();
             // 正則表達式，用於從設備描述中提取COM端口編號
             var comRegex = new Regex(@"\(COM(\d+)\)");
 
             try
             {
                 // 遍歷搜索結果
-                foreach (ManagementObject queryObj in searcher.Get())
+                foreach (var managmentObject in managmentObjects)
                 {
                     // 獲取設備描述信息
-                    string caption = queryObj["Caption"].ToString();
+                    string caption = managmentObject["Caption"].ToString();
+
                     // 使用正則表達式匹配COM端口
                     var matchCom = comRegex.Match(caption);
+
                     if (matchCom.Success)
                     {
                         // 成功匹配後提取COM端口號碼
@@ -82,12 +76,15 @@ namespace SBD
                         if (int.TryParse(comPortNumberStr, out int comPortNumber))
                         {
                             // 提取設備ID，用於進一步匹配VID和PID
-                            string deviceId = queryObj["DeviceID"].ToString();
+                            string deviceId = managmentObject["DeviceID"].ToString();
                             // 正則表達式，用於從設備ID中提取VID和PID
                             var vidPidRegex = new Regex(@"VID_([0-9A-F]+)&PID_([0-9A-F]+)");
                             var matchVidPid = vidPidRegex.Match(deviceId);
+
                             // 檢查VID和PID是否與配置文件中設定的相符
-                            if (matchVidPid.Success && matchVidPid.Groups[1].Value == Config.PosVID && matchVidPid.Groups[2].Value == Config.PosPID)
+                            if( matchVidPid.Success 
+                             && matchVidPid.Groups[1].Value == Config.PosVID 
+                             && matchVidPid.Groups[2].Value == Config.PosPID)
                             {
                                 // 如果匹配成功，設定全域變數為提取的COM端口號碼
                                 //PosComPort_scanRes = comPortNumber;
