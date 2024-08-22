@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Management; // 引用System.Management命名空間
 using System.Text;
 using System.Text.RegularExpressions;
@@ -131,7 +132,7 @@ namespace SBD
         {
             //强制使用英文输入法
             InputMethod.Current.ImeState = InputMethodState.Off;
-            //InputLanguageManager.Current.CurrentInputLanguage = new CultureInfo("en-EU");
+            InputLanguageManager.Current.CurrentInputLanguage = new CultureInfo("en-EU");
             System.Windows.Input.InputMethod.SetIsInputMethodEnabled(this, false);
 
             // 檢查comport與VID、PID，並檢查是否與預定的VID和PID匹配。
@@ -208,17 +209,35 @@ namespace SBD
                 try
                 {
 
-                    // _BoardingPassData.FlightNumber = input.Substring(36, 7); 
-                    // _BoardingPassData.SeatNumber = input.Substring(49, 3);
-                    // _BoardingPassData.DepartureAirport = input.Substring(31, 3); 
-                    // _BoardingPassData.ArrivalAirport = input.Substring(33, 3); 
-                    // string[] PassengerNamewords = input.Split(',');
-                    // _BoardingPassData.PassengerName = PassengerNamewords[1]; //"先生/小姐 您好 :"; 
-                    //_BoardingPassData.TicketNumber = input.Substring(53, 3);
+                    _BoardingPassData.FlightNumber = input.Substring(36, 7);
+                    _BoardingPassData.SeatNumber = input.Substring(49, 3);
+                    _BoardingPassData.DepartureAirport = input.Substring(31, 3);
+                    _BoardingPassData.ArrivalAirport = input.Substring(33, 3);
+                    string[] PassengerNamewords = input.Split(',');
+                    _BoardingPassData.PassengerName = PassengerNamewords[1]; //"先生/小姐 您好 :"; 
+                    _BoardingPassData.TicketNumber = input.Substring(53, 3);
 
-                    // this.Page1A1.InputDataUser(_BoardingPassData);
 
-                    // this.Step1();
+
+
+                    DateTime now = DateTime.Now;
+                    // 创建英文（美国）文化信息对象
+                    CultureInfo enUS = new CultureInfo("en-US");
+                    var temp = 
+                    this.DepartureAirport_en.Text = UserBoardingPassData.DepartureAirport;
+                    this.ArrivalAirport_en.Text = UserBoardingPassData.ArrivalAirport;
+                    this.FlightNumber.Text = UserBoardingPassData.FlightNumber;
+                    this.FlightGet.Text = UserBoardingPassData.BoardingGate;
+                    this.DepartureAirport.Text = UserBoardingPassData.DepartureAirport;
+                    this.FData.Text = UserBoardingPassData.DepartureTime;
+                    this.FData_MMMDD.Text = now.ToString("ddMMM", enUS).ToUpper();
+                    this.PassengerName.Text = UserBoardingPassData.PassengerName;
+                    this.TicketNumber.Text = UserBoardingPassData.TicketNumber;
+
+
+                    //this.Page1A1.InputDataUser(_BoardingPassData);
+
+                    //this.Step1();
                     //this.ToolBar1.Visibility = Visibility.Visible;
 
                 }
@@ -232,6 +251,9 @@ namespace SBD
                 inputBuffer.Clear();
             }
         }
+
+
+
         private void LEDMOVIE(System.Windows.Controls.Label USlabe )
         {
             LEDLIGHT.Children.Clear();
