@@ -13,6 +13,12 @@ namespace SBD
     /// </summary>
     public partial class App : Application
     {
+        public static bool IsDesignTime = true;
+        public App()
+        {
+            InitializeComponent();
+            IsDesignTime = false;
+        }
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);

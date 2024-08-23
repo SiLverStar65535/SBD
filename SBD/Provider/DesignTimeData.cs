@@ -4,33 +4,27 @@ namespace SBD.Provider
 {
     public static class DesignTimeData
     {
-        public static BoardingPassData BoardingPassData { get; set; }
+      
+        public static BoardingPass BoardingPass { get; set; }
 
         static DesignTimeData()
         {
-            bool isDesignTime = true;
-
-            if (isDesignTime)
+            if (App.IsDesignTime)
             {
-                BoardingPassData = GenerateBoardingPassData();
-
+                BoardingPass = GenerateBoardingPass();
             }
         }
 
-        private static BoardingPassData GenerateBoardingPassData()
+        private static BoardingPass GenerateBoardingPass()
         {
-            return new BoardingPassData
+            return new BoardingPass
             {
-                PassengerName = null,
-                FlightNumber = null,
-                SeatNumber = null,
-                DepartureAirport = null,
-                ArrivalAirport = null,
-                DepartureTime = null,
-                ArrivalTime = null,
-                BoardingGate = null,
-                TicketNumber = null,
-                LuggageList = null
+                DepartureAirport = "TSA",
+                ArrivalAirport = "MZG",
+                FlightNumber = "AE0381",
+                SeatNumber = "26A",
+                TicketNumber = "016",
+                PassengerName = "測式FromDesignTime",
             };
         }
     }

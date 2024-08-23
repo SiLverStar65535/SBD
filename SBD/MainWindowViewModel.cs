@@ -12,24 +12,31 @@ namespace SBD
 {
     public class MainWindowViewModel
     {
+       
         private readonly IRegionManager _regionManager;
+
         public MainWindowViewModel()
         {
            
         }
         public MainWindowViewModel(IRegionManager regionManager)
         {
+         
             _regionManager = regionManager;
             ApplicationCommands.NavigateCommand.RegisterCommand(NavigateCommand);
         }
-
-        private DelegateCommand<string> _navigateCommand;
-        public DelegateCommand<string> NavigateCommand => _navigateCommand ??= new DelegateCommand<string>(ExecuteNavigateCommand);
-        private void ExecuteNavigateCommand(string navigationPath)
+      
+        private DelegateCommand<NaviInfo> _navigateCommand;
+        public DelegateCommand<NaviInfo> NavigateCommand => _navigateCommand ??= new DelegateCommand<NaviInfo>(ExecuteNavigateCommand);
+        private void ExecuteNavigateCommand(NaviInfo navigationPath)
         {
-            if (string.IsNullOrEmpty(navigationPath))
+            if (navigationPath == null)
                 throw new ArgumentNullException();
-            _regionManager.RequestNavigate(RegionNames.ContentRegion, navigationPath);
+            
+            _regionManager.RequestNavigate(
+                  navigationPath.RegionName
+                , navigationPath.NaviViewName
+                , navigationPath.NavigationParameters);
         }
 
         private DelegateCommand _loadedCommand;
@@ -37,12 +44,8 @@ namespace SBD
         private void ExecuteLoadedCommand()
         {
             //强制使用英文输入法
-            if (InputMethod.Current != null)
-            {
-                InputMethod.Current.ImeState = InputMethodState.Off;
-            }
             // 檢查comport與VID、PID，並檢查是否與預定的VID和PID匹配。
-            InputLanguageManager.Current.CurrentInputLanguage = new CultureInfo("en-EU");
+        
             if (Application.Current.MainWindow != null) 
             {
                 InputMethod.SetIsInputMethodEnabled(Application.Current.MainWindow, false);

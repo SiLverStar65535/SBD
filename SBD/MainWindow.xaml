@@ -8,9 +8,6 @@
         xmlns:local="clr-namespace:SBD"
         xmlns:provider="clr-namespace:SBD.Provider"
         Title="MainWindow"
-        KeyDown="Window_KeyDown"
-        Loaded="Window_Loaded"
-        PreviewTextInput="Window_PreviewTextInput"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow"
@@ -18,7 +15,11 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance local:MainWindowViewModel,
                                          IsDesignTimeCreatable=True}">
-
+    <!--
+        KeyDown="Window_KeyDown"
+        Loaded="Window_Loaded"
+        PreviewTextInput="Window_PreviewTextInput"
+    -->
     <!--  須確保寫上 prism:ViewModelLocator.AutoWireViewModel="True",否則LoadedCommand不會觸發  -->
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
@@ -28,8 +29,6 @@
             <prism:InvokeCommandAction Command="{Binding UnloadedCommand}" />
         </b:EventTrigger>
     </b:Interaction.Triggers>
-
-
 
     <Window.Resources>
         <Style x:Key="FocusVisual">

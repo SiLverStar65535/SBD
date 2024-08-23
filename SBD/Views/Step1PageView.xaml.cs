@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace SBD.Views
 {
@@ -12,6 +13,16 @@ namespace SBD.Views
             InitializeComponent();
         }
 
-        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e) => Focus();
+        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e) => SetFocusAndInput();
+
+
+        private void SetFocusAndInput()
+        {
+            if (InputMethod.Current == null)
+                return;
+            Focus();
+            InputMethod.Current.ImeState = InputMethodState.Off;
+            InputMethod.SetIsInputMethodEnabled(this, false);
+        }
     }
 }

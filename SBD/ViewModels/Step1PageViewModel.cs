@@ -1,41 +1,31 @@
 ﻿using System.Text;
 using System.Windows.Input;
-using System.Xml;
 using DataLibrary;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Regions;
 using SBD.Provider;
 
 namespace SBD.ViewModels
 {
-    public class Step1PageViewModel : BindableBase 
+    public class Step1PageViewModel : BindableBase
     {
+        #region Constructors
         public Step1PageViewModel()
         {
-
-            ScandedString = "M1CE/SHI               6JAWL7 TSAMZGAE 0381 275Y026A0016 34C>5180  3275BAE              2A             0 AE                        N,,";
-            var temp = ScandedString.Split(',');
-            var boardingPassData = new BoardingPassData
+            if (App.IsDesignTime)
             {
-                PassengerName = null,
-                FlightNumber = ScandedString.Substring(36, 7),
-                SeatNumber = ScandedString.Substring(49, 3),
-                DepartureAirport = ScandedString.Substring(31, 3),
-                ArrivalAirport = ScandedString.Substring(33, 3),
-                DepartureTime = null,
-                ArrivalTime = null,
-                BoardingGate = null,
-                TicketNumber = ScandedString.Substring(53, 3),
-                LuggageList = null,
-            };
-
-
+            
+            }
         }
+        #endregion
 
+        #region Properties
         private readonly StringBuilder inputBuffer = new();
         public string ScandedString { get; set; }
+        #endregion
 
-
+        #region DelegateCommands
         private DelegateCommand<TextCompositionEventArgs> _previewTextInputCommand;
         public DelegateCommand<TextCompositionEventArgs> PreviewTextInputCommand => _previewTextInputCommand ??= new DelegateCommand<TextCompositionEventArgs>(ExcutePreviewTextInputCommand);
         private void ExcutePreviewTextInputCommand(TextCompositionEventArgs args) => inputBuffer.Append(args.Text);
@@ -46,32 +36,41 @@ namespace SBD.ViewModels
         {
             if (args.Key != Key.Enter)
                 return;
-
+ 
             ScandedString = inputBuffer.ToString();
 
             if (string.IsNullOrEmpty(ScandedString))
                 return;
 
-
             RaisePropertyChanged(nameof(ScandedString));
 
-            string[] PassengerNamewords = ScandedString.Split(',');
-            var temp = ScandedString.Split(',').ToString();
-            var boardingPassData = new BoardingPassData
+            var ScandedStringList = ScandedString.Split(',');
+            var boardingPassInfo = ScandedStringList[0];
+            var boardingPassPassengerName = ScandedStringList[1];
+
+            var BoardingPass = new BoardingPass
             {
-                PassengerName = ScandedString.Split(',').ToString(),
-                FlightNumber = ScandedString.Substring(36, 7),
-                SeatNumber = ScandedString.Substring(49, 3),
-                DepartureAirport = ScandedString.Substring(31, 3),
-                ArrivalAirport = ScandedString.Substring(33, 3),
-                DepartureTime = null,
-                ArrivalTime = null,
-                BoardingGate = null,
-                TicketNumber = ScandedString.Substring(53, 3),
-                LuggageList = null,
+                PassengerName = boardingPassPassengerName,
+                DepartureAirport = boardingPassInfo.Substring(31, 3),
+                ArrivalAirport = boardingPassInfo.Substring(33, 3),
+                FlightNumber = boardingPassInfo.Substring(36, 7),
+                SeatNumber = boardingPassInfo.Substring(49, 3),
+                TicketNumber = boardingPassInfo.Substring(53, 3),
             };
             inputBuffer.Clear();
-            ApplicationCommands.NavigateCommand.Execute(NavigatePath.Step2PageView);
+
+            var parameters = new NavigationParameters
+            {
+                { nameof(BoardingPass), BoardingPass }
+            };
+            var NaviInfo = new NaviInfo
+            {
+                RegionName = RegionNames.ContentRegion,
+                NaviViewName = NavigatePath.Step2PageView,
+                NavigationParameters = parameters
+            };
+            ApplicationCommands.NavigateCommand.Execute(NaviInfo);
         }
+        #endregion
     }
 }

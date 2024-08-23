@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Prism.Regions;
 using System.Windows;
 using Prism.Ioc;
+using Prism.Regions;
 using Prism.Unity;
-using System.Windows.Input;
 using SBD.Provider;
 using SBD.Views;
 

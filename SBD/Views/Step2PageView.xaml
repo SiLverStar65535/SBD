@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:prism="http://prismlibrary.com/"
              xmlns:local="clr-namespace:SBD.Views"
+             xmlns:provider="clr-namespace:SBD.Provider"
              xmlns:viewModels="clr-namespace:SBD.ViewModels"
              prism:ViewModelLocator.AutoWireViewModel="True"
              Style="{StaticResource PageStyle}"
@@ -13,17 +14,19 @@
                                               IsDesignTimeCreatable=True}"
              d:Height="1800">
 
-    <Grid x:Name="Step2Page" Visibility="Visible">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-
-        <Grid x:Name="Page1A"
-              Grid.Row="0"
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource FieldLabel2}" TargetType="{x:Type TextBlock}" />
+        </Grid.Resources>
+        <Grid Grid.Row="0"
               Margin="0,50,0,0"
-              VerticalAlignment="Top">
+              VerticalAlignment="Top"
+              DataContext="{Binding BoardingPass}">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
@@ -32,47 +35,41 @@
             <TextBlock Grid.Row="0"
                        HorizontalAlignment="Center"
                        FontSize="72"
+                       Foreground="Black"
                        Text="登機證資訊" />
             <Grid Grid.Row="1"
                   Margin="100,20,100,30"
                   VerticalAlignment="Center">
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
-
                 </Grid.ColumnDefinitions>
 
                 <UniformGrid Grid.Column="0" Columns="1">
-                    <TextBlock Text="乘客名稱" Style="{StaticResource FieldLabel2}" />
-                    <TextBlock Text="登機證號碼" Style="{StaticResource FieldLabel2}" />
-                    <TextBlock Text="班次" Style="{StaticResource FieldLabel2}" />
-                    <TextBlock Text="出發時間" Style="{StaticResource FieldLabel2}" />
-                    <TextBlock Text="登機門" Style="{StaticResource FieldLabel2}" />
-                    <TextBlock Text="出發時間" Style="{StaticResource FieldLabel2}" />
+                    <TextBlock Text="乘客名稱" />
+                    <TextBlock Text="登機證號碼" />
+                    <TextBlock Text="座位" />
+                    <TextBlock Text="班次" />
+                    <TextBlock Text="登機門" />
+                    <TextBlock Text="出發日期" />
+                    <TextBlock Text="出發時間" />
                 </UniformGrid>
                 <UniformGrid Grid.Column="1" Columns="1">
-                    <TextBlock x:Name="PassengerName"
-                               Style="{StaticResource FieldLabel2}"
-                               d:Text="測試" />
-                    <TextBlock x:Name="TicketNumber"
-                               Style="{StaticResource FieldLabel2}"
-                               d:Text="016" />
+                    <!--  乘客名稱  -->
+                    <TextBlock Text="{Binding PassengerName}" />
+                    <!--  登機證號碼  -->
+                    <TextBlock Text="{Binding TicketNumber}" />
+                    <!--  座位  -->
+                    <TextBlock Text="{Binding SeatNumber}" />
                     <!--  班次  -->
-                    <TextBlock x:Name="FlightNumber"
-                               Style="{StaticResource FieldLabel2}"
-                               d:Text="AE0381" />
-                    <!--  出發時間  -->
-                    <TextBlock x:Name="DepartureTime"
-                               Text="2024.05.20"
-                               Style="{StaticResource FieldLabel2}" />
+                    <TextBlock Text="{Binding FlightNumber}" />
                     <!--  登機門  -->
-                    <TextBlock x:Name="BoardingGate"
-                               Style="{StaticResource FieldLabel2}"
-                               d:Text="10" />
+                    <TextBlock Text="XXXXX" />
+                    <!--  出發日期  -->
+                    <TextBlock Text="XXXXX" />
                     <!--  出發時間  -->
-                    <TextBlock x:Name="DepartureTime_MMMDD"
-                               Text="20AUG"
-                               Style="{StaticResource FieldLabel2}" />
+                    <TextBlock Text="XXXXX" />
                 </UniformGrid>
             </Grid>
             <UniformGrid Grid.Row="2"
@@ -90,7 +87,7 @@
                                    Text="松山"
                                    Style="{StaticResource FieldLabel}" />
                         <TextBlock x:Name="DepartureAirport_en"
-                                   Text="TSA"
+                                   Text="{Binding DepartureAirport}"
                                    Style="{StaticResource FieldLabel}" />
                     </UniformGrid>
                 </Border>
@@ -111,7 +108,7 @@
                                    Text="澎湖"
                                    Style="{StaticResource FieldLabel}" />
                         <TextBlock x:Name="ArrivalAirport_en"
-                                   Text="MZG"
+                                   Text="{Binding ArrivalAirport}"
                                    Style="{StaticResource FieldLabel}" />
                     </UniformGrid>
                 </Border>

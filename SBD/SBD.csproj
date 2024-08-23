@@ -122,6 +122,7 @@
     <Compile Include="enumPool\BaggageEnum.cs" />
     <Compile Include="MainWindowBootstrapper.cs" />
     <Compile Include="Provider\DesignTimeData.cs" />
+    <Compile Include="Provider\NaviInfo.cs" />
     <Compile Include="Provider\RegionNames.cs" />
     <Compile Include="Old\Page1AControl.xaml.cs">
       <DependentUpon>Page1AControl.xaml</DependentUpon>
