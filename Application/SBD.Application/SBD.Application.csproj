@@ -116,53 +116,13 @@
     <Compile Include="Converters\MultiValueConverterBase.cs" />
     <Compile Include="Converters\MultiValueEqualityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
-    <Compile Include="enumPool\eStep.cs" />
+    <Compile Include="Provider\eStep.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Provider\NavigatePath.cs" />
-    <Compile Include="Other\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="enumPool\BaggageEnum.cs" />
     <Compile Include="MainWindowBootstrapper.cs" />
     <Compile Include="Provider\DesignTimeData.cs" />
     <Compile Include="Provider\NaviInfo.cs" />
     <Compile Include="Provider\RegionNames.cs" />
-    <Compile Include="Old\Page1AControl.xaml.cs">
-      <DependentUpon>Page1AControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page1BControl.xaml.cs">
-      <DependentUpon>Page1BControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page2AControl.xaml.cs">
-      <DependentUpon>Page2AControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page5AControl.xaml.cs">
-      <DependentUpon>Page5AControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page7BControl.xaml.cs">
-      <DependentUpon>Page7BControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page7AControl.xaml.cs">
-      <DependentUpon>Page7AControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page5BControl.xaml.cs">
-      <DependentUpon>Page5BControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page3BControl.xaml.cs">
-      <DependentUpon>Page3BControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page4AControl.xaml.cs">
-      <DependentUpon>Page4AControl.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Old\Page4Control.xaml.cs">
-      <DependentUpon>Page4Control.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="enumPool\PrintBarCodeStatus.cs" />
-    <Compile Include="Old\ScanButtonControl.xaml.cs">
-      <DependentUpon>ScanButtonControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Provider\StaticData.cs" />
     <Compile Include="ViewModels\Step6PageViewModel.cs" />
     <Compile Include="ViewModels\Step5PageViewModel.cs" />
@@ -212,57 +172,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Provider\Config.cs" />
-    <Compile Include="InterfacePool\DataLinkInterface.cs" />
-    <Compile Include="InterfacePool\PageInterface.cs" />
-    <Compile Include="InterfacePool\WorkStepInterface.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Old\Page1AControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Old\Page1BControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Old\Page2AControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Old\Page5AControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Old\Page7BControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Old\Page7AControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Old\Page5BControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Old\Page3BControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Old\Page4AControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Old\Page4Control.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Old\ScanButtonControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\StaticData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -318,23 +231,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Other\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Other\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Other\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Other\SBDClassDiagram1.cd" />
-    <None Include="Other\SBD_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
