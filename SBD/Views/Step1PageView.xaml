@@ -16,6 +16,36 @@
                                               IsDesignTimeCreatable=True}"
              d:Height="1800">
 
+    <UserControl.Resources>
+
+        <Storyboard x:Key="MoveAnimation">
+            <!--  X轴移动  -->
+            <DoubleAnimation AutoReverse="True"
+                             RepeatBehavior="Forever"
+                             Storyboard.TargetName="ScanMachinePresenterTransform"
+                             Storyboard.TargetProperty="X"
+                             From="0"
+                             To="400"
+                             Duration="0:0:1" />
+            <!--  Y轴移动  -->
+            <DoubleAnimation AutoReverse="True"
+                             RepeatBehavior="Forever"
+                             Storyboard.TargetName="ScanMachinePresenterTransform"
+                             Storyboard.TargetProperty="Y"
+                             From="100"
+                             To="0"
+                             Duration="0:0:1" />
+        </Storyboard>
+
+    </UserControl.Resources>
+
+    <UserControl.Triggers>
+        <!--  當窗口加載時啟動動畫  -->
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource MoveAnimation}" />
+        </EventTrigger>
+    </UserControl.Triggers>
+
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="PreviewTextInput">
             <prism:InvokeCommandAction Command="{Binding PreviewTextInputCommand}" />
@@ -36,40 +66,52 @@
         <Grid Grid.Row="0"
               HorizontalAlignment="Center"
               VerticalAlignment="Center">
+            <Canvas>
+                <ContentPresenter Canvas.Left="-434"
+                                  Canvas.Top="-277"
+                                  Width="350"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  ContentTemplate="{StaticResource FileImage}" />
 
-            <ContentPresenter Width="350"
-                              Margin="10,0,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Center"
-                              ContentTemplate="{StaticResource FileImage}" />
+                <Grid />
+                <ContentPresenter Canvas.Left="123"
+                                  Canvas.Top="-114"
+                                  Width="350"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Center"
+                                  ContentTemplate="{StaticResource BoardingPassImage}" />
 
-            <ContentPresenter Width="350"
-                              Margin="566,0,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Center"
-                              ContentTemplate="{StaticResource BoardingPassImage}" />
+                <Grid x:Name="ScanMachinePresenter">
+                    <ContentPresenter Width="138"
+                                      Height="252"
+                                      Margin="-316,-56,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ContentTemplate="{StaticResource ScanMachineImage}" />
 
-            <ContentPresenter Width="138"
-                              Height="252"
-                              Margin="0,380,0,0"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource ScanMachineImage}" />
+                    <ContentPresenter Width="120"
+                                      Height="120"
+                                      Margin="-267,50,0,0"
+                                      HorizontalAlignment="Left"
+                                      VerticalAlignment="Top"
+                                      ContentTemplate="{StaticResource HandImage}" />
+                    <Grid.RenderTransform>
+                        <!--  Apply TranslateTransform  -->
+                        <TranslateTransform x:Name="ScanMachinePresenterTransform" />
+                    </Grid.RenderTransform>
+                </Grid>
 
-            <ContentPresenter Width="120"
-                              Height="120"
-                              Margin="434,512,0,0"
-                              HorizontalAlignment="Left"
-                              VerticalAlignment="Top"
-                              ContentTemplate="{StaticResource HandImage}" />
-
+            </Canvas>
 
         </Grid>
-        <TextBlock Grid.Row="0"
+
+        <!--<TextBlock Grid.Row="0"
                    VerticalAlignment="Bottom"
                    FontSize="22"
                    Text="{Binding ScandedString}"
-                   TextWrapping="Wrap" />
+                   TextWrapping="Wrap" />-->
+
         <ContentPresenter Grid.Row="1" ContentTemplate="{StaticResource StepBar}" />
 
         <Grid x:Name="Page0B" Grid.Row="2">

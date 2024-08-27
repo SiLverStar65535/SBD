@@ -246,6 +246,9 @@
                         </LinearGradientBrush>
                     </Path.Fill>
                 </Path>
+
+
+
             </Canvas>
         </Viewbox>
     </DataTemplate>

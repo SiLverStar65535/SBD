@@ -355,9 +355,13 @@
     <Resource Include="Assest\hand_hand_5532 - 複製.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+    <ProjectReference Include="..\DataLibrary\SBD.Domain.csproj">
       <Project>{22b7c19a-737d-43e5-bb18-f3f9a4d80531}</Project>
-      <Name>DataLibrary</Name>
+      <Name>SBD.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SBD.Infrastructure\SBD.Infrastructure.csproj">
+      <Project>{1FC657D0-033D-4A6F-B2C1-977FEB9C1BCE}</Project>
+      <Name>SBD.Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\Thermal_Printer\Thermal_Printer.csproj">
       <Project>{8d665066-07f7-491e-9d2e-5fd0de421b0a}</Project>

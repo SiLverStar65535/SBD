@@ -3,6 +3,8 @@ using System.Windows;
 using Prism.Ioc;
 using Prism.Regions;
 using Prism.Unity;
+using SBD.Domain.Interface;
+using SBD.Infrastructure;
 using SBD.Provider;
 using SBD.Views;
 
@@ -11,6 +13,7 @@ namespace SBD
     class MainWindowBootstrapper : PrismBootstrapper
     {
         private readonly Type StartWindow = typeof(MainWindow);
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -23,6 +26,12 @@ namespace SBD
             containerRegistry.RegisterForNavigation<Step4PageView>();
             containerRegistry.RegisterForNavigation<Step5PageView>();
             containerRegistry.RegisterForNavigation<Step6PageView>();
+
+          
+            containerRegistry.RegisterSingleton<IDataProvider, DataProvider>();
+
+
+
         }
         protected override DependencyObject CreateShell()
         {

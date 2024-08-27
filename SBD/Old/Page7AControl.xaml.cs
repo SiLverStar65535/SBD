@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
-using DataLibrary;
+using SBD.Domain.Models;
 using SBD.enumPool;
 using SBD.InterfacePool;
 

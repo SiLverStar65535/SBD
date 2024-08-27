@@ -1,10 +1,9 @@
-﻿using DataLibrary;
+﻿using SBD.Domain.Models;
 
 namespace SBD.Provider
 {
     public static class DesignTimeData
     {
-      
         public static BoardingPass BoardingPass { get; set; }
 
         static DesignTimeData()
@@ -19,8 +18,10 @@ namespace SBD.Provider
         {
             return new BoardingPass
             {
-                DepartureAirport = "TSA",
-                ArrivalAirport = "MZG",
+                DepartureAirportENG = "TSA",
+                DepartureAirport = DataList.AirportNameDictionary["TSA"],
+                ArrivalAirportENG = "MZG",
+                ArrivalAirport = DataList.AirportNameDictionary["MZG"],
                 FlightNumber = "AE0381",
                 SeatNumber = "26A",
                 TicketNumber = "016",

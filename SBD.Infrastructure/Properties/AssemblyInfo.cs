@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 組件的一般資訊是由下列的屬性集控制。
 // 變更這些屬性的值即可修改組件的相關
 // 資訊。
-[assembly: AssemblyTitle("SBD.Domain")]
+[assembly: AssemblyTitle("SBD.Infrastructure")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SBD.Domain")]
+[assembly: AssemblyProduct("SBD.Infrastructure")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 下列 GUID 為專案公開 (Expose) 至 COM 時所要使用的 typelib ID
-[assembly: Guid("22b7c19a-737d-43e5-bb18-f3f9a4d80531")]
+[assembly: Guid("1fc657d0-033d-4a6f-b2c1-977feb9c1bce")]
 
 // 組件的版本資訊由下列四個值所組成: 
 //
@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 //      組建編號
 //      修訂編號
 //
-// 您可以指定所有的值，或將組建編號或修訂編號設為預設值
-//方法是使用 '*'，如下所示:
+// 您可以指定所有的值，也可以使用 '*' 將組建和修訂編號
+// 設為預設，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

@@ -25,8 +25,7 @@
         </Grid.Resources>
         <Grid Grid.Row="0"
               Margin="0,50,0,0"
-              VerticalAlignment="Top"
-              DataContext="{Binding BoardingPass}">
+              VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto" />
@@ -57,15 +56,15 @@
                 </UniformGrid>
                 <UniformGrid Grid.Column="1" Columns="1">
                     <!--  乘客名稱  -->
-                    <TextBlock Text="{Binding PassengerName}" />
+                    <TextBlock Text="{Binding BoardingPass.PassengerName}" />
                     <!--  登機證號碼  -->
-                    <TextBlock Text="{Binding TicketNumber}" />
+                    <TextBlock Text="{Binding BoardingPass.TicketNumber}" />
                     <!--  座位  -->
-                    <TextBlock Text="{Binding SeatNumber}" />
+                    <TextBlock Text="{Binding BoardingPass.SeatNumber}" />
                     <!--  班次  -->
-                    <TextBlock Text="{Binding FlightNumber}" />
+                    <TextBlock Text="{Binding BoardingPass.FlightNumber}" />
                     <!--  登機門  -->
-                    <TextBlock Text="XXXXX" />
+                    <TextBlock Text="{Binding Flight.Gate}" />
                     <!--  出發日期  -->
                     <TextBlock Text="XXXXX" />
                     <!--  出發時間  -->
@@ -84,10 +83,10 @@
                                  VerticalAlignment="Center"
                                  Columns="1">
                         <TextBlock x:Name="DepartureAirport"
-                                   Text="松山"
+                                   Text="{Binding DepartureAirport}"
                                    Style="{StaticResource FieldLabel}" />
                         <TextBlock x:Name="DepartureAirport_en"
-                                   Text="{Binding DepartureAirport}"
+                                   Text="{Binding DepartureAirportENG}"
                                    Style="{StaticResource FieldLabel}" />
                     </UniformGrid>
                 </Border>
@@ -105,10 +104,10 @@
                                  VerticalAlignment="Center"
                                  Columns="1">
                         <TextBlock x:Name="ArrivalAirport"
-                                   Text="澎湖"
+                                   Text="{Binding ArrivalAirport}"
                                    Style="{StaticResource FieldLabel}" />
                         <TextBlock x:Name="ArrivalAirport_en"
-                                   Text="{Binding ArrivalAirport}"
+                                   Text="{Binding ArrivalAirportENG}"
                                    Style="{StaticResource FieldLabel}" />
                     </UniformGrid>
                 </Border>

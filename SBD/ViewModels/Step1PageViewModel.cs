@@ -1,22 +1,31 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows.Documents;
 using System.Windows.Input;
-using DataLibrary;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using SBD.Domain.Interface;
+using SBD.Domain.Models;
 using SBD.Provider;
 
 namespace SBD.ViewModels
 {
     public class Step1PageViewModel : BindableBase
     {
+        private readonly IDataProvider _dataProvider;
         #region Constructors
-        public Step1PageViewModel()
+        public Step1PageViewModel( )
         {
             if (App.IsDesignTime)
             {
             
             }
+        }
+        public Step1PageViewModel(IDataProvider dataProvider)
+        {
+            _dataProvider = dataProvider;
         }
         #endregion
 
@@ -36,38 +45,48 @@ namespace SBD.ViewModels
         {
             if (args.Key != Key.Enter)
                 return;
- 
-            ScandedString = inputBuffer.ToString();
 
-            if (string.IsNullOrEmpty(ScandedString))
-                return;
-
-            RaisePropertyChanged(nameof(ScandedString));
-
-            var ScandedStringList = ScandedString.Split(',');
-            var boardingPassInfo = ScandedStringList[0];
-            var boardingPassPassengerName = ScandedStringList[1];
-
-            var BoardingPass = new BoardingPass
+            BoardingPass BoardingPass;
+            if (inputBuffer.ToString() == string.Empty)
             {
-                PassengerName = boardingPassPassengerName,
-                DepartureAirport = boardingPassInfo.Substring(31, 3),
-                ArrivalAirport = boardingPassInfo.Substring(33, 3),
-                FlightNumber = boardingPassInfo.Substring(36, 7),
-                SeatNumber = boardingPassInfo.Substring(49, 3),
-                TicketNumber = boardingPassInfo.Substring(53, 3),
-            };
+                BoardingPass = new BoardingPass();
+                BoardingPass.DepartureAirportENG = "TSA";
+                BoardingPass.ArrivalAirportENG = "MZG";
+                BoardingPass.FlightNumber = "AE0381";
+                BoardingPass.SeatNumber = "26A";
+                BoardingPass.TicketNumber = "016";
+                BoardingPass.PassengerName = "假資料FromDesignTime";
+                BoardingPass.DepartureAirport = DataList.AirportNameDictionary[BoardingPass.DepartureAirportENG];
+                BoardingPass.ArrivalAirport = DataList.AirportNameDictionary[BoardingPass.ArrivalAirportENG];
+            }
+            else
+            {
+                ScandedString = inputBuffer.ToString();
+                var ScandedStringList = ScandedString.Split(',');
+                var boardingPassInfo = ScandedStringList[0];
+                var boardingPassPassengerName = ScandedStringList[1];
+                BoardingPass = new BoardingPass();
+                BoardingPass.PassengerName = boardingPassPassengerName;
+                BoardingPass.DepartureAirportENG = boardingPassInfo.Substring(31, 3);
+                BoardingPass.DepartureAirport = DataList.AirportNameDictionary[BoardingPass.DepartureAirportENG];
+                BoardingPass.ArrivalAirportENG = boardingPassInfo.Substring(33, 3);
+                BoardingPass.ArrivalAirport = DataList.AirportNameDictionary[BoardingPass.ArrivalAirportENG];
+                BoardingPass.FlightNumber = boardingPassInfo.Substring(36, 7);
+                BoardingPass.SeatNumber = boardingPassInfo.Substring(49, 3);
+                BoardingPass.TicketNumber = boardingPassInfo.Substring(53, 3);
+            }
+            var Flight = _dataProvider.GetFlightDetail(BoardingPass.FlightNumber);
             inputBuffer.Clear();
 
-            var parameters = new NavigationParameters
-            {
-                { nameof(BoardingPass), BoardingPass }
-            };
             var NaviInfo = new NaviInfo
             {
                 RegionName = RegionNames.ContentRegion,
                 NaviViewName = NavigatePath.Step2PageView,
-                NavigationParameters = parameters
+                NavigationParameters = new NavigationParameters
+                { 
+                    { nameof(BoardingPass), BoardingPass },
+                    { nameof(Flight), Flight }
+                }
             };
             ApplicationCommands.NavigateCommand.Execute(NaviInfo);
         }

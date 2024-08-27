@@ -1,7 +1,7 @@
-﻿using DataLibrary;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using SBD.Domain.Models;
 using SBD.Provider;
 
 namespace SBD.ViewModels
@@ -22,8 +22,10 @@ namespace SBD.ViewModels
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             BoardingPass = (BoardingPass)navigationContext.Parameters[nameof(BoardingPass)];
+            Flight = (Flight)navigationContext.Parameters[nameof(Flight)];
 
             RaisePropertyChanged(nameof(BoardingPass));
+            RaisePropertyChanged(nameof(Flight));
         }
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
@@ -37,6 +39,7 @@ namespace SBD.ViewModels
 
         #region Properties
         public BoardingPass BoardingPass { get; set; }
+        public Flight Flight { get; set; }
         #endregion
 
         #region DelegateCommands

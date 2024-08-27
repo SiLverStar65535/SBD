@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Controls;
-using DataLibrary;
+using SBD.Domain.Models;
 using SBD.InterfacePool;
 
 namespace SBD.Old

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using DataLibrary;
+using SBD.Domain.Models;
 
 namespace Therm_Sticker
 {
@@ -132,7 +132,7 @@ namespace Therm_Sticker
         /// <param name="With_Bar"></param>
         /// <param name="upsidedown"></param>
         /// <param name="行李資訊"></param>
-        private static void Build_(int Loc_x, int Loc_y, int With_Bar, int upsidedown, DataLibrary.Luggage luggage)
+        private static void Build_(int Loc_x, int Loc_y, int With_Bar, int upsidedown, Luggage luggage)
         {
 
             Loc_x = Loc_x * 12;
