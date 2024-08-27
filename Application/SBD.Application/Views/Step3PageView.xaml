@@ -24,9 +24,6 @@
             <Grid x:Name="Page4A"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center">
-
-
-
                 <ContentPresenter Height="517"
                                   Margin="158,108,0,0"
                                   HorizontalAlignment="Left"
@@ -99,11 +96,6 @@
                     </Path.RenderTransform>
                 </Path>
 
-
-
-
-
-
             </Grid>
 
         </Grid>
@@ -112,29 +104,12 @@
 
         <Grid Grid.Row="2"
               Visibility="{Binding IsGettedData, Converter={converters:InversBooleanToVisibilityConverter}}"
-              d:Visibility="Collapsed">
+              d:Visibility="Visible">
             <Button x:Name="ScanButton"
                     Command="{Binding ScanCommand}"
                     Content="Scan"
                     Style="{StaticResource ScanButton}" />
             <Grid Margin="743,35,83,602">
-                <Path x:Name="path11"
-                      Margin="118.174,0,108.751,217.981"
-                      Data="F1 M 130.169,108.725L 122.854,97.1122L 126.669,97.1122L 126.669,85.6468L 133.668,85.6468L 133.668,97.1122L 137.483,97.1122L 130.169,108.725 Z "
-                      RenderTransformOrigin="0.5,0.5"
-                      Stretch="Fill">
-                    <Path.Fill>
-                        <SolidColorBrush Opacity="0" Color="#FFB6FF84" />
-                    </Path.Fill>
-                    <Path.RenderTransform>
-                        <TransformGroup>
-                            <ScaleTransform />
-                            <SkewTransform />
-                            <RotateTransform />
-                            <TranslateTransform />
-                        </TransformGroup>
-                    </Path.RenderTransform>
-                </Path>
                 <Path x:Name="path4"
                       Margin="209.458,119.33,0.098,115.133"
                       Data="F1 M 159.169,139.5L 170.781,132.186L 170.781,136.001L 182.247,136.001L 182.247,142.999L 170.781,142.999L 170.781,146.814L 159.169,139.5 Z "
@@ -254,6 +229,23 @@
                         </TransformGroup>
                     </Path.RenderTransform>
                 </Path>
+                <Path x:Name="path11"
+                      Margin="118.174,0,108.751,217.981"
+                      Data="F1 M 130.169,108.725L 122.854,97.1122L 126.669,97.1122L 126.669,85.6468L 133.668,85.6468L 133.668,97.1122L 137.483,97.1122L 130.169,108.725 Z "
+                      RenderTransformOrigin="0.5,0.5"
+                      Stretch="Fill">
+                    <Path.Fill>
+                        <SolidColorBrush Opacity="0" Color="#FFB6FF84" />
+                    </Path.Fill>
+                    <Path.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform />
+                            <SkewTransform />
+                            <RotateTransform />
+                            <TranslateTransform />
+                        </TransformGroup>
+                    </Path.RenderTransform>
+                </Path>
             </Grid>
         </Grid>
 
@@ -261,7 +253,7 @@
         <Grid Grid.Row="2"
               Background="#FFCFCFCF"
               Visibility="{Binding IsGettedData, Converter={converters:BooleanToVisibilityConverter}}"
-              d:Visibility="Visible">
+              d:Visibility="Collapsed">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
