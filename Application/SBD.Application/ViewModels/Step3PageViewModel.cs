@@ -1,16 +1,22 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using SBD.Domain.Interface;
+using SBD.Infrastructure;
 using SBD.Provider;
 
 namespace SBD.ViewModels
 {
     public class Step3PageViewModel : BindableBase, IRegionMemberLifetime
     {
+        private readonly IDataProvider _dataProvider;
+        private readonly IScaneService _scaneService;
         public bool KeepAlive { get; } = false;
 
-        public Step3PageViewModel()
+        public Step3PageViewModel(IDataProvider dataProvider, IScaneService scaneService)
         {
+            _dataProvider = dataProvider;
+            _scaneService = scaneService;
             IsGettedData = false;
         }
 
@@ -21,7 +27,13 @@ namespace SBD.ViewModels
         public DelegateCommand ScanCommand => _scanCommand ??= new DelegateCommand(ExcuteScanCommand);
         private void ExcuteScanCommand()
         {
+
+            var rule = _dataProvider.GetFlightDetail();
+            var size = _scaneService.GetLuggageSize();
+            var wieght = _scaneService.GetLuggageWieght();
+
             IsGettedData = true;
+
             RaisePropertyChanged(nameof(IsGettedData));
         }
 

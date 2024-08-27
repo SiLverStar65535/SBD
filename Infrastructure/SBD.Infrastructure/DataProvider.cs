@@ -72,7 +72,17 @@ namespace SBD.Infrastructure
 
             return flight;
         }
-        
+
+        public LuggageSize GetAirlineLuggageSize(string Airline)
+        {
+            return new LuggageSize();
+        }
+
+        public int GetAirlineLuggageWeight(string Airline)
+        {
+            return 0;
+        }
+
         private DataTable GetFlightDataTable(string filePath)
         {
             // 加載Excel文件

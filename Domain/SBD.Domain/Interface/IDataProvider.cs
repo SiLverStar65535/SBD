@@ -8,7 +8,8 @@ namespace SBD.Domain.Interface
         BoardingPass GetBoardingPassData(string scaneString);
         BoardingPass CreateFakeBoardingPassData();
         Flight GetFlightDetail(string flightNumber);
-    
+        LuggageSize GetAirlineLuggageSize(string Airline);
+        int GetAirlineLuggageWeight(string Airline);
     }
 }
 
