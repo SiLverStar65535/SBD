@@ -28,7 +28,7 @@ namespace SBD.ViewModels
         private void ExcuteScanCommand()
         {
 
-            var rule = _dataProvider.GetFlightDetail();
+            var rule = _dataProvider.GetFlightDetail("");
             var size = _scaneService.GetLuggageSize();
             var wieght = _scaneService.GetLuggageWieght();
 
