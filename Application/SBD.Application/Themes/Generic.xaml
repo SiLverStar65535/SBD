@@ -1,0 +1,178 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:SBD.Converters"
+                    xmlns:enumPool="clr-namespace:SBD.enumPool"
+                    xmlns:local="clr-namespace:SBD"
+                    xmlns:provider="clr-namespace:SBD.Provider">
+
+
+    <SolidColorBrush x:Key="PrimaryBrush" Color="#FF17567F" />
+    <SolidColorBrush x:Key="PrimaryLightBrush" Color="#63a4ff" />
+
+    <Style x:Key="FieldLabel" TargetType="{x:Type TextBlock}">
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="72" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="#FFF6F6F6" />
+    </Style>
+
+    <Style x:Key="FieldLabel2" TargetType="{x:Type TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="36" />
+        <Setter Property="Foreground" Value="#FFE76100" />
+    </Style>
+
+    <DataTemplate x:Key="Arrow">
+        <Grid Width="56.5" Height="28">
+            <Path Width="20.717"
+                  Height="17.173"
+                  Margin="4.5,6.327,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Data="F1 M 72.5833,121.676L 76.7858,121.676L 76.7858,120.245L 82.9494,123.706L 76.7858,127.167L 76.7858,125.542L 72.5833,125.542L 72.5833,121.676 Z "
+                  Fill="#FF0096FF"
+                  RenderTransformOrigin="0.23,0.944"
+                  Stretch="Fill" />
+            <Path Width="20.717"
+                  Height="17.173"
+                  Margin="30.217,6.327,0,0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Top"
+                  Data="F1 M 72.5833,121.676L 76.7858,121.676L 76.7858,120.245L 82.9494,123.706L 76.7858,127.167L 76.7858,125.542L 72.5833,125.542L 72.5833,121.676 Z "
+                  Fill="#FF0096FF"
+                  RenderTransformOrigin="0.23,0.944"
+                  Stretch="Fill" />
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="StepIcon">
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Ellipse">
+                    <Style.Triggers>
+                        <DataTrigger Value="True">
+                            <DataTrigger.Binding>
+                                <MultiBinding Converter="{converters:MultiValueEqualityConverter}">
+                                    <Binding Path="CurrentStep" Source="{StaticResource StaticData}" />
+                                    <Binding Path="Content" RelativeSource="{RelativeSource AncestorType={x:Type ContentPresenter}}" />
+                                </MultiBinding>
+                            </DataTrigger.Binding>
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard AutoReverse="True" RepeatBehavior="Forever">
+                                        <!--  透明度動畫  -->
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="1.0"
+                                                         To="0.3"
+                                                         Duration="0:0:0.5" />
+                                        <!--  顏色動畫  -->
+                                        <!--  高亮顏色  -->
+                                        <!--  放大縮小動畫  -->
+                                        <ColorAnimation Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)"
+                                                        From="#FF17567F"
+                                                        To="#FFFF0000"
+                                                        Duration="0:0:0.5" />
+
+
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                        </DataTrigger>
+                       
+                    </Style.Triggers>
+
+                </Style>
+            </Grid.Resources>
+            <Ellipse Width="88.5"
+                     Height="88.5"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Fill="#FF17567F"
+                     StrokeLineJoin="Round"
+                     StrokeThickness="4">
+                <Ellipse.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                    </TransformGroup>
+                </Ellipse.RenderTransform>
+            </Ellipse>
+            <Label x:Name="label1"
+                   Margin="23.5,10,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Top"
+                   Content="{Binding}"
+                   FontSize="48"
+                   Foreground="White" />
+        </Grid>
+    </DataTemplate>
+
+
+
+
+    <Style x:Key="PageStyle" TargetType="{x:Type UserControl}">
+        <Setter Property="Width" Value="1080" />
+        <Setter Property="Background" Value="White" />
+    </Style>
+
+    <DataTemplate x:Key="PageHeader">
+        <Border Height="120"
+                VerticalAlignment="Stretch"
+                BorderBrush="{StaticResource PrimaryBrush}"
+                BorderThickness="0,0,0,3">
+            <Label HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Content="國內自助託運行李櫃台系統"
+                   FontSize="48"
+                   FontWeight="Bold"
+                   Foreground="{StaticResource PrimaryLightBrush}" />
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="StepBar">
+        <StackPanel VerticalAlignment="Center">
+            <Border BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="0.5" />
+            <StackPanel Margin="0,15"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <ContentPresenter Content="1" ContentTemplate="{StaticResource StepIcon}" />
+                <ContentPresenter ContentTemplate="{StaticResource Arrow}" />
+                <ContentPresenter Content="2" ContentTemplate="{StaticResource StepIcon}" />
+                <ContentPresenter ContentTemplate="{StaticResource Arrow}" />
+                <ContentPresenter Content="3" ContentTemplate="{StaticResource StepIcon}" />
+                <ContentPresenter ContentTemplate="{StaticResource Arrow}" />
+                <ContentPresenter Content="4" ContentTemplate="{StaticResource StepIcon}" />
+                <ContentPresenter ContentTemplate="{StaticResource Arrow}" />
+                <ContentPresenter Content="5" ContentTemplate="{StaticResource StepIcon}" />
+                <ContentPresenter ContentTemplate="{StaticResource Arrow}" />
+                <ContentPresenter Content="6" ContentTemplate="{StaticResource StepIcon}" />
+
+
+            </StackPanel>
+            <Border BorderBrush="{StaticResource PrimaryBrush}" BorderThickness="3" />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PageFooter">
+        <StackPanel Orientation="Horizontal">
+            <TextBlock x:Name="ComText"
+                       Width="123"
+                       Height="20"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Text="TextBlock"
+                       TextWrapping="Wrap" />
+
+            <TextBlock x:Name="status"
+                       Width="67"
+                       Height="20"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Text="TextBlock"
+                       TextWrapping="Wrap" />
+        </StackPanel>
+
+    </DataTemplate>
+
+</ResourceDictionary>

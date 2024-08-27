@@ -1,0 +1,195 @@
+﻿<UserControl x:Class="SBD.Views.Step2PageView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:converters="clr-namespace:SBD.Converters"
+             xmlns:local="clr-namespace:SBD.Views"
+             xmlns:provider="clr-namespace:SBD.Provider"
+             xmlns:viewModels="clr-namespace:SBD.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Style="{StaticResource PageStyle}"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance viewModels:Step2PageViewModel,
+                                              IsDesignTimeCreatable=True}"
+             d:Height="1800">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource FieldLabel2}" TargetType="{x:Type TextBlock}" />
+        </Grid.Resources>
+        <Grid Grid.Row="0"
+              Margin="0,50,0,0"
+              VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0"
+                       HorizontalAlignment="Center"
+                       FontSize="72"
+                       Foreground="Black"
+                       Text="登機證資訊" />
+            <Grid Grid.Row="1"
+                  Margin="100,20,100,30"
+                  VerticalAlignment="Center">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <UniformGrid Grid.Column="0" Columns="1">
+                    <TextBlock Text="乘客名稱" />
+                    <TextBlock Text="登機證號碼" />
+                    <TextBlock Text="座位" />
+                    <TextBlock Text="班次" />
+                    <TextBlock Text="登機門" />
+                    <TextBlock Text="出發日期" />
+                    <TextBlock Text="出發時間" />
+                </UniformGrid>
+                <UniformGrid Grid.Column="1" Columns="1">
+                    <!--  乘客名稱  -->
+                    <TextBlock Text="{Binding BoardingPass.PassengerName}" />
+                    <!--  登機證號碼  -->
+                    <TextBlock Text="{Binding BoardingPass.TicketNumber}" />
+                    <!--  座位  -->
+                    <TextBlock Text="{Binding BoardingPass.SeatNumber}" />
+                    <!--  班次  -->
+                    <TextBlock Text="{Binding BoardingPass.FlightNumber}" />
+                    <!--  登機門  -->
+                    <TextBlock Foreground="Red" Text="XXXXXX" />
+                    <!--  出發日期  -->
+                    <TextBlock Text="{Binding Flight.DepartureTime, Converter={converters:DateToUpperCaseConverter}}" />
+                    <!--  出發時間  -->
+                    <TextBlock Text="{Binding Flight.DepartureTime, StringFormat={}{0:HH:mm}}" />
+                </UniformGrid>
+            </Grid>
+            <UniformGrid Grid.Row="2"
+                         HorizontalAlignment="Center"
+                         Columns="3">
+
+                <Border Width="300"
+                        Height="300"
+                        Background="#FF119B2B"
+                        CornerRadius="50">
+                    <UniformGrid HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Columns="1">
+                        <TextBlock x:Name="DepartureAirport"
+                                   Text="{Binding BoardingPass.DepartureAirport}"
+                                   Style="{StaticResource FieldLabel}" />
+                        <TextBlock x:Name="DepartureAirport_en"
+                                   Text="{Binding BoardingPass.DepartureAirportENG}"
+                                   Style="{StaticResource FieldLabel}" />
+                    </UniformGrid>
+                </Border>
+                <Border Width="128"
+                        Height="46"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Background="#FFE76100" />
+
+                <Border Width="300"
+                        Height="300"
+                        Background="#FF119B2B"
+                        CornerRadius="50">
+                    <UniformGrid HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Columns="1">
+                        <TextBlock x:Name="ArrivalAirport"
+                                   Text="{Binding BoardingPass.ArrivalAirport}"
+                                   Style="{StaticResource FieldLabel}" />
+                        <TextBlock x:Name="ArrivalAirport_en"
+                                   Text="{Binding BoardingPass.ArrivalAirportENG}"
+                                   Style="{StaticResource FieldLabel}" />
+                    </UniformGrid>
+                </Border>
+            </UniformGrid>
+        </Grid>
+
+        <ContentPresenter Grid.Row="1" ContentTemplate="{StaticResource StepBar}" />
+
+        <Grid x:Name="Page1B" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <RichTextBox Grid.Column="0"
+                             Padding="0,30,0,0"
+                             BorderThickness="0"
+                             FontSize="22"
+                             IsEnabled="False">
+                    <FlowDocument>
+                        <Paragraph>
+                            <Run Block.TextAlignment="Center"
+                                 FontSize="36"
+                                 Foreground="#FFEC1C07"
+                                 Text="                                    行李托運注意事項" />
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="1. **重量與尺寸**：確認並遵守航空公司的行李重量與尺寸限制。" />
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="2. **包裝**：使用堅固的行李箱，並將易碎物品放在隨身行李中。" />
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="3. **禁運物品**：避免將貴重物品或航空公司禁止的物品放入托運行李。" />
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="4. **安全檢查**：使用TSA認證的鎖以增加行李的安全性。" />
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="5. **行李領取**：抵達後立即檢查並領取行李，若有損壞或遺失應立即通報。" />
+                        </Paragraph>
+                        <Paragraph>
+                            <Run Text="6. **保險**：考慮購買行李保險以覆蓋可能的損失或損壞。" />
+                        </Paragraph>
+
+                        <Paragraph>
+                            <Run Text="遵循這些基本指南可以幫助保障您的行李安全並順利完成旅程。" />
+                        </Paragraph>
+                    </FlowDocument>
+                </RichTextBox>
+
+                <UniformGrid Grid.Column="1"
+                             VerticalAlignment="Top"
+                             Columns="1">
+                    <Image Width="243.051"
+                           Height="179.007"
+                           Source="/Assest/Image4.png"
+                           Stretch="Fill" />
+                    <Image Width="243.051"
+                           Height="260.02"
+                           Source="/Assest/Image3.png" />
+
+                </UniformGrid>
+            </Grid>
+            <UniformGrid Grid.Row="1"
+                         Margin="0,0,0,10"
+                         VerticalAlignment="Bottom"
+                         Columns="2">
+                <Button x:Name="CancelBT"
+                        Command="{Binding CancelCommand}"
+                        Content="取消"
+                        Style="{DynamicResource BasicButton}" />
+                <Button x:Name="OKUSERDATA"
+                        Command="{Binding ConfirmCommand}"
+                        Content="資料確認"
+                        Style="{DynamicResource BasicButton}" />
+            </UniformGrid>
+        </Grid>
+    </Grid>
+</UserControl>
