@@ -55,6 +55,10 @@
       <Project>{8d665066-07f7-491e-9d2e-5fd0de421b0a}</Project>
       <Name>Thermal_Printer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ThermSticker\Therm_Sticker.csproj">
+      <Project>{a6d05d46-a489-4eee-95af-e64979d005e5}</Project>
+      <Name>Therm_Sticker</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Aspose.Cells">

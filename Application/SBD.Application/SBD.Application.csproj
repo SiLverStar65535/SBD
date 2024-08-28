@@ -264,16 +264,6 @@
     <Resource Include="Assest\hand_hand_5532 - 複製.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Domain\SBD.Domain\SBD.Domain.csproj">
-      <Project>{22b7c19a-737d-43e5-bb18-f3f9a4d80531}</Project>
-      <Name>DataLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\SBD.Infrastructure\SBD.Infrastructure.csproj">
-      <Project>{1FC657D0-033D-4A6F-B2C1-977FEB9C1BCE}</Project>
-      <Name>SBD.Infrastructure</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Prism.Unity">
       <Version>8.1.97</Version>
     </PackageReference>
