@@ -13,6 +13,10 @@ namespace SBD.ViewModels
         private readonly IScaneService _scaneService;
         public bool KeepAlive { get; } = false;
 
+        public Step3PageViewModel()
+        {
+            
+        }
         public Step3PageViewModel(IDataProvider dataProvider, IScaneService scaneService)
         {
             _dataProvider = dataProvider;
@@ -27,14 +31,15 @@ namespace SBD.ViewModels
         public DelegateCommand ScanCommand => _scanCommand ??= new DelegateCommand(ExcuteScanCommand);
         private void ExcuteScanCommand()
         {
+            var airlineLuggageSize = _dataProvider.GetAirlineLuggageSize("");
+            var airlineLuggageWeight = _dataProvider.GetAirlineLuggageWeight("");
 
-            var rule = _dataProvider.GetFlightDetail("");
-            var size = _scaneService.GetLuggageSize();
-            var wieght = _scaneService.GetLuggageWieght();
+            var customLuggageSize = _scaneService.GetLuggageSize();
+            var customLuggageWeight = _scaneService.GetLuggageWieght();
 
-            IsGettedData = true;
+            //IsGettedData = true;
 
-            RaisePropertyChanged(nameof(IsGettedData));
+            //RaisePropertyChanged(nameof(IsGettedData));
         }
 
         private DelegateCommand _againCommand;

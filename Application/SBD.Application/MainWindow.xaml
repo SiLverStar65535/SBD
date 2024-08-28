@@ -7,6 +7,7 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:local="clr-namespace:SBD"
         xmlns:provider="clr-namespace:SBD.Provider"
+        xmlns:views="clr-namespace:SBD.Views"
         Title="MainWindow"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
@@ -241,7 +242,9 @@
     </Window.Resources>
 
 
-    <ScrollViewer Height="1000" VerticalScrollBarVisibility="Visible">
+    <ScrollViewer Height="1000"
+                  VerticalScrollBarVisibility="Visible"
+                  d:Height="1920">
         <Grid Width="1080" Height="1920">
             <Grid>
                 <Grid.RowDefinitions>
@@ -255,6 +258,11 @@
                 <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static provider:RegionNames.ContentRegion}" />
 
                 <ContentPresenter Grid.Row="2" ContentTemplate="{StaticResource PageFooter}" />
+
+                <!--<views:TestView Grid.Row="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" />-->
+
 
             </Grid>
         </Grid>

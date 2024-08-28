@@ -13,12 +13,14 @@ namespace SBD.ViewModels
     {
         public bool KeepAlive { get; } = false;
         private readonly IDataProvider _dataProvider;
+
+
         #region Constructors
         public Step1PageViewModel( )
         {
             if (App.IsDesignTime)
             {
-              
+                
             }
         }
         public Step1PageViewModel(IDataProvider dataProvider)

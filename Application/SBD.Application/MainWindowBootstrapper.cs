@@ -27,6 +27,8 @@ namespace SBD
             containerRegistry.RegisterForNavigation<Step5PageView>();
             containerRegistry.RegisterForNavigation<Step6PageView>();
 
+
+           
             containerRegistry.RegisterSingleton<IDataProvider, DataProvider>();
             containerRegistry.RegisterSingleton<IPrintService, PrintService>();
             containerRegistry.RegisterSingleton<IScaneService, ScaneService>();
