@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using System.Threading.Tasks;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using SBD.Domain.Interface;
@@ -7,8 +8,18 @@ using SBD.Provider;
 
 namespace SBD.ViewModels
 {
+    public enum eScanState
+    {
+        ReadyScan,
+        Scaning,
+        FinishedScan
+    }
+
     public class Step3PageViewModel : BindableBase, IRegionMemberLifetime
     {
+      
+
+
         private readonly IDataProvider _dataProvider;
         private readonly IScaneService _scaneService;
         public bool KeepAlive { get; } = false;
@@ -21,33 +32,36 @@ namespace SBD.ViewModels
         {
             _dataProvider = dataProvider;
             _scaneService = scaneService;
-            IsGettedData = false;
+            ScanState =  eScanState.ReadyScan;
         }
 
 
-        public bool IsGettedData { get; set; }
+        public eScanState ScanState { get; set; }
 
         private DelegateCommand _scanCommand;
         public DelegateCommand ScanCommand => _scanCommand ??= new DelegateCommand(ExcuteScanCommand);
-        private void ExcuteScanCommand()
+        private async void ExcuteScanCommand()
         {
+            ScanState =  eScanState.Scaning;
+            RaisePropertyChanged(nameof(ScanState));
+
             var airlineLuggageSize = _dataProvider.GetAirlineLuggageSize("");
             var airlineLuggageWeight = _dataProvider.GetAirlineLuggageWeight("");
 
             var customLuggageSize = _scaneService.GetLuggageSize();
             var customLuggageWeight = _scaneService.GetLuggageWieght();
 
-            //IsGettedData = true;
+            await Task.Delay(3000);
 
-            //RaisePropertyChanged(nameof(IsGettedData));
+            ScanState = eScanState.FinishedScan;
+            RaisePropertyChanged(nameof(ScanState));
         }
 
         private DelegateCommand _againCommand;
         public DelegateCommand AgainCommand => _againCommand ??= new DelegateCommand(ExcuteAgainCommand);
         private void ExcuteAgainCommand()
         {
-            IsGettedData = false;
-            RaisePropertyChanged(nameof(IsGettedData));
+            
         }
 
         private DelegateCommand _confirmCommand;
