@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows;
-using System.Windows.Data;
 
 namespace SBD.Converters
 {
@@ -23,19 +22,6 @@ namespace SBD.Converters
         public override object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotSupportedException();
-        }
-
-        public class ToBooleanConverter : ValueConverterBase<ToBooleanConverter>
-        {
-            public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                return value.Equals(parameter);
-            }
-
-            public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-            {
-                return ((bool)value) ? parameter : Binding.DoNothing;
-            }
         }
     }
 }
