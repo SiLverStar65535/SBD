@@ -23,6 +23,7 @@ namespace SBD.Views
             Focus();
             InputMethod.Current.ImeState = InputMethodState.Off;
             InputMethod.SetIsInputMethodEnabled(this, false);
+          
         }
     }
 }

@@ -7,25 +7,18 @@ namespace SBD.Provider
     {
         public static BoardingPass BoardingPass { get; set; }
         public static  Flight Flight { get; set; }
-        public static LuggageSize LuggageSize { get; set; }
+      
         
         static DesignTimeData()
         {
             if (App.IsDesignTime)
             {
-                BoardingPass = GenerateBoardingPass(); Flight = GenerateFlight(); LuggageSize= GenerateLuggageSize();
+                BoardingPass = GenerateBoardingPass(); 
+                Flight = GenerateFlight(); 
+               
             }
         }
-
-        private static LuggageSize GenerateLuggageSize()
-        {
-            return new LuggageSize
-            {
-                Length = 33,
-                Width = 45,
-                Height = 65
-            };
-        }
+ 
 
         private static Flight GenerateFlight()
         {  

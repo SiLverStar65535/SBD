@@ -1,16 +1,16 @@
-﻿using System;
-using System.Globalization;
+﻿using Prism.Commands;
+using Prism.Mvvm;
+using Prism.Regions;
+using SBD.Provider;
+using System;
 using System.Management;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Input;
-using Prism.Commands;
-using Prism.Regions;
-using SBD.Provider;
 
 namespace SBD
 {
-    public class MainWindowViewModel
+    public class MainWindowViewModel : BindableBase
     {
        
         private readonly IRegionManager _regionManager;
@@ -25,7 +25,11 @@ namespace SBD
             _regionManager = regionManager;
             ApplicationCommands.NavigateCommand.RegisterCommand(NavigateCommand);
         }
-      
+     
+        public string DeviceString { get; set; }
+        
+
+
         private DelegateCommand<NaviInfo> _navigateCommand;
         public DelegateCommand<NaviInfo> NavigateCommand => _navigateCommand ??= new DelegateCommand<NaviInfo>(ExecuteNavigateCommand);
         private void ExecuteNavigateCommand(NaviInfo navigationPath)
@@ -70,24 +74,25 @@ namespace SBD
         {
             //强制使用英文输入法
             // 檢查comport與VID、PID，並檢查是否與預定的VID和PID匹配。
-        
-            if (Application.Current.MainWindow != null) 
+
+            if (Application.Current.MainWindow != null)
             {
                 InputMethod.SetIsInputMethodEnabled(Application.Current.MainWindow, false);
             }
- 
+
             // 清除之前掃描的COM端口列表和顯示結果
-            //comPorts.Clear();
-            //ComText.Text = "";
+            DeviceString = string.Empty;
 
             // 使用WMI來搜索系統中的所有設備，篩選出含有COM端口描述的設備
             var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'");
-            var managmentObjects=  searcher.Get();
+            //var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity ");
+            var managmentObjects = searcher.Get();
             // 正則表達式，用於從設備描述中提取COM端口編號
             var comRegex = new Regex(@"\(COM(\d+)\)");
 
             try
             {
+                var comCount = managmentObjects.Count;
                 // 遍歷搜索結果
                 foreach (var managmentObject in managmentObjects)
                 {
@@ -110,20 +115,22 @@ namespace SBD
                             var vidPidRegex = new Regex(@"VID_([0-9A-F]+)&PID_([0-9A-F]+)");
                             var matchVidPid = vidPidRegex.Match(deviceId);
 
+                            var isMatched = matchVidPid.Success;
+                            var PosVID = matchVidPid.Groups[1].Value;
+                            var PosPID = matchVidPid.Groups[2].Value;
+
                             // 檢查VID和PID是否與配置文件中設定的相符
-                            if( matchVidPid.Success 
-                             && matchVidPid.Groups[1].Value == Config.PosVID 
-                             && matchVidPid.Groups[2].Value == Config.PosPID)
+                            if (isMatched && PosVID == Config.PosVID && PosPID == Config.PosPID)
                             {
-                                // 如果匹配成功，設定全域變數為提取的COM端口號碼
-                                //PosComPort_scanRes = comPortNumber;
                                 // 組合顯示文字並更新界面上的顯示
                                 string displayText = $"COM{comPortNumber} (VID={Config.PosVID}, PID={Config.PosPID}) detected and saved.";
-                                //ComText.Text += displayText + "\n";
+                                DeviceString += displayText + "\n";
                             }
                         }
                     }
                 }
+                RaisePropertyChanged(nameof(DeviceString));
+
             }
             catch (ManagementException ex)
             {

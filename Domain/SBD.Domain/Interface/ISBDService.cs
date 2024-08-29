@@ -12,10 +12,7 @@ namespace SBD.Domain.Interface
         Task<int?> GetAirlineLuggageWeight(string Airline);
         Task<LuggageSize> GetLuggageSize();
         Task<int?> GetLuggageWieght();
-
-
         Task<bool?> PrinttLuggageSticker();
         Task<bool?> PrinttCoupon();
-
     }
 }

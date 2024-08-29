@@ -31,9 +31,31 @@ namespace SBD.ViewModels
                 AirlineLuggageSize = 158;
                 AirlineLuggageWeight = 20;
 
-                CustomLuggageSize = DesignTimeData.LuggageSize;
-                CustomLuggageTotleSize = CustomLuggageSize.Width + CustomLuggageSize.Height + CustomLuggageSize.Length;
-                CustomLuggageWeight = 18;
+           
+                switch (false)
+                {
+                    case true:
+                        CustomLuggageSize = new LuggageSize
+                        {
+                            Length = 33,
+                            Width = 45,
+                            Height = 65
+                        };
+                        CustomLuggageTotleSize = CustomLuggageSize.Width + CustomLuggageSize.Height + CustomLuggageSize.Length;
+                        CustomLuggageWeight = 18;
+                        break;
+                    case false:
+                        CustomLuggageSize = new LuggageSize
+                        {
+                            Length = 53,
+                            Width = 55,
+                            Height = 65
+                        };
+                        CustomLuggageTotleSize = CustomLuggageSize.Width + CustomLuggageSize.Height + CustomLuggageSize.Length;
+                        CustomLuggageWeight = 28;
+                        break;
+                }
+
             }
         }
 
@@ -69,10 +91,8 @@ namespace SBD.ViewModels
         public Flight Flight { get; set; }
         public int? AirlineLuggageSize { get; set; }
         public int? AirlineLuggageWeight { get; set; }
-
         public LuggageSize CustomLuggageSize { get; set; }
         public int? CustomLuggageWeight { get; set; }
-
         public int CustomLuggageTotleSize { get; set; }
         #endregion
 
@@ -97,7 +117,7 @@ namespace SBD.ViewModels
                 return;
 
 
-            AirlineLuggageSize = CustomLuggageWeightTask.Result;
+            AirlineLuggageSize = AirlineLuggageSizeTask.Result;
             AirlineLuggageWeight = AirlineLuggageWeightTask.Result;
             CustomLuggageSize =CustomLuggageSizeTask.Result;
             CustomLuggageWeight =CustomLuggageWeightTask.Result;

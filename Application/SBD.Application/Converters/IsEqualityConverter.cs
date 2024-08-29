@@ -8,12 +8,12 @@ namespace SBD.Converters
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value.Equals(parameter);
+            return value != null && value.Equals(parameter);
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((bool)value) ? parameter : Binding.DoNothing;
+            return value != null && ((bool)value) ? parameter : Binding.DoNothing;
         }
     }
 }

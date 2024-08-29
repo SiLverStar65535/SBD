@@ -153,25 +153,6 @@
         </StackPanel>
     </DataTemplate>
 
-    <DataTemplate x:Key="PageFooter">
-        <StackPanel Orientation="Horizontal">
-            <TextBlock x:Name="ComText"
-                       Width="123"
-                       Height="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Bottom"
-                       Text="TextBlock"
-                       TextWrapping="Wrap" />
-
-            <TextBlock x:Name="status"
-                       Width="67"
-                       Height="20"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Top"
-                       Text="TextBlock"
-                       TextWrapping="Wrap" />
-        </StackPanel>
-
-    </DataTemplate>
+  
 
 </ResourceDictionary>

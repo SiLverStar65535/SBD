@@ -3,17 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:SBD.Views"
+             xmlns:prism="http://prismlibrary.com/"
              xmlns:converters="clr-namespace:SBD.Converters"
+             xmlns:local="clr-namespace:SBD.Views"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:viewModels="clr-namespace:SBD.ViewModels"
-             xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="True"
+             Style="{StaticResource PageStyle}"
+             mc:Ignorable="d"
              d:DataContext="{d:DesignInstance viewModels:Step3PageViewModel,
                                               IsDesignTimeCreatable=True}"
-             d:Height="1800"
-             Style="{StaticResource PageStyle}"
-             mc:Ignorable="d">
+             d:Height="1800">
     <UserControl.Resources>
         <!--  定義動畫  -->
         <Storyboard x:Key="ScanButtonStoryboard"
@@ -272,21 +272,21 @@
                                   ContentTemplate="{StaticResource LuggageDeskImage}" />
                 <Path x:Name="path1"
                       Margin="16,214,26,572"
-                      d:Fill="#77FF0064"
                       Data="F1 M 37.4145,162.281L 266.414,162.281C 268.9,162.281 270.914,164.296 270.914,166.781L 270.914,166.781C 270.914,169.266 268.9,171.281 266.414,171.281L 37.4145,171.281C 34.9293,171.281 32.9145,169.266 32.9145,166.781L 32.9145,166.781C 32.9145,164.296 34.9293,162.281 37.4145,162.281 Z "
-                      StrokeLineJoin="Round" />
+                      StrokeLineJoin="Round"
+                      d:Fill="#77FF0064" />
                 <Path x:Name="path2"
                       Margin="22,630,20,158"
-                      d:Fill="#77FF0064"
                       Data="F1 M 37.4145,162.281L 266.414,162.281C 268.9,162.281 270.914,164.296 270.914,166.781L 270.914,166.781C 270.914,169.266 268.9,171.281 266.414,171.281L 37.4145,171.281C 34.9293,171.281 32.9145,169.266 32.9145,166.781L 32.9145,166.781C 32.9145,164.296 34.9293,162.281 37.4145,162.281 Z "
-                      StrokeLineJoin="Round" />
+                      StrokeLineJoin="Round"
+                      d:Fill="#77FF0064" />
                 <Path x:Name="path3"
                       Width="40"
                       Height="700"
                       Margin="146,98,894,39"
-                      d:Fill="#77FF0064"
                       Data="F1 M 245.415,48.7812L 245.415,277.781C 245.415,280.266 243.4,282.281 240.915,282.281L 240.915,282.281C 238.429,282.281 236.415,280.266 236.415,277.781L 236.415,48.7812C 236.415,46.2959 238.429,44.2812 240.915,44.2812L 240.915,44.2812C 243.4,44.2812 245.415,46.2959 245.415,48.7812 Z "
-                      StrokeLineJoin="Round" />
+                      StrokeLineJoin="Round"
+                      d:Fill="#77FF0064" />
             </Grid>
             <Grid Margin="800,0,0,550"
                   HorizontalAlignment="Center"
@@ -355,36 +355,36 @@
                     </Grid.Resources>
                     <Path x:Name="path4"
                           Margin="209.458,119.33,0.098,115.133"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 159.169,139.5L 170.781,132.186L 170.781,136.001L 182.247,136.001L 182.247,142.999L 170.781,142.999L 170.781,146.814L 159.169,139.5 Z " />
+                          Data="F1 M 159.169,139.5L 170.781,132.186L 170.781,136.001L 182.247,136.001L 182.247,142.999L 170.781,142.999L 170.781,146.814L 159.169,139.5 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path5"
                           Margin="118.174,217.781,108.751,0.2"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 131.089,166.339L 138.404,177.952L 134.589,177.952L 134.589,189.417L 127.59,189.417L 127.59,177.952L 123.775,177.952L 131.089,166.339 Z " />
+                          Data="F1 M 131.089,166.339L 138.404,177.952L 134.589,177.952L 134.589,189.417L 127.59,189.417L 127.59,177.952L 123.775,177.952L 131.089,166.339 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path6"
                           Margin="0,119.329,209.556,115.133"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 99.4227,137.897L 87.8103,145.212L 87.8103,141.397L 76.3449,141.397L 76.3449,134.398L 87.8103,134.398L 87.8103,130.583L 99.4227,137.897 Z " />
+                          Data="F1 M 99.4227,137.897L 87.8103,145.212L 87.8103,141.397L 76.3449,141.397L 76.3449,134.398L 87.8103,134.398L 87.8103,130.583L 99.4227,137.897 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path7"
                           Margin="199.52,56.174,17.098,171.975"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 153.211,120.468L 157.103,107.307L 159.622,110.173L 168.233,102.602L 172.854,107.858L 164.243,115.429L 166.762,118.294L 153.211,120.468 Z " />
+                          Data="F1 M 153.211,120.468L 157.103,107.307L 159.622,110.173L 168.233,102.602L 172.854,107.858L 164.243,115.429L 166.762,118.294L 153.211,120.468 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path8"
                           Margin="182.018,203.184,38.253,21.498"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 149.246,162.568L 162.407,166.46L 159.542,168.979L 167.112,177.589L 161.856,182.211L 154.286,173.6L 151.421,176.119L 149.246,162.568 Z " />
+                          Data="F1 M 149.246,162.568L 162.407,166.46L 159.542,168.979L 167.112,177.589L 161.856,182.211L 154.286,173.6L 151.421,176.119L 149.246,162.568 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path9"
                           Margin="29.064,195.167,187.556,32.981"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 110.549,159.201L 106.658,172.362L 104.139,169.497L 95.528,177.067L 90.9069,171.811L 99.5177,164.241L 96.9987,161.375L 110.549,159.201 Z " />
+                          Data="F1 M 110.549,159.201L 106.658,172.362L 104.139,169.497L 95.528,177.067L 90.9069,171.811L 99.5177,164.241L 96.9987,161.375L 110.549,159.201 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path10"
                           Margin="32.714,36.019,187.556,188.664"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 111.001,116.639L 97.8404,112.748L 100.706,110.229L 93.1352,101.618L 98.3914,96.9968L 105.962,105.608L 108.827,103.089L 111.001,116.639 Z " />
+                          Data="F1 M 111.001,116.639L 97.8404,112.748L 100.706,110.229L 93.1352,101.618L 98.3914,96.9968L 105.962,105.608L 108.827,103.089L 111.001,116.639 Z "
+                          d:Fill="#FFB6FF84" />
                     <Path x:Name="path11"
                           Margin="118.174,0,108.751,217.981"
-                          d:Fill="#FFB6FF84"
-                          Data="F1 M 130.169,108.725L 122.854,97.1122L 126.669,97.1122L 126.669,85.6468L 133.668,85.6468L 133.668,97.1122L 137.483,97.1122L 130.169,108.725 Z " />
+                          Data="F1 M 130.169,108.725L 122.854,97.1122L 126.669,97.1122L 126.669,85.6468L 133.668,85.6468L 133.668,97.1122L 137.483,97.1122L 130.169,108.725 Z "
+                          d:Fill="#FFB6FF84" />
                     <Grid.Style>
                         <Style TargetType="Grid">
                             <Setter Property="Visibility" Value="Visible" />
@@ -413,9 +413,9 @@
 
         <Grid Grid.Row="2" d:Visibility="Visible" />
         <Grid Grid.Row="2"
-              d:Visibility="Visible"
               Background="#FFCFCFCF"
-              Tag="{Binding ScanState}">
+              Tag="{Binding ScanState}"
+              d:Visibility="Visible">
 
             <Grid.Visibility>
                 <MultiBinding Converter="{converters:MultiValueToVisibilityConverter}">
@@ -431,6 +431,12 @@
             </Grid.RowDefinitions>
 
             <Grid>
+                <Grid.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="34" />
+                        <Setter Property="Opacity" Value="0.5" />
+                    </Style>
+                </Grid.Resources>
 
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Top">
                     <ContentPresenter Width="250"
@@ -508,158 +514,149 @@
                                           ContentTemplate="{StaticResource HorizonLine}" />
                     </Grid>
                 </Grid>
-                <TextBlock Margin="928,484,0,0"
-                           HorizontalAlignment="Left"
-                           VerticalAlignment="Top"
-                           Cursor="No"
-                           FontSize="34"
-                           Opacity="0.5"
-                           RenderTransformOrigin="4.316,1.129"
-                           Text="重量"
-                           TextWrapping="Wrap" />
-
-
-
 
                 <!--  行李規定  -->
-                <Grid>
-                    <TextBlock Margin="62,448,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Cursor="No"
-                               FontSize="34"
-                               Opacity="0.5"
-                               Text="行李規定"
-                               TextWrapping="Wrap" />
-                    <UniformGrid Margin="18,518,0,0"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Top"
-                                 Columns="1">
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="航空公司" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="尺寸" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="重量" />
-                    </UniformGrid>
-                    <UniformGrid Margin="176,518,0,0"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Top"
-                                 Columns="1">
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding Flight.Airline}" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding AirlineLuggageSize}" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding AirlineLuggageWeight}" />
-                    </UniformGrid>
-                </Grid>
+
+                <HeaderedContentControl Margin="36,446,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Margin="0,0,0,10"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="Bold"
+                                   Text="行李規定" />
+                    </HeaderedContentControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <UniformGrid Columns="1">
+                            <TextBlock Text="航空公司" />
+                            <TextBlock Text="尺寸" />
+                            <TextBlock Text="重量" />
+                        </UniformGrid>
+                        <UniformGrid Margin="20,0,0,0" Columns="2">
+                            <TextBlock Text="{Binding Flight.Airline}" />
+                            <TextBlock Text="航空" />
+                            <TextBlock Text="{Binding AirlineLuggageSize}" />
+                            <TextBlock Text="cm" />
+                            <TextBlock Text="{Binding AirlineLuggageWeight}" />
+                            <TextBlock Text="kg" />
+                        </UniformGrid>
+                    </StackPanel>
+                </HeaderedContentControl>
+
                 <!--  量測結果  -->
-                <Grid>
-                    <TextBlock Margin="402,446,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Cursor="No"
-                               FontSize="34"
-                               Opacity="0.5"
-                               Text="量測結果"
-                               TextWrapping="Wrap" />
 
-                    <UniformGrid Margin="352,496,0,0"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Top"
-                                 Columns="1">
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="長(L)" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="寬(W)" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="高(H)" />
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="重量" />
-                    </UniformGrid>
+                <HeaderedContentControl Margin="386,450,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Margin="0,0,0,10"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="Bold"
+                                   Text="量測結果" />
+                    </HeaderedContentControl.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <UniformGrid Columns="1">
+                            <TextBlock Text="長(L)" />
+                            <TextBlock Text="寬(W)" />
+                            <TextBlock Text="高(H)" />
+                            <TextBlock Text="重量" />
+                        </UniformGrid>
+                        <UniformGrid Margin="20,0,0,0" Columns="2">
+                            <TextBlock Text="{Binding CustomLuggageSize.Length}" />
+                            <TextBlock Text="cm" />
+                            <TextBlock Text="{Binding CustomLuggageSize.Width}" />
+                            <TextBlock Text="cm" />
+                            <TextBlock Text="{Binding CustomLuggageSize.Height}" />
+                            <TextBlock Text="cm" />
+                            <TextBlock Text="{Binding CustomLuggageWeight}" />
+                            <TextBlock Text="kg" />
+                        </UniformGrid>
+                    </StackPanel>
+                </HeaderedContentControl>
 
-                    <UniformGrid Margin="469,500,0,0"
-                                 HorizontalAlignment="Left"
-                                 VerticalAlignment="Top"
-                                 Columns="1">
-
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding CustomLuggageSize.Length}" />
-
-
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding CustomLuggageSize.Width}" />
-
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding CustomLuggageSize.Height}" />
-
-                        <TextBlock FontSize="34"
-                                   Opacity="0.5"
-                                   Text="{Binding CustomLuggageWeight}" />
-
-                    </UniformGrid>
-                </Grid>
                 <!--  判定結果  -->
-                <Grid>
-                    <TextBlock Margin="762,436,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Cursor="No"
-                               FontSize="34"
-                               Opacity="0.5"
-                               Text="判定結果"
-                               TextWrapping="Wrap" />
-                    <TextBlock Margin="700,490,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Cursor="No"
-                               FontSize="34"
-                               Opacity="0.5"
-                               RenderTransformOrigin="0.559,-0.307"
-                               Text="尺寸"
-                               TextWrapping="Wrap" />
-                    <TextBlock Height="98"
-                               Margin="921,541,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Cursor="No"
-                               FontSize="72"
-                               Opacity="0.5"
-                               Text="{Binding CustomLuggageWeight}"
-                               TextWrapping="Wrap" />
-                    <TextBlock Height="98"
-                               Margin="672,544,0,0"
-                               HorizontalAlignment="Left"
-                               VerticalAlignment="Top"
-                               Cursor="No"
-                               FontSize="72"
-                               Opacity="0.5"
-                               Text="{Binding CustomLuggageTotleSize}"
-                               TextWrapping="Wrap" />
-                    <ContentPresenter Width="272"
-                                      Margin="601,533,0,0"
-                                      HorizontalAlignment="Left"
-                                      VerticalAlignment="Top"
-                                      ContentTemplate="{StaticResource ConditionNotFit}" />
-                    <ContentPresenter Width="272"
-                                      Margin="832,534,0,0"
-                                      HorizontalAlignment="Left"
-                                      VerticalAlignment="Top"
-                                      ContentTemplate="{StaticResource ConditionNotFit}" />
+
+                <HeaderedContentControl Width="450"
+                                        Margin="620,450,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top">
+                    <HeaderedContentControl.Header>
+                        <TextBlock Margin="0,0,0,10"
+                                   HorizontalAlignment="Center"
+                                   FontWeight="Bold"
+                                   Text="判定結果" />
+                    </HeaderedContentControl.Header>
+                    <StackPanel Orientation="Vertical">
+                        <UniformGrid Rows="1">
+                            <TextBlock HorizontalAlignment="Center" Text="尺寸" />
+                            <TextBlock HorizontalAlignment="Center" Text="重量" />
+                        </UniformGrid>
+                        <UniformGrid Rows="1">
+                            <Grid Margin="5,0">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="72"
+                                           Text="{Binding CustomLuggageTotleSize}" />
+                                <ContentControl ContentTemplate="{StaticResource ConditionNotFit}" DataContext="{Binding .}">
+                                    <ContentControl.Style>
+                                        <Style TargetType="ContentControl">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Value="True">
+                                                    <DataTrigger.Binding>
+                                                        <MultiBinding Converter="{converters:MultiValueComparisonConverter}">
+                                                            <Binding Path="DataContext.CustomLuggageTotleSize" RelativeSource="{RelativeSource Self}" />
+                                                            <Binding Path="DataContext.AirlineLuggageSize" RelativeSource="{RelativeSource Self}" />
+                                                        </MultiBinding>
+                                                    </DataTrigger.Binding>
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
+                            </Grid>
+                            <Grid Margin="5,0">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="72"
+                                           Text="{Binding CustomLuggageWeight}" />
+                                <ContentControl ContentTemplate="{StaticResource ConditionNotFit}" DataContext="{Binding .}">
+                                    <ContentControl.Style>
+                                        <Style TargetType="ContentControl">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Value="True">
+                                                    <DataTrigger.Binding>
+                                                        <MultiBinding Converter="{converters:MultiValueComparisonConverter}">
+                                                            <Binding Path="DataContext.CustomLuggageWeight" RelativeSource="{RelativeSource Self}" />
+                                                            <Binding Path="DataContext.AirlineLuggageWeight" RelativeSource="{RelativeSource Self}" />
+                                                        </MultiBinding>
+                                                    </DataTrigger.Binding>
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </ContentControl.Style>
+                                </ContentControl>
+                            </Grid>
+                        </UniformGrid>
+                    </StackPanel>
+                </HeaderedContentControl>
+                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+
+
+
+
+
+
+
+
+
+                    <!--    -->
+
                 </Grid>
 
             </Grid>
@@ -672,15 +669,10 @@
                         Command="{Binding AgainCommand}"
                         Content="再一次"
                         Style="{DynamicResource BasicButton}" />
-                <Button x:Name="OKUSERDATA"
-                        Command="{Binding ConfirmCommand}"
+                <Button Command="{Binding ConfirmCommand}"
                         Content="確認"
                         Style="{DynamicResource BasicButton}" />
             </UniformGrid>
-
-
-
-
 
         </Grid>
     </Grid>
