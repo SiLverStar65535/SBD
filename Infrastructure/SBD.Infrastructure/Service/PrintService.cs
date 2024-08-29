@@ -1,12 +1,10 @@
 ﻿using System.Collections.Generic;
-using SBD.Domain.Interface;
+using SBD.Infrastructure.Interface;
 
-namespace SBD.Infrastructure
+namespace SBD.Infrastructure.Service
 {
     public class PrintService : IPrintService
     {
-
-
         public void PrintReceipt(List<string> InputTex)
         {
             

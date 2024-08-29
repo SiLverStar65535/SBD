@@ -1,18 +1,18 @@
-﻿using System.Text;
-using System.Windows.Input;
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using SBD.Domain.Interface;
 using SBD.Domain.Models;
 using SBD.Provider;
+using System.Text;
+using System.Windows.Input;
 
 namespace SBD.ViewModels
 {
     public class Step1PageViewModel : BindableBase, IRegionMemberLifetime
     {
         public bool KeepAlive { get; } = false;
-        private readonly IDataProvider _dataProvider;
+        private readonly ISBDService _sbdService;
 
 
         #region Constructors
@@ -23,10 +23,10 @@ namespace SBD.ViewModels
                 
             }
         }
-        public Step1PageViewModel(IDataProvider dataProvider)
+        public Step1PageViewModel(ISBDService isbdService)
         {
            
-            _dataProvider = dataProvider;
+            _sbdService = isbdService;
         }
         #endregion
 
@@ -48,11 +48,11 @@ namespace SBD.ViewModels
                 return;
 
             var BoardingPass = inputBuffer.ToString() == string.Empty 
-                ? _dataProvider.CreateFakeBoardingPassData( ) 
-                : _dataProvider.GetBoardingPassData(inputBuffer.ToString());
+                ? _sbdService.CreateFakeBoardingPassData( ) 
+                : _sbdService.GetBoardingPassData(inputBuffer.ToString());
             inputBuffer.Clear();
 
-            var Flight = _dataProvider.GetFlightDetail(BoardingPass.FlightNumber);
+            var Flight = _sbdService.GetFlightDetail(BoardingPass.FlightNumber);
 
             var NaviInfo = new NaviInfo
             {

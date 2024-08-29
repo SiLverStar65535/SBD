@@ -6,7 +6,7 @@ using SBD.Provider;
 
 namespace SBD.ViewModels
 {
-    public class Step2PageViewModel : BindableBase, INavigationAware  , IRegionMemberLifetime
+    public class Step2PageViewModel : BindableBase, INavigationAware, IRegionMemberLifetime
     {
         public bool KeepAlive { get; } = false;
         #region Constructors
@@ -14,7 +14,6 @@ namespace SBD.ViewModels
         {
             if (App.IsDesignTime)
             {
-              
                 BoardingPass = DesignTimeData.BoardingPass;
             }
         }
@@ -65,7 +64,10 @@ namespace SBD.ViewModels
             {
                 RegionName = RegionNames.ContentRegion,
                 NaviViewName = NavigatePath.Step3PageView,
-                NavigationParameters = null
+                NavigationParameters =   new NavigationParameters
+                {
+                    { nameof(Flight), Flight }
+                }
             };
             ApplicationCommands.NavigateCommand.Execute(NaviInfo);
         }

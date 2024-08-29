@@ -63,9 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IDataProvider.cs" />
-    <Compile Include="Interface\IPrintService.cs" />
-    <Compile Include="Interface\IScaneService.cs" />
+    <Compile Include="Interface\ISBDService.cs" />
     <Compile Include="Models\BoardingPass.cs" />
     <Compile Include="Models\BoardingPassData.cs" />
     <Compile Include="Models\DataList.cs" />

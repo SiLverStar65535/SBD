@@ -110,11 +110,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ApplicationCommands.cs" />
-    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\BoolNegationConverter.cs" />
     <Compile Include="Converters\DateToUpperCaseConverter.cs" />
     <Compile Include="Converters\InversBooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\MultiValueConverterBase.cs" />
     <Compile Include="Converters\MultiValueEqualityConverter.cs" />
+    <Compile Include="Converters\MultiValueToVisibilityConverter.BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\MultiValueToVisibilityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
     <Compile Include="Provider\eStep.cs" />
     <Compile Include="MainWindowViewModel.cs" />

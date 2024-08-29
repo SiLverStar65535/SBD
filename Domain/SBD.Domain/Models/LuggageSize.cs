@@ -1,10 +1,11 @@
-﻿namespace SBD.Domain.Models;
-
-public class LuggageSize
+﻿namespace SBD.Domain.Models
 {
-    public int Length { get; set; }
+    public class LuggageSize
+    {
+        public int Length { get; set; }
 
-    public int Width { get; set; }
+        public int Width { get; set; }
  
-    public int Height { get; set; }
+        public int Height { get; set; }
+    }
 }

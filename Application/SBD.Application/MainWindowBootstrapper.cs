@@ -5,6 +5,8 @@ using Prism.Regions;
 using Prism.Unity;
 using SBD.Domain.Interface;
 using SBD.Infrastructure;
+using SBD.Infrastructure.Interface;
+using SBD.Infrastructure.Service;
 using SBD.Provider;
 using SBD.Views;
 
@@ -29,9 +31,9 @@ namespace SBD
 
 
            
-            containerRegistry.RegisterSingleton<IDataProvider, DataProvider>();
+            containerRegistry.RegisterSingleton<ISBDService, SBDService>();
             containerRegistry.RegisterSingleton<IPrintService, PrintService>();
-            containerRegistry.RegisterSingleton<IScaneService, ScaneService>();
+            containerRegistry.RegisterSingleton<IScaneService, ScaneService>(); containerRegistry.RegisterSingleton<IFileService, FileService>();
 
         }
         protected override DependencyObject CreateShell()

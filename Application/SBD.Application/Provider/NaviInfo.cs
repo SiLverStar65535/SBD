@@ -1,10 +1,11 @@
 ﻿using Prism.Regions;
 
-namespace SBD.Provider;
-
-public class NaviInfo
+namespace SBD.Provider
 {
-    public string RegionName { get; set; }
-    public string NaviViewName { get; set; }
-    public NavigationParameters NavigationParameters { get; set; }
+    public class NaviInfo
+    {
+        public string RegionName { get; set; }
+        public string NaviViewName { get; set; }
+        public NavigationParameters NavigationParameters { get; set; }
+    }
 }

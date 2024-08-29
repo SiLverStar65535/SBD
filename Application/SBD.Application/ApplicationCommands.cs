@@ -1,8 +1,9 @@
 ﻿using Prism.Commands;
 
-namespace SBD;
-
-public static class ApplicationCommands
+namespace SBD
 {
-    public static CompositeCommand NavigateCommand = new CompositeCommand();
+    public static class ApplicationCommands
+    {
+        public static CompositeCommand NavigateCommand = new CompositeCommand();
+    }
 }

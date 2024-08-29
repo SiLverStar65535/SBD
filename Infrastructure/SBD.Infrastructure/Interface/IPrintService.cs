@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SBD.Domain.Interface
+namespace SBD.Infrastructure.Interface
 {
     public interface IPrintService
     {
