@@ -1,13 +1,12 @@
-﻿using System;
+﻿using SBD.Domain.Interface;
+using SBD.Domain.Models;
+using SBD.Infrastructure.Interface;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Aspose.Cells;
-using SBD.Domain.Interface;
-using SBD.Domain.Models;
-using SBD.Infrastructure.Interface;
 
 namespace SBD.Infrastructure.Service
 {
@@ -68,9 +67,6 @@ namespace SBD.Infrastructure.Service
             //模擬取得航空公司尺寸限制
             var result = new int?(158);
 
-
-
-
             await Task.Delay(3000);
 
             return result;
@@ -92,6 +88,20 @@ namespace SBD.Infrastructure.Service
             //模擬取得重量 
             return await _scaneService.GetWieght();
         }
+
+        public async Task<bool?>  PrinttLuggageSticker()
+        {
+            await Task.Delay(1000);
+            _printService.PrintBageReceipt(null);
+            return true;
+        }
+
+        public async Task<bool?>  PrinttCoupon()
+        {
+            await Task.Delay(1000);
+            _printService.PrintReceipt(null);
+            return true;
+        }
         private List<Flight> GetFlightList(string filePath)
         {
             var dataTable = _fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
@@ -112,6 +122,7 @@ namespace SBD.Infrastructure.Service
             }
             return flightList;
         }
-     
+
+  
     }
 }
