@@ -99,12 +99,13 @@ namespace SBD.Infrastructure.Service
         public async Task<bool?>  PrintLuggageSticker()
         {
             await Task.Delay(1000);
-            _printService.PrintBageReceipt(null);
+            _printService.PrintListString(null);
             return true;
         }
 
         public Task<bool?> PrintReceipt()
         {
+            _printService.PrintListString();
             return null;
         }
 

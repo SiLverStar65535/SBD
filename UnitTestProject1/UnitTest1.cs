@@ -12,6 +12,7 @@ namespace UnitTestProject1
         {
             ISBDService sbdService = new SBDService(new ScaneService(), new PrintService(), new FileService());
             var temp = sbdService.GetLuggageWieght();
+            Assert.IsNotNull(temp);
         }
     }
 }
