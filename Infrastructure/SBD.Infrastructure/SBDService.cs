@@ -10,13 +10,20 @@ using System.Threading.Tasks;
 
 namespace SBD.Infrastructure.Service
 {
-    public class SBDService(IScaneService scaneService, IPrintService printService, IFileService fileService)
-        : ISBDService
+    public class SBDService : ISBDService
     {
-        public readonly IScaneService _scaneService = scaneService;
-        public readonly IPrintService _printService = printService;
-        public readonly IFileService _fileService = fileService;
+        public readonly IScaneService _scaneService;
+        public readonly IPrintService _printService;
+        public readonly IFileService _fileService;
 
+        public SBDService(IScaneService scaneService, IPrintService printService, IFileService fileService)
+        {
+            _scaneService = scaneService;
+            _printService = printService;
+            _fileService = fileService;
+        }
+
+     
         public BoardingPass GetBoardingPassData(string scaneString)
         {
             var ScandedStringList = scaneString.Split(',');
@@ -89,14 +96,19 @@ namespace SBD.Infrastructure.Service
             return await _scaneService.GetWieght();
         }
 
-        public async Task<bool?>  PrinttLuggageSticker()
+        public async Task<bool?>  PrintLuggageSticker()
         {
             await Task.Delay(1000);
             _printService.PrintBageReceipt(null);
             return true;
         }
 
-        public async Task<bool?>  PrinttCoupon()
+        public Task<bool?> PrintReceipt()
+        {
+            return null;
+        }
+
+        public async Task<bool?>  PrintCoupon()
         {
             await Task.Delay(1000);
             _printService.PrintReceipt(null);
@@ -122,7 +134,5 @@ namespace SBD.Infrastructure.Service
             }
             return flightList;
         }
-
-  
     }
 }

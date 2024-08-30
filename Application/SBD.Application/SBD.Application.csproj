@@ -42,6 +42,8 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>latest</LangVersion>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -120,6 +122,7 @@
     <Compile Include="Converters\MultiValueToVisibilityConverter.cs" />
     <Compile Include="Converters\IsEqualityConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
+    <Compile Include="Model\WMIInfo.cs" />
     <Compile Include="Provider\eStep.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Provider\NavigatePath.cs" />
@@ -300,10 +303,6 @@
     <ProjectReference Include="..\..\Domain\SBD.Domain\SBD.Domain.csproj">
       <Project>{22b7c19a-737d-43e5-bb18-f3f9a4d80531}</Project>
       <Name>SBD.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrastructure\SBD.Infrastructure\SBD.Infrastructure.csproj">
-      <Project>{1fc657d0-033d-4a6f-b2c1-977feb9c1bce}</Project>
-      <Name>SBD.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

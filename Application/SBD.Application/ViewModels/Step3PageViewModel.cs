@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
- 
-using Prism.Commands;
+﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
 using SBD.Domain.Interface;
 using SBD.Domain.Models;
-using SBD.Infrastructure.Interface;
 using SBD.Provider;
 
 namespace SBD.ViewModels

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Windows;
-using Prism.Ioc;
+﻿using Prism.Ioc;
 using Prism.Regions;
 using Prism.Unity;
-using SBD.Domain.Interface;
-using SBD.Infrastructure;
-using SBD.Infrastructure.Interface;
-using SBD.Infrastructure.Service;
 using SBD.Provider;
 using SBD.Views;
+using System;
+using System.Windows;
+using SBD.Domain.Interface;
 
 namespace SBD
 {
@@ -30,10 +27,20 @@ namespace SBD
             containerRegistry.RegisterForNavigation<Step6PageView>();
 
 
-           
-            containerRegistry.RegisterSingleton<ISBDService, SBDService>();
-            containerRegistry.RegisterSingleton<IPrintService, PrintService>();
-            containerRegistry.RegisterSingleton<IScaneService, ScaneService>(); containerRegistry.RegisterSingleton<IFileService, FileService>();
+            //containerRegistry.RegisterSingleton<ISBDService, SBDService>();
+
+            containerRegistry.RegisterSingleton<ISBDService>(provider =>
+            {
+                var serviceType = Type.GetType("SBD.Infrastructure.Service.SBDService, SBD.Infrastructure");
+
+
+
+
+                return (ISBDService)Activator.CreateInstance(serviceType);
+            });
+
+
+
 
         }
         protected override DependencyObject CreateShell()

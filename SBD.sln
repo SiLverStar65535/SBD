@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thermal_Printer", "Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Therm_Sticker", "Infrastructure\ThermSticker\Therm_Sticker.csproj", "{A6D05D46-A489-4EEE-95AF-E64979D005E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,14 @@ Global
 		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|ARM64.ActiveCfg = Release|ARM64
 		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|ARM64.Build.0 = Release|ARM64
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805}.Release|ARM64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,9 +87,10 @@ Global
 		{1FC657D0-033D-4A6F-B2C1-977FEB9C1BCE} = {E5EE9396-F72F-4EF3-A99B-EB31583B9607}
 		{8D665066-07F7-491E-9D2E-5FD0DE421B0A} = {E5EE9396-F72F-4EF3-A99B-EB31583B9607}
 		{A6D05D46-A489-4EEE-95AF-E64979D005E5} = {E5EE9396-F72F-4EF3-A99B-EB31583B9607}
+		{BFD47880-F3D7-4CFC-8EF9-41DB022E3805} = {F7A1A0E4-96DC-47B2-9380-CA82FF4BC97F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {5D2DF6FA-EAAB-42C3-BE0E-FBB4145B0B02}
 		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {5D2DF6FA-EAAB-42C3-BE0E-FBB4145B0B02}
 	EndGlobalSection
 EndGlobal
