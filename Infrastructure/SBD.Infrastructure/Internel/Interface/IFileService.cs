@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace SBD.Infrastructure.Interface
+namespace SBD.Infrastructure.Internel.Interface
 {
     public interface IFileService
     {

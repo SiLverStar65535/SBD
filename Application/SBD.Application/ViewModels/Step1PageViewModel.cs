@@ -47,8 +47,8 @@ namespace SBD.ViewModels
             if (args.Key != Key.Enter)
                 return;
 
-            var BoardingPass = inputBuffer.ToString() == string.Empty 
-                ? _sbdService.CreateFakeBoardingPassData( ) 
+            var BoardingPass = inputBuffer.ToString() == string.Empty
+                ? CreateFakeBoardingPassData()
                 : _sbdService.GetBoardingPassData(inputBuffer.ToString());
             inputBuffer.Clear();
 
@@ -67,5 +67,20 @@ namespace SBD.ViewModels
             ApplicationCommands.NavigateCommand.Execute(NaviInfo);
         }
         #endregion
+
+
+        public BoardingPass CreateFakeBoardingPassData()
+        {
+            var BoardingPass = new BoardingPass();
+            BoardingPass.DepartureAirportENG = "TSA";
+            BoardingPass.ArrivalAirportENG = "MZG";
+            BoardingPass.FlightNumber = "AE0381";
+            BoardingPass.SeatNumber = "26A";
+            BoardingPass.TicketNumber = "016";
+            BoardingPass.PassengerName = "假資料FromDesignTime";
+            BoardingPass.DepartureAirport = DataList.AirportNameDictionary[BoardingPass.DepartureAirportENG];
+            BoardingPass.ArrivalAirport = DataList.AirportNameDictionary[BoardingPass.ArrivalAirportENG];
+            return BoardingPass;
+        }
     }
 }

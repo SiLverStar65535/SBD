@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using SBD.Domain.Models;
 
 namespace Therm_Sticker
 {
@@ -132,68 +131,68 @@ namespace Therm_Sticker
         /// <param name="With_Bar"></param>
         /// <param name="upsidedown"></param>
         /// <param name="行李資訊"></param>
-        private static void Build_(int Loc_x, int Loc_y, int With_Bar, int upsidedown, Luggage luggage)
-        {
+        //private static void Build_(int Loc_x, int Loc_y, int With_Bar, int upsidedown, Luggage luggage)
+        //{
 
-            Loc_x = Loc_x * 12;
-            Loc_y = Loc_y * 12;
-            if (upsidedown == 0)
-            {
-
-
-                driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", " BAG. IDENTIFICATION TAG");//列印組字
-                Loc_y = Loc_y + 45;
-                driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", luggage.boardingPassData.DepartureAirport+" -> "+ luggage.boardingPassData.ArrivalAirport);//列印組字
-                driver.windowsfont(Loc_x + 360, Loc_y + 36, 64, 0, 2, 0, "Calibri,", luggage.boardingPassData.SeatNumber);//列印組字->
-                Loc_y = Loc_y + 45;
-                driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", luggage.boardingPassData.PassengerName );//列印組字
-                Loc_y = Loc_y + 45;
-                driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", " AE0381/02OCT KNH");//列印組字
-                driver.windowsfont(Loc_x + 360, Loc_y, 64, 0, 2, 0, "Calibri,", luggage.boardingPassData.BoardingGate);//列印組字
-                //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
-
-                if (With_Bar == 1)
-                {
-                    Loc_x = Loc_x + 36;
-                    Loc_y = Loc_y + 60 + 12;
-                    driver.barcode(Loc_x.ToString(), Loc_y.ToString(), "25", "45", "0", "0", "4", "10", luggage .TagNumber );//列印BarCode---測試用
-                    // x,y,條碼種類,高度(dot),碼文顯示,旋轉,寬窄因子,寬窄因子,條碼內容
-
-                    Loc_x = Loc_x + 30;
-                    Loc_y = Loc_y + 46;
-                    driver.windowsfont(Loc_x, Loc_y, 32, 0, 2, 0, "標楷體", luggage.FlightTagNumber );//碼文
-                    //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
-                }
-            }
-            else if (upsidedown == 180)
-            {
-
-                driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", " BAG. IDENTIFICATION TAG");//列印組字
-                Loc_y = Loc_y - 45;
-                driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", luggage.boardingPassData.DepartureAirport + " -> " + luggage.boardingPassData.ArrivalAirport);//列印組字
-                driver.windowsfont(Loc_x - 360, Loc_y - 36, 64, 180, 2, 0, "Calibri,", luggage.boardingPassData.SeatNumber);//列印組字
-                Loc_y = Loc_y - 45;
-                driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", luggage.boardingPassData.PassengerName);//列印組字
-                Loc_y = Loc_y - 45;
-                driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", " "+ luggage.boardingPassData.FlightNumber +" / "+ luggage.boardingPassData.DepartureTime +"  " + luggage.boardingPassData.ArrivalAirport );//列印組字
-                driver.windowsfont(Loc_x - 360, Loc_y, 64, 180, 2, 0, "Calibri,", luggage.boardingPassData.BoardingGate);//列印組字
-                //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
+        //    Loc_x = Loc_x * 12;
+        //    Loc_y = Loc_y * 12;
+        //    if (upsidedown == 0)
+        //    {
 
 
-                if (With_Bar == 1)
-                {
-                    Loc_x = Loc_x - 36;
-                    Loc_y = Loc_y - 60 - 12;
-                    driver.barcode(Loc_x.ToString(), Loc_y.ToString(), "25", "45", "0", "180", "4", "10", luggage.TagNumber);//列印BarCode
-                    // x,y,條碼種類,高度(dot),碼文顯示,旋轉,寬窄因子,寬窄因子,條碼內容
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", " BAG. IDENTIFICATION TAG");//列印組字
+        //        Loc_y = Loc_y + 45;
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", luggage.boardingPassData.DepartureAirport + " -> " + luggage.boardingPassData.ArrivalAirport);//列印組字
+        //        driver.windowsfont(Loc_x + 360, Loc_y + 36, 64, 0, 2, 0, "Calibri,", luggage.boardingPassData.SeatNumber);//列印組字->
+        //        Loc_y = Loc_y + 45;
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", luggage.boardingPassData.PassengerName);//列印組字
+        //        Loc_y = Loc_y + 45;
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 0, 0, 0, "標楷體", " AE0381/02OCT KNH");//列印組字
+        //        driver.windowsfont(Loc_x + 360, Loc_y, 64, 0, 2, 0, "Calibri,", luggage.boardingPassData.BoardingGate);//列印組字
+        //        //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
 
-                    Loc_x = Loc_x - 30;
-                    Loc_y = Loc_y - 46;
-                    driver.windowsfont(Loc_x, Loc_y, 32, 180, 2, 0, "標楷體", luggage.FlightTagNumber);//碼文
-                    //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
-                }
-            }
-        }
+        //        if (With_Bar == 1)
+        //        {
+        //            Loc_x = Loc_x + 36;
+        //            Loc_y = Loc_y + 60 + 12;
+        //            driver.barcode(Loc_x.ToString(), Loc_y.ToString(), "25", "45", "0", "0", "4", "10", luggage.TagNumber);//列印BarCode---測試用
+        //            // x,y,條碼種類,高度(dot),碼文顯示,旋轉,寬窄因子,寬窄因子,條碼內容
+
+        //            Loc_x = Loc_x + 30;
+        //            Loc_y = Loc_y + 46;
+        //            driver.windowsfont(Loc_x, Loc_y, 32, 0, 2, 0, "標楷體", luggage.FlightTagNumber);//碼文
+        //            //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
+        //        }
+        //    }
+        //    else if (upsidedown == 180)
+        //    {
+
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", " BAG. IDENTIFICATION TAG");//列印組字
+        //        Loc_y = Loc_y - 45;
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", luggage.boardingPassData.DepartureAirport + " -> " + luggage.boardingPassData.ArrivalAirport);//列印組字
+        //        driver.windowsfont(Loc_x - 360, Loc_y - 36, 64, 180, 2, 0, "Calibri,", luggage.boardingPassData.SeatNumber);//列印組字
+        //        Loc_y = Loc_y - 45;
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", luggage.boardingPassData.PassengerName);//列印組字
+        //        Loc_y = Loc_y - 45;
+        //        driver.windowsfont(Loc_x, Loc_y, 32, 180, 0, 0, "標楷體", " " + luggage.boardingPassData.FlightNumber + " / " + luggage.boardingPassData.DepartureTime + "  " + luggage.boardingPassData.ArrivalAirport);//列印組字
+        //        driver.windowsfont(Loc_x - 360, Loc_y, 64, 180, 2, 0, "Calibri,", luggage.boardingPassData.BoardingGate);//列印組字
+        //        //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
+
+
+        //        if (With_Bar == 1)
+        //        {
+        //            Loc_x = Loc_x - 36;
+        //            Loc_y = Loc_y - 60 - 12;
+        //            driver.barcode(Loc_x.ToString(), Loc_y.ToString(), "25", "45", "0", "180", "4", "10", luggage.TagNumber);//列印BarCode
+        //            // x,y,條碼種類,高度(dot),碼文顯示,旋轉,寬窄因子,寬窄因子,條碼內容
+
+        //            Loc_x = Loc_x - 30;
+        //            Loc_y = Loc_y - 46;
+        //            driver.windowsfont(Loc_x, Loc_y, 32, 180, 2, 0, "標楷體", luggage.FlightTagNumber);//碼文
+        //            //x,y,文字高度,旋轉,字體(粗斜),底線,字形,文字內容
+        //        }
+        //    }
+        //}
 
         private static void Build_(int Loc_x, int Loc_y, int With_Bar, int upsidedown, string text)
         {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace SBD.Infrastructure.Interface
+namespace SBD.Infrastructure.Internel.Interface
 {
-    internal interface IWMIService
+    public interface IWMIService
     {
         IEnumerable<Dictionary<string, object>> QueryWMI(string query);
         IEnumerable<Dictionary<string, object>> GetProcessorInfo();

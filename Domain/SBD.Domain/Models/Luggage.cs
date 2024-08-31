@@ -11,10 +11,6 @@
     public class Luggage
     {
         /// <summary>
-        /// 登機證資訊
-        /// </summary>
-        public BoardingPassData boardingPassData { get; set; }
-        /// <summary>
         /// 獲取或設置行李的重量，單位為公斤。
         /// </summary>
         public double Weight { get; set; }

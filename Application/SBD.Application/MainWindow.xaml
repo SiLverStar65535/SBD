@@ -4,19 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SBD"
+        xmlns:prism="http://prismlibrary.com/"
         xmlns:converters="clr-namespace:SBD.Converters"
+        xmlns:local="clr-namespace:SBD"
         xmlns:provider="clr-namespace:SBD.Provider"
         xmlns:views="clr-namespace:SBD.Views"
-        xmlns:prism="http://prismlibrary.com/"
-        prism:ViewModelLocator.AutoWireViewModel="True"
         Title="MainWindow"
-        d:DataContext="{d:DesignInstance local:MainWindowViewModel,
-                                         IsDesignTimeCreatable=True}"
         SizeToContent="Width"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow"
-        mc:Ignorable="d">
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance local:MainWindowViewModel,
+                                         IsDesignTimeCreatable=True}">
     <!--  須確保寫上 prism:ViewModelLocator.AutoWireViewModel="True",否則LoadedCommand不會觸發  -->
     <b:Interaction.Triggers>
         <b:EventTrigger EventName="Loaded">
@@ -29,29 +29,7 @@
 
 
     <Grid>
-        <Grid.Resources>
-            <DataTemplate x:Key="PageFooter">
-                <Grid>
-                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                        <Button Command="{Binding LoadedCommand}" Content="取得設備" />
-                        <CheckBox x:Name="TestCheckBox"
-                                  VerticalAlignment="Center"
-                                  Content="測試"
-                                  IsChecked="True" />
-                        <Button Content="測試設定" Visibility="{Binding IsChecked, ElementName=TestCheckBox, Converter={converters:BooleanToVisibilityConverter}}" />
-                    </StackPanel>
-
-                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                        <TextBlock Text="COM1:掃碼器:" />
-                        <TextBlock Text="COM2:貼紙機:" />
-                        <TextBlock Text="COM3:打印機:" />
-                        <TextBlock Text="COM4:掃描器:" />
-                        <TextBlock Text="{Binding DeviceString}" />
-                    </StackPanel>
-                </Grid>
-
-            </DataTemplate>
-        </Grid.Resources>
+        <Grid.Resources />
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="1*" />
@@ -64,8 +42,42 @@
                             Height="1900"
                             prism:RegionManager.RegionName="{x:Static provider:RegionNames.ContentRegion}" />
         </ScrollViewer>
-        <ContentPresenter Grid.Row="2" ContentTemplate="{StaticResource PageFooter}" />
 
+        <Grid Grid.Row="2">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Button Command="{Binding LoadedCommand}" Content="取得設備" />
+                <CheckBox x:Name="TestCheckBox"
+                          VerticalAlignment="Center"
+                          Content="測試"
+                          IsChecked="True" />
+                <Button Content="測試設定" Visibility="{Binding IsChecked, ElementName=TestCheckBox, Converter={converters:BooleanToVisibilityConverter}}" />
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+
+                <TextBlock Text="掃碼器:" />
+                <TextBlock Text="{Binding QRScaner.PosVID}" />
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding QRScaner.PosPID}" />
+
+                <TextBlock Text="貼紙機:" />
+                <TextBlock Text="{Binding QRScaner.PosVID}" />
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding QRScaner.PosPID}" />
+
+                <TextBlock Text="打印機:" />
+                <TextBlock Text="{Binding QRScaner.PosVID}" />
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding QRScaner.PosPID}" />
+
+                <TextBlock Text="掃描器:" />
+                <TextBlock Text="{Binding QRScaner.PosVID}" />
+                <TextBlock Text="/" />
+                <TextBlock Text="{Binding QRScaner.PosPID}" />
+
+                <TextBlock Text="{Binding DeviceString}" />
+            </StackPanel>
+        </Grid>
         <!--<views:TestView Grid.Row="1"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" />-->

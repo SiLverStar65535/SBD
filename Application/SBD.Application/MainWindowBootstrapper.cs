@@ -6,6 +6,9 @@ using SBD.Views;
 using System;
 using System.Windows;
 using SBD.Domain.Interface;
+using SBD.Infrastructure.Internel.Interface;
+using SBD.Infrastructure.Service;
+using SBD.Infrastructure.Internel.Service;
 
 namespace SBD
 {
@@ -19,29 +22,24 @@ namespace SBD
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            //SBD.Infrastructure
+            containerRegistry.RegisterSingleton<IFileService,  FileService>(); 
+            containerRegistry.RegisterSingleton<IWMIService, WMIService>();
+            containerRegistry.RegisterSingleton<IQRScanerService, QRScanerService>();
+            containerRegistry.RegisterSingleton<IDimensionCameraService,  DimensionCameraService>();
+            containerRegistry.RegisterSingleton<IStickerService, StickerService>();
+            containerRegistry.RegisterSingleton<IPrinterService,  PrinterService>();
+
+            //SBD.Domain
+            containerRegistry.RegisterSingleton<ISBDService, SBDService>();
+
+            //SBD.Application
             containerRegistry.RegisterForNavigation<Step1PageView>();
             containerRegistry.RegisterForNavigation<Step2PageView>();
             containerRegistry.RegisterForNavigation<Step3PageView>();
             containerRegistry.RegisterForNavigation<Step4PageView>();
             containerRegistry.RegisterForNavigation<Step5PageView>();
             containerRegistry.RegisterForNavigation<Step6PageView>();
-
-
-            //containerRegistry.RegisterSingleton<ISBDService, SBDService>();
-
-            containerRegistry.RegisterSingleton<ISBDService>(provider =>
-            {
-                var serviceType = Type.GetType("SBD.Infrastructure.Service.SBDService, SBD.Infrastructure");
-
-
-
-
-                return (ISBDService)Activator.CreateInstance(serviceType);
-            });
-
-
-
-
         }
         protected override DependencyObject CreateShell()
         {

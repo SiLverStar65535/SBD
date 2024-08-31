@@ -43,20 +43,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IWMIService.cs" />
-    <Compile Include="Service\FileService.cs" />
-    <Compile Include="Interface\IFileService.cs" />
-    <Compile Include="SBDService.cs" />
-    <Compile Include="Interface\IPrintService.cs" />
-    <Compile Include="Interface\IScaneService.cs" />
-    <Compile Include="Service\PrintService.cs" />
+    <Compile Include="Internel\Common\IDevice.cs" />
+    <Compile Include="Internel\Interface\IFileService.cs" />
+    <Compile Include="Internel\Interface\IPrinterService.cs" />
+    <Compile Include="Internel\Interface\IDimensionCameraService.cs" />
+    <Compile Include="Internel\Interface\IQRScanerService.cs" />
+    <Compile Include="Internel\Interface\IStickerService.cs" />
+    <Compile Include="Internel\Interface\IWMIService.cs" />
+    <Compile Include="Internel\Service\PrinterService.cs" />
+    <Compile Include="Internel\Service\QRScaner.cs" />
+    <Compile Include="Internel\Service\StickerService.cs" />
+    <Compile Include="Internel\Service\WMIService.cs" />
+    <Compile Include="Internel\Service\FileService.cs" />
+    <Compile Include="Service\SBDService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\ScaneService.cs" />
+    <Compile Include="Internel\Service\DimensionCameraService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\SBD.Domain\SBD.Domain.csproj">
       <Project>{22b7c19a-737d-43e5-bb18-f3f9a4d80531}</Project>
       <Name>SBD.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Thermal_Printer\Thermal_Printer.csproj">
+      <Project>{8d665066-07f7-491e-9d2e-5fd0de421b0a}</Project>
+      <Name>Thermal_Printer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThermSticker\Therm_Sticker.csproj">
+      <Project>{a6d05d46-a489-4eee-95af-e64979d005e5}</Project>
+      <Name>Therm_Sticker</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
