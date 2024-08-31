@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="eDevice.cs" />
-    <Compile Include="ePort.cs" />
     <Compile Include="Interface\IDevice.cs" />
     <Compile Include="Interface\ISBDService.cs" />
     <Compile Include="Models\BoardingPass.cs" />

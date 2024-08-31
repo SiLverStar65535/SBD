@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Internel\Config.cs" />
     <Compile Include="Internel\Interface\IFileService.cs" />
     <Compile Include="Internel\Interface\IPrinterService.cs" />
     <Compile Include="Internel\Interface\IDimensionCameraService.cs" />

@@ -10,7 +10,7 @@ namespace SBD.Infrastructure.Internel.Interface
         Task<IDictionary<string, object>> QueryWMIAsync(string query);
         IDictionary<string, object> QueryDevices<T>() where T : WMIQuery, new();
         Task<IDictionary<string, object>> QueryDevicesAsync<T>( ) where T : WMIQuery, new();
-        object QueryDevice<T>(string deviceID);
-        Task<object> QueryDeviceAsync<T>(string deviceID);
+        object QueryDevice<T>(string deviceID) where T : WMIQuery, new();
+        Task<object> QueryDeviceAsync<T>(string deviceID) where T : WMIQuery, new();
     }
 }

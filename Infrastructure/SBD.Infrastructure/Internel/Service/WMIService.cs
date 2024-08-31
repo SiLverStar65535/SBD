@@ -1,6 +1,7 @@
 ﻿using SBD.Infrastructure.Internel.Interface;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Management;
 using System.Threading.Tasks;
 
@@ -66,19 +67,16 @@ namespace SBD.Infrastructure.Internel.Service
 
     public class WMIService : IWMIService
     {
-
         public IDictionary<string, object> QueryWMI(string query)
         {
             var searcher = new ManagementObjectSearcher(query);
             var managementObjects = searcher.Get();
             return Search(managementObjects);
         }
-
         public async Task<IDictionary<string, object>> QueryWMIAsync(string query)
         {
             return await Task.Run(() => QueryWMI(query));
         }
-     
         public IDictionary<string, object> QueryDevices<T>() where T : WMIQuery, new()
         {
             var query = new T().QueryString;
@@ -86,24 +84,24 @@ namespace SBD.Infrastructure.Internel.Service
             var managementObjects = searcher.Get();
             return Search(managementObjects);
         }
-
-        public async Task<IDictionary<string, object>> QueryDevicesAsync<T>( ) where T : WMIQuery, new()
+        public async Task<IDictionary<string, object>> QueryDevicesAsync<T>() where T : WMIQuery, new()
         {
             return await Task.Run(QueryDevices<T>);
         }
-
-        public object QueryDevice<T>(string deviceID)
+        public object QueryDevice<T>(string deviceID) where T : WMIQuery, new()
         {
-            throw new NotImplementedException();
-        }
+            var query = new T().QueryString;
+            var searcher = new ManagementObjectSearcher(query);
+            var managementObjects = searcher.Get();
 
-        public async Task<object> QueryDeviceAsync<T>(string deviceID)
+            var results = Search(managementObjects, deviceID);
+            return results.Count > 0 ? results.Values.First() : null; // Return the first matching device's properties or null if not found
+        }
+        public async Task<object> QueryDeviceAsync<T>(string deviceID) where T : WMIQuery, new()
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => QueryDevice<T>(deviceID));
         }
-
-
-        private IDictionary<string, object> Search(ManagementObjectCollection managementObjects)
+        private IDictionary<string, object> Search(ManagementObjectCollection managementObjects, string filterDeviceID = null)
         {
             var results = new Dictionary<string, object>();
 
@@ -113,6 +111,9 @@ namespace SBD.Infrastructure.Internel.Service
             foreach (var managementObject in managementObjects)
             {
                 var deviceId = managementObject["DeviceID"]?.ToString();
+                if (filterDeviceID != null && deviceId != filterDeviceID)
+                    continue; // Skip objects that don't match the filter
+
                 if (deviceId == null)
                     continue;
 
@@ -130,11 +131,6 @@ namespace SBD.Infrastructure.Internel.Service
 
             return results;
         }
-
-
-
-
-        
     }
 }
 

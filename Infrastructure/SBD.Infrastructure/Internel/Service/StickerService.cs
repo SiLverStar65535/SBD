@@ -4,16 +4,15 @@ namespace SBD.Infrastructure.Internel.Service
 {
     public class StickerService(IWMIService wmiService) : IStickerService
     {
-        public string DeviceID { get; } = "StickerID";
+        public string DeviceID { get; } = Config.StickerID;
 
         public bool IsConnected()
         {
-            var devie = wmiService.QueryDevice<PrinterQuery>(DeviceID);
-            return devie != null;
+            return wmiService.QueryDevice<PrinterQuery>(DeviceID) != null;
         }
         public object GetDeviceInformation()
         {
-            return string.Empty;
+            return wmiService.QueryDevice<PrinterQuery>(DeviceID);
         }
     }
 }

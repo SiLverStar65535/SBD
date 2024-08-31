@@ -23,27 +23,15 @@ namespace SBD.Infrastructure.Service
 
         public IDevice GetDevice(eDevice device)
         {
-            switch (device)
+            return device switch
             {
-                case eDevice.QRScaner:
-                    return qrScanerService;
-                    break;
-                case eDevice.DemensionCamera:
-                    return dimensionCameraService;
-                    break;
-                case eDevice.Printer:
-                    return stickerService;
-                    break;
-                case eDevice.Sticker:
-                    return printerService;
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(device), device, null);
-            }
+                eDevice.QRScaner => qrScanerService,
+                eDevice.DemensionCamera => dimensionCameraService,
+                eDevice.Printer => stickerService,
+                eDevice.Sticker => printerService,
+                _ => throw new ArgumentOutOfRangeException(nameof(device), device, null)
+            };
         }
-
-       
- 
 
         public BoardingPass GetBoardingPassData(string scaneString)
         {

@@ -1,12 +1,10 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Regions;
+using SBD.Domain;
 using SBD.Domain.Interface;
-using SBD.Domain.Models;
 using SBD.Provider;
 using System;
-using SBD.Domain;
-using SBD.Infrastructure.Internel.Common;
 
 namespace SBD
 {
@@ -77,14 +75,22 @@ namespace SBD
         private void ExecuteLoadedCommand()
         {
             QRScaner = _sbdService.GetDevice(eDevice.QRScaner);
-            var temp = QRScaner.IsConnected;
-            DemensionCamera = _sbdService.GetDevice(eDevice.DemensionCamera);
-            Printer = _sbdService.GetDevice(eDevice.Printer);
-            Sticker = _sbdService.GetDevice(eDevice.Sticker);
+            var IsQRScanerConnected = QRScaner.IsConnected();
 
-          
+            DemensionCamera = _sbdService.GetDevice(eDevice.DemensionCamera);
+            var IsDemensionCameraConnected = QRScaner.IsConnected();
+
+            Printer = _sbdService.GetDevice(eDevice.Printer);
+            var IsPrinterConnected = QRScaner.IsConnected();
+
+            Sticker = _sbdService.GetDevice(eDevice.Sticker);
+            var IsStickerConnected = QRScaner.IsConnected();
 
             RaisePropertyChanged(nameof(QRScaner));
+            RaisePropertyChanged(nameof(DemensionCamera));
+            RaisePropertyChanged(nameof(Printer));
+            RaisePropertyChanged(nameof(Sticker));
+
             RaisePropertyChanged(nameof(DeviceString));
         }
 

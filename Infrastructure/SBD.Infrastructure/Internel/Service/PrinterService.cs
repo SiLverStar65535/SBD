@@ -7,16 +7,15 @@ namespace SBD.Infrastructure.Internel.Service
 {
     public class PrinterService(IWMIService wmiService) : IPrinterService
     {
-        public string DeviceID { get; } = "PrintID";
+        public string DeviceID { get; } = Config.PrinterID;
        
         public bool IsConnected()
         {
-            var devie = wmiService.QueryDevice<PrinterQuery>(DeviceID);
-            return devie != null;
+            return wmiService.QueryDevice<PrinterQuery>(DeviceID) != null;
         }
         public object GetDeviceInformation()
         {
-            return string.Empty;
+            return wmiService.QueryDevice<PrinterQuery>(DeviceID);
         }
 
         public async Task<bool?> PrintListString(List<string> InputTex)

@@ -4,16 +4,15 @@ namespace SBD.Infrastructure.Internel.Service
 {
     public class QRScanerService(IWMIService wmiService) : IQRScanerService
     {
-        public string DeviceID { get; } = "QRScanerID";
+        public string DeviceID { get; } = Config.QRScanerID;
 
         public bool IsConnected()
         {
-            var devie = wmiService.QueryDevice<KeyboardQuery>(DeviceID);
-            return devie != null;
+            return wmiService.QueryDevice<KeyboardQuery>(DeviceID) != null;
         }
         public object GetDeviceInformation()
         {
-            return string.Empty;
+            return  wmiService.QueryDevice<KeyboardQuery>(DeviceID);
         }
     }
 }

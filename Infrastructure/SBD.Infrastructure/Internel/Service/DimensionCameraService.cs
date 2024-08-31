@@ -5,7 +5,7 @@ namespace SBD.Infrastructure.Internel.Service
 {
     public class DimensionCameraService(IWMIService wmiService) : IDimensionCameraService
     {
-        public string DeviceID { get; } = "DimensionCameraID";
+        public string DeviceID { get; } = Config.DimensionCameraID;
 
         public bool IsConnected()
         {
@@ -14,7 +14,7 @@ namespace SBD.Infrastructure.Internel.Service
         }
         public object GetDeviceInformation()
         {
-            return string.Empty;
+            return wmiService.QueryDevice<SerialPortQuery>(DeviceID);
         }
         public async Task<string> GetSize()
         {   
