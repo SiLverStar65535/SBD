@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using SBD.Domain.Interface;
+using System.Threading.Tasks;
 
 namespace SBD.Infrastructure.Internel.Interface
 {

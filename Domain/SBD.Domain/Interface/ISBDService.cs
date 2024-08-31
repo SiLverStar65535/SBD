@@ -23,7 +23,9 @@ namespace SBD.Domain.Interface
         Task<bool?> PrintReceipt();
         //列印優惠券
         Task<bool?> PrintCoupon();
-        //取得指定航班資訊
-        DeviceInfo GetDeviceInfo(eDevice device);
+
+
+        IDevice GetDevice(eDevice device);
+    
     }
 }

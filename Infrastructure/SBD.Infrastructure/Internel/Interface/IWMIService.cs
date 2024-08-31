@@ -1,14 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using SBD.Infrastructure.Internel.Service;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SBD.Infrastructure.Internel.Interface
 {
     public interface IWMIService
     {
-        IEnumerable<Dictionary<string, object>> QueryWMI(string query);
-        IEnumerable<Dictionary<string, object>> GetProcessorInfo();
-        IEnumerable<Dictionary<string, object>> GetPhysicalMemoryInfo();
-        IEnumerable<Dictionary<string, object>> GetDiskDriveInfo();
-        IEnumerable<Dictionary<string, object>> GetNetworkAdapterInfo();
-        IEnumerable<Dictionary<string, object>> GetPnPDeviceInfo();
+        IDictionary<string,object> QueryWMI(string query);
+        Task<IDictionary<string, object>> QueryWMIAsync(string query);
+        IDictionary<string, object> QueryDevices<T>() where T : WMIQuery, new();
+        Task<IDictionary<string, object>> QueryDevicesAsync<T>( ) where T : WMIQuery, new();
+        object QueryDevice<T>(string deviceID);
+        Task<object> QueryDeviceAsync<T>(string deviceID);
     }
 }

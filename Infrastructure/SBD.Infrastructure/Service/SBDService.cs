@@ -1,4 +1,5 @@
-﻿using SBD.Domain.Interface;
+﻿using SBD.Domain;
+using SBD.Domain.Interface;
 using SBD.Domain.Models;
 using SBD.Infrastructure.Internel.Interface;
 using System;
@@ -7,78 +8,42 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using SBD.Domain;
 
 namespace SBD.Infrastructure.Service
 {
-    public class SBDService : ISBDService
+    public class SBDService(
+        IFileService fileService,
+        IWMIService wmiService,
+        IQRScanerService qrScanerService,
+        IDimensionCameraService dimensionCameraService,
+        IPrinterService printerService,
+        IStickerService stickerService)
+        : ISBDService
     {
-        private readonly IFileService _fileService;
-        private readonly IWMIService _wmiService;
 
-        private readonly IQRScanerService _qrScanerService;
-        private readonly IDimensionCameraService _dimensionCameraService; 
-        private readonly IStickerService _stickerService;
-        private readonly IPrinterService _printerService;
-    
-
-        public SBDService(
-            IFileService fileService, IWMIService wmiService,
-            IQRScanerService qrScanerService, IDimensionCameraService dimensionCameraService, 
-            IPrinterService printerService, IStickerService stickerService)
+        public IDevice GetDevice(eDevice device)
         {
-            _fileService = fileService;
-            _wmiService = wmiService; 
-            
-            _qrScanerService = qrScanerService;
-            _dimensionCameraService = dimensionCameraService;
-    
-            _printerService = printerService;
-            _stickerService = stickerService;
-        }
-   
-
-        public DeviceInfo GetDeviceInfo(eDevice device) 
-        {
-            var deviceInfoString =  string.Empty;
-
-            switch(device)
+            switch (device)
             {
                 case eDevice.QRScaner:
-                    deviceInfoString = _qrScanerService.GetDeviceInfo();
+                    return qrScanerService;
                     break;
                 case eDevice.DemensionCamera:
-                    deviceInfoString = _dimensionCameraService.GetDeviceInfo();
+                    return dimensionCameraService;
                     break;
                 case eDevice.Printer:
-                    deviceInfoString = _stickerService.GetDeviceInfo();
+                    return stickerService;
                     break;
                 case eDevice.Sticker:
-                    deviceInfoString = _printerService.GetDeviceInfo();
+                    return printerService;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(device), device, null);
             }
+        }
 
-            if(string.IsNullOrEmpty( deviceInfoString))
-            {
-                return null;
-            }
-
-
-            // ToDo : Mapping deviceInfoString To wmiInfo
-            var wmiInfo = new DeviceInfo
-            {
-                Device = eDevice.QRScaner,
-                DeviceID = null,
-                DeviceName = null,
-                PosVID = null,
-                PosPID = null
-            };
-
-            return wmiInfo; 
-        }  
-      
+       
+ 
 
         public BoardingPass GetBoardingPassData(string scaneString)
         {
@@ -100,7 +65,7 @@ namespace SBD.Infrastructure.Service
         {
             var directoryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\Resources");
             var fileName = DateTime.Today.Month + "月正班時刻表";
-            var filePath = _fileService.FindFilePath(directoryPath, fileName);
+            var filePath = fileService.FindFilePath(directoryPath, fileName);
             var fightList = GetFlightList(filePath);
             //前面2字英文
             var temp0 = flightNumber.Substring(0, 2);
@@ -131,20 +96,20 @@ namespace SBD.Infrastructure.Service
         
         public async Task<LuggageSize> GetLuggageSize()
         { 
-            await _dimensionCameraService.GetSize(); 
+            await dimensionCameraService.GetSize(); 
             return new LuggageSize();
         }
         
-        public async Task<int?> GetLuggageWieght() => await _dimensionCameraService.GetWieght();
+        public async Task<int?> GetLuggageWieght() => await dimensionCameraService.GetWieght();
         public async Task<bool?> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage)
         {
-           return await _printerService.PrintListString(null);
+           return await printerService.PrintListString(null);
         }
-        public async Task<bool?> PrintReceipt() => await _printerService.PrintListString(null);
-        public async Task<bool?> PrintCoupon() => await _printerService.PrintListString(null);
+        public async Task<bool?> PrintReceipt() => await printerService.PrintListString(null);
+        public async Task<bool?> PrintCoupon() => await printerService.PrintListString(null);
         private List<Flight> GetFlightList(string filePath)
         {
-            var dataTable = _fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
+            var dataTable = fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
             var flightList = new List<Flight>();
             foreach (DataRow row in dataTable.Rows)
             {

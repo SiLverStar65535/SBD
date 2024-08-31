@@ -56,26 +56,19 @@
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
 
                 <TextBlock Text="掃碼器:" />
-                <TextBlock Text="{Binding QRScaner.PosVID}" />
-                <TextBlock Text="/" />
-                <TextBlock Text="{Binding QRScaner.PosPID}" />
+                <TextBlock Text="{Binding QRScaner.DeviceID}" />
 
                 <TextBlock Text="貼紙機:" />
-                <TextBlock Text="{Binding QRScaner.PosVID}" />
-                <TextBlock Text="/" />
-                <TextBlock Text="{Binding QRScaner.PosPID}" />
+                <TextBlock Text="{Binding Sticker.DeviceID}" />
 
                 <TextBlock Text="打印機:" />
-                <TextBlock Text="{Binding QRScaner.PosVID}" />
-                <TextBlock Text="/" />
-                <TextBlock Text="{Binding QRScaner.PosPID}" />
+                <TextBlock Text="{Binding Printer.DeviceID}" />
 
                 <TextBlock Text="掃描器:" />
-                <TextBlock Text="{Binding QRScaner.PosVID}" />
-                <TextBlock Text="/" />
-                <TextBlock Text="{Binding QRScaner.PosPID}" />
+                <TextBlock Text="{Binding DemensionCamera.DeviceID}" />
 
                 <TextBlock Text="{Binding DeviceString}" />
+
             </StackPanel>
         </Grid>
         <!--<views:TestView Grid.Row="1"

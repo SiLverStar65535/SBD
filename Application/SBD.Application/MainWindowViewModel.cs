@@ -6,6 +6,7 @@ using SBD.Domain.Models;
 using SBD.Provider;
 using System;
 using SBD.Domain;
+using SBD.Infrastructure.Internel.Common;
 
 namespace SBD
 {
@@ -27,10 +28,10 @@ namespace SBD
         }
 
         public string DeviceString { get; set; }
-        public DeviceInfo QRScaner {  get; set; }
-        public DeviceInfo Printer { get; set; }
-        public DeviceInfo Sticker { get; set; }
-        public DeviceInfo DemensionCamera { get; set; }
+        public IDevice QRScaner {  get; set; }
+        public IDevice Printer { get; set; }
+        public IDevice Sticker { get; set; }
+        public IDevice DemensionCamera { get; set; }
 
 
         private DelegateCommand<NaviInfo> _navigateCommand;
@@ -75,19 +76,13 @@ namespace SBD
         public DelegateCommand LoadedCommand => _loadedCommand ??= new DelegateCommand(ExecuteLoadedCommand);
         private void ExecuteLoadedCommand()
         {
-            QRScaner = _sbdService.GetDeviceInfo(eDevice.QRScaner);
-            DemensionCamera = _sbdService.GetDeviceInfo(eDevice.DemensionCamera);
-            Printer = _sbdService.GetDeviceInfo(eDevice.Printer);
-            Sticker = _sbdService.GetDeviceInfo(eDevice.Sticker);
+            QRScaner = _sbdService.GetDevice(eDevice.QRScaner);
+            var temp = QRScaner.IsConnected;
+            DemensionCamera = _sbdService.GetDevice(eDevice.DemensionCamera);
+            Printer = _sbdService.GetDevice(eDevice.Printer);
+            Sticker = _sbdService.GetDevice(eDevice.Sticker);
 
-            QRScaner = new DeviceInfo
-            {
-                Device = eDevice.QRScaner,
-                DeviceID = "11",
-                DeviceName = null,
-                PosVID = "11",
-                PosPID = "11"
-            };
+          
 
             RaisePropertyChanged(nameof(QRScaner));
             RaisePropertyChanged(nameof(DeviceString));
