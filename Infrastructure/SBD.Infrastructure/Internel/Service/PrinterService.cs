@@ -9,14 +9,9 @@ namespace SBD.Infrastructure.Internel.Service
     {
         public string DeviceID { get; } = Config.PrinterID;
        
-        public bool IsConnected()
-        {
-            return wmiService.QueryDevice<PrinterQuery>(DeviceID) != null;
-        }
-        public object GetDeviceInformation()
-        {
-            return wmiService.QueryDevice<PrinterQuery>(DeviceID);
-        }
+        public bool IsConnected() => wmiService.QueryDevice<PrinterQuery>(DeviceID) != null;
+
+        public object GetDeviceInformation() => wmiService.QueryDevice<PrinterQuery>(DeviceID);
 
         public async Task<bool?> PrintListString(List<string> InputTex)
         {

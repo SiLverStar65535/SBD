@@ -23,12 +23,12 @@ namespace SBD
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             //SBD.Infrastructure
-            containerRegistry.RegisterSingleton<IFileService,  FileService>(); 
+            containerRegistry.RegisterSingleton<IFileService, FileService>(); 
             containerRegistry.RegisterSingleton<IWMIService, WMIService>();
             containerRegistry.RegisterSingleton<IQRScanerService, QRScanerService>();
             containerRegistry.RegisterSingleton<IDimensionCameraService,  DimensionCameraService>();
             containerRegistry.RegisterSingleton<IStickerService, StickerService>();
-            containerRegistry.RegisterSingleton<IPrinterService,  PrinterService>();
+            containerRegistry.RegisterSingleton<IPrinterService, PrinterService>();
 
             //SBD.Domain
             containerRegistry.RegisterSingleton<ISBDService, SBDService>();

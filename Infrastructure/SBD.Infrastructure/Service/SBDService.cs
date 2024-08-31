@@ -11,24 +11,36 @@ using System.Threading.Tasks;
 
 namespace SBD.Infrastructure.Service
 {
-    public class SBDService(
-        IFileService fileService,
-        IWMIService wmiService,
-        IQRScanerService qrScanerService,
-        IDimensionCameraService dimensionCameraService,
-        IPrinterService printerService,
-        IStickerService stickerService)
-        : ISBDService
+    public class SBDService : ISBDService
     {
+        private readonly IFileService _fileService;
+        private readonly IQRScanerService _qrScanerService;
+        private readonly IDimensionCameraService _dimensionCameraService;
+        private readonly IPrinterService _printerService;
+        private readonly IStickerService _stickerService;
+
+        public SBDService(IFileService fileService,
+            IWMIService wmiService,
+            IQRScanerService qrScanerService,
+            IDimensionCameraService dimensionCameraService,
+            IPrinterService printerService,
+            IStickerService stickerService)
+        {
+            _fileService = fileService;
+            _qrScanerService = qrScanerService;
+            _dimensionCameraService = dimensionCameraService;
+            _printerService = printerService;
+            _stickerService = stickerService;
+        }
 
         public IDevice GetDevice(eDevice device)
         {
             return device switch
             {
-                eDevice.QRScaner => qrScanerService,
-                eDevice.DemensionCamera => dimensionCameraService,
-                eDevice.Printer => stickerService,
-                eDevice.Sticker => printerService,
+                eDevice.QRScaner => _qrScanerService,
+                eDevice.DemensionCamera => _dimensionCameraService,
+                eDevice.Printer => _stickerService,
+                eDevice.Sticker => _printerService,
                 _ => throw new ArgumentOutOfRangeException(nameof(device), device, null)
             };
         }
@@ -53,7 +65,7 @@ namespace SBD.Infrastructure.Service
         {
             var directoryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\Resources");
             var fileName = DateTime.Today.Month + "月正班時刻表";
-            var filePath = fileService.FindFilePath(directoryPath, fileName);
+            var filePath = _fileService.FindFilePath(directoryPath, fileName);
             var fightList = GetFlightList(filePath);
             //前面2字英文
             var temp0 = flightNumber.Substring(0, 2);
@@ -84,20 +96,20 @@ namespace SBD.Infrastructure.Service
         
         public async Task<LuggageSize> GetLuggageSize()
         { 
-            await dimensionCameraService.GetSize(); 
+            await _dimensionCameraService.GetSize(); 
             return new LuggageSize();
         }
         
-        public async Task<int?> GetLuggageWieght() => await dimensionCameraService.GetWieght();
+        public async Task<int?> GetLuggageWieght() => await _dimensionCameraService.GetWieght();
         public async Task<bool?> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage)
         {
-           return await printerService.PrintListString(null);
+           return await _printerService.PrintListString(null);
         }
-        public async Task<bool?> PrintReceipt() => await printerService.PrintListString(null);
-        public async Task<bool?> PrintCoupon() => await printerService.PrintListString(null);
+        public async Task<bool?> PrintReceipt() => await _printerService.PrintListString(null);
+        public async Task<bool?> PrintCoupon() => await _printerService.PrintListString(null);
         private List<Flight> GetFlightList(string filePath)
         {
-            var dataTable = fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
+            var dataTable = _fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
             var flightList = new List<Flight>();
             foreach (DataRow row in dataTable.Rows)
             {

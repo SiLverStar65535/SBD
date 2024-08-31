@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SBD.Domain;
+using SBD.Domain.Interface;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SBD.Infrastructure.Internel.Interface;
 
 namespace SBD.InfraTestApp
 {
@@ -20,9 +10,54 @@ namespace SBD.InfraTestApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IFileService _fileService;
+        private readonly IWMIService _wmiService;
+        private readonly IQRScanerService _qrScanerService;
+        private readonly IDimensionCameraService _dimensionCameraService;
+        private readonly IPrinterService _printerService;
+        private readonly IStickerService _stickerService;
+
+        public MainWindow(IFileService fileService,IWMIService wmiService,
+            IQRScanerService qrScanerService,
+            IDimensionCameraService dimensionCameraService,
+            IPrinterService printerService,
+            IStickerService stickerService )
         {
+            _fileService = fileService;
+            _wmiService = wmiService;
+            _qrScanerService = qrScanerService;
+            _dimensionCameraService = dimensionCameraService;
+            _printerService = printerService;
+            _stickerService = stickerService;
+ 
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+           var QRScaner = _qrScanerService;
+           var QRScanerDeviceID = QRScaner.DeviceID;
+           var QRScanerIsConnected = QRScaner.IsConnected();
+           var QRScanerDeviceInformation = QRScaner.GetDeviceInformation();
+
+        
+           var DimensionCamera = _dimensionCameraService;
+           var DimensionCameraDeviceID = DimensionCamera.DeviceID;
+           var DimensionCameraIsConnected = DimensionCamera.IsConnected();
+           var DimensionCameraDeviceInformation = DimensionCamera.GetDeviceInformation();
+ 
+
+           var Printer = _printerService;
+           var PrinterDeviceID = Printer.DeviceID;
+           var PrinterIsConnected = Printer.IsConnected();
+           var PrinterDeviceInformation = Printer.GetDeviceInformation();
+
+     
+           var Sticker = _stickerService;
+           var StickerDeviceID = Sticker.DeviceID;
+           var StickerIsConnected = Sticker.IsConnected();
+           var StickerDeviceInformation = Sticker.GetDeviceInformation();
+ 
         }
     }
 }
