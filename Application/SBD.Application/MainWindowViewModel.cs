@@ -90,7 +90,6 @@ namespace SBD
             RaisePropertyChanged(nameof(DemensionCamera));
             RaisePropertyChanged(nameof(Printer));
             RaisePropertyChanged(nameof(Sticker));
-
             RaisePropertyChanged(nameof(DeviceString));
         }
 
