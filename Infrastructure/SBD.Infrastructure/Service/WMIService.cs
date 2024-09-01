@@ -1,11 +1,11 @@
-﻿using System;
+﻿using SBD.Infrastructure.Interface;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Management;
 using System.Reflection;
 using System.Threading.Tasks;
-using SBD.Infrastructure.Interface;
 
 namespace SBD.Infrastructure.Service
 {

@@ -68,10 +68,6 @@ namespace SBD.InfraTestApp
                 TagNumber = null,
                 FlightTagNumber = null
             };
-
-        
-
-
         }
         #endregion
 
@@ -88,14 +84,17 @@ namespace SBD.InfraTestApp
         #endregion
 
         #region QRScanner
+        //取得ID
         private void QRScanner_Button_Click1(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = _qrScanerService.ID;
         }
+        //取得設備資訊
         private void QRScanner_Button_Click2(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = _qrScanerService.GetDeviceInformation().ToString();
         }
+        //是否連接
         private void QRScanner_Button_Click3(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = _qrScanerService.IsConnected().ToString();
@@ -103,19 +102,23 @@ namespace SBD.InfraTestApp
         #endregion
 
         #region DimensionCamera
+        //取得ID
         private void DimensionCamera_Button_Click_1(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = _dimensionCameraService.ID;
-        }
+        }  
+        //取得設備資訊
         private void DimensionCamera_Button_Click_2(object sender, RoutedEventArgs e)
         {
             var temp = _dimensionCameraService.GetDeviceInformation();
             OutputTextBox.Text = temp != null ? temp.ToString() : "null";
         }
+        //是否連接
         private void DimensionCamera_Button_Click_3(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = _dimensionCameraService.IsConnected().ToString();
         }
+        //取得尺寸
         private async void DimensionCamera_Button_Click_4(object sender, RoutedEventArgs e)
         {
             OutputTextBox.Text = string.Empty;
@@ -125,18 +128,23 @@ namespace SBD.InfraTestApp
         #endregion
 
         #region Printer
+        //取得ID
         private void Printer_Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            OutputTextBox.Text = _printerService.ID;
         }
+        //取得設備資訊
         private void Printer_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
+            var temp = _printerService.GetDeviceInformation();
+            OutputTextBox.Text = temp != null ? temp.ToString() : "null";
         }
+        //是否連接
         private void Printer_Button_Click_3(object sender, RoutedEventArgs e)
         {
             
         }
+        //列印文字
         private void Printer_Button_Click_4(object sender, RoutedEventArgs e)
         {
             
@@ -144,18 +152,22 @@ namespace SBD.InfraTestApp
         #endregion
 
         #region Sticker
+        //取得ID
         private void Sticker_Button_Click_1(object sender, RoutedEventArgs e)
         {
             
         }
+        //取得設備資訊
         private void Sticker_Button_Click_2(object sender, RoutedEventArgs e)
         {
             
         }
+        //是否連接
         private void Sticker_Button_Click_3(object sender, RoutedEventArgs e)
         {
             
         }
+        //列印條碼貼紙
         private void Sticker_Button_Click_4(object sender, RoutedEventArgs e)
         {
             
@@ -166,8 +178,11 @@ namespace SBD.InfraTestApp
         //取得登機證資訊
         private void SBD_Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var temp = _sbdervice.GetBoardingPassData("");
-         
+            //var scaneString = "M1CE/SHI               6JAWL7 TSAMZGAE 0381 275Y026A0016 34C>5180  3275BAE              2A             0 AE                        N,測試,";
+            var scaneString = string.Empty;
+            var boardingPass = _sbdervice.CreateBoardingPassData(scaneString);
+
+            //OutputTextBox.Text = boardingPass
         }
         //取得航班資訊
         private void SBD_Button_Click_2(object sender, RoutedEventArgs e)
@@ -210,9 +225,5 @@ namespace SBD.InfraTestApp
             OutputTextBox.Text = _sbdervice.GetPassengerLuggageWieght().ToString();
         }
         #endregion
-
-
-
     }
 }
-//_sbdervice.PrintLuggageSticker(FakeBoardingPass, FakeLuggage);

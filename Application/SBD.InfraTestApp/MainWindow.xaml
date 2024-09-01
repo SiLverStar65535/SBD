@@ -118,7 +118,7 @@
                 <TextBlock Margin="10,5"
                            HorizontalAlignment="Center"
                            FontWeight="Bold"
-                           Text="Output" />
+                           Text="OutputString" />
             </HeaderedContentControl.Header>
             <TextBox x:Name="OutputTextBox"
                      MinHeight="300"

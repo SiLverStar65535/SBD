@@ -45,21 +45,31 @@ namespace SBD.Infrastructure
             };
         }
 
-        public BoardingPass GetBoardingPassData(string scaneString)
+        public BoardingPass CreateBoardingPassData(string scanString)
         {
-            var ScandedStringList = scaneString.Split(',');
-            var boardingPassInfo = ScandedStringList[0];
-            var boardingPassPassengerName = ScandedStringList[1];
-            var BoardingPass = new BoardingPass();
-            BoardingPass.PassengerName = boardingPassPassengerName;
-            BoardingPass.DepartureAirportENG = boardingPassInfo.Substring(31, 3);
-            BoardingPass.DepartureAirport = DataList.AirportNameDictionary[BoardingPass.DepartureAirportENG];
-            BoardingPass.ArrivalAirportENG = boardingPassInfo.Substring(33, 3);
-            BoardingPass.ArrivalAirport = DataList.AirportNameDictionary[BoardingPass.ArrivalAirportENG];
-            BoardingPass.FlightNumber = boardingPassInfo.Substring(36, 7);
-            BoardingPass.SeatNumber = boardingPassInfo.Substring(49, 3);
-            BoardingPass.TicketNumber = boardingPassInfo.Substring(53, 3);
-            return BoardingPass;
+            try
+            {
+                var scannedStringList = scanString.Split(',');
+                var boardingPassInfo = scannedStringList[0];
+                var boardingPassPassengerName = scannedStringList[1];
+                var boardingPass = new BoardingPass
+                {
+                    PassengerName = boardingPassPassengerName,
+                    DepartureAirportENG = boardingPassInfo.Substring(31, 3),
+                    DepartureAirport = DataList.AirportNameDictionary[boardingPassInfo.Substring(31, 3)],
+                    ArrivalAirportENG = boardingPassInfo.Substring(33, 3),
+                    ArrivalAirport = DataList.AirportNameDictionary[boardingPassInfo.Substring(33, 3)],
+                    FlightNumber = boardingPassInfo.Substring(36, 7),
+                    SeatNumber = boardingPassInfo.Substring(49, 3),
+                    TicketNumber = boardingPassInfo.Substring(53, 3)
+                };
+                return boardingPass;
+            }
+            catch(Exception ex) 
+            {
+                Console.WriteLine($"Error:CreateBoardingPassData: {ex.Message}");
+            }
+            return null;
         }
         public Flight GetFlightDetail(string flightNumber)
         {
@@ -109,77 +119,31 @@ namespace SBD.Infrastructure
         public async Task<bool> PrintCoupon() => await _printerService.PrintListString(null);
         private List<Flight> GetFlightList(string filePath)
         {
-            var dataTable = _fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
-            var flightList = new List<Flight>();
-            foreach (DataRow row in dataTable.Rows)
+            try
             {
-                var flightInfo = new Flight();
-                flightInfo.Route = row[0].ToString();
-                flightInfo.Airline = row[1].ToString();
-                flightInfo.FlightNumber = row[2].ToString();
-                flightInfo.DepartureTime = Convert.ToDateTime(row[3]);
-                flightInfo.ArrivalTime = Convert.ToDateTime(row[4]);
-                flightInfo.FlightDays = row[5].ToString();
-                flightInfo.AircraftType = row[6].ToString();
-                flightInfo.Remarks = row[7].ToString();
+                var dataTable = _fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
+                var flightList = new List<Flight>();
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    var flightInfo = new Flight();
+                    flightInfo.Route = row[0].ToString();
+                    flightInfo.Airline = row[1].ToString();
+                    flightInfo.FlightNumber = row[2].ToString();
+                    flightInfo.DepartureTime = Convert.ToDateTime(row[3]);
+                    flightInfo.ArrivalTime = Convert.ToDateTime(row[4]);
+                    flightInfo.FlightDays = row[5].ToString();
+                    flightInfo.AircraftType = row[6].ToString();
+                    flightInfo.Remarks = row[7].ToString();
 
-                flightList.Add(flightInfo);
+                    flightList.Add(flightInfo);
+                }
+                return flightList;
             }
-            return flightList;
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error:GetFlightList: {ex.Message}");
+            }
+            return null;
         }
     }
 }
-
-
-//// 使用WMI來搜索系統中的所有設備，篩選出含有COM端口描述的設備
-//var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity WHERE Caption LIKE '%(COM%'");
-////var searcher = new ManagementObjectSearcher("SELECT * FROM Win32_PnPEntity ");
-//var managmentObjects = searcher.Get();
-//// 正則表達式，用於從設備描述中提取COM端口編號
-//var comRegex = new Regex(@"\(COM(\d+)\)");
-
-//try
-//{
-//    var comCount = managmentObjects.Count;
-//    // 遍歷搜索結果
-//    foreach (var managmentObject in managmentObjects)
-//    {
-//        // 獲取設備描述信息
-//        string caption = managmentObject["Caption"].ToString();
-
-//        // 使用正則表達式匹配COM端口
-//        var matchCom = comRegex.Match(caption);
-
-//        if (matchCom.Success)
-//        {
-//            // 成功匹配後提取COM端口號碼
-//            string comPortNumberStr = matchCom.Groups[1].Value;
-//            // 嘗試將提取的端口號碼字符串轉換為整數
-//            if (int.TryParse(comPortNumberStr, out int comPortNumber))
-//            {
-//                // 提取設備ID，用於進一步匹配VID和PID
-//                string deviceId = managmentObject["DeviceID"].ToString();
-//                // 正則表達式，用於從設備ID中提取VID和PID
-//                var vidPidRegex = new Regex(@"VID_([0-9A-F]+)&PID_([0-9A-F]+)");
-//                var matchVidPid = vidPidRegex.Match(deviceId);
-
-//                var isMatched = matchVidPid.Success;
-//                var PosVID = matchVidPid.Groups[1].Value;
-//                var PosPID = matchVidPid.Groups[2].Value;
-
-//                // 檢查VID和PID是否與配置文件中設定的相符
-//                if (isMatched && PosVID == Config.PosVID && PosPID == Config.PosPID)
-//                {
-//                    // 組合顯示文字並更新界面上的顯示
-//                    string displayText = $"COM{comPortNumber} (VID={Config.PosVID}, PID={Config.PosPID}) detected and saved.";
-//                    DeviceString += displayText + "\n";
-//                }
-//            }
-//        }
-//    }
-//}
-//catch (ManagementException ex)
-//{
-//    // 處理可能的異常，並在異常發生時彈出提示
-//    MessageBox.Show("An error occurred while querying for WMI data: " + ex.Message);
-//}

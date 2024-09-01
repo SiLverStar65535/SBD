@@ -49,7 +49,7 @@ namespace SBD.ViewModels
 
             var BoardingPass = inputBuffer.ToString() == string.Empty
                 ? CreateFakeBoardingPassData()
-                : _sbdService.GetBoardingPassData(inputBuffer.ToString());
+                : _sbdService.CreateBoardingPassData(inputBuffer.ToString());
             inputBuffer.Clear();
 
             var Flight = _sbdService.GetFlightDetail(BoardingPass.FlightNumber);

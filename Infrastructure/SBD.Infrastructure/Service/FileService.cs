@@ -17,13 +17,24 @@ namespace SBD.Infrastructure.Service
             var license = new License();
             license.SetLicense(stream);
         }
+     
+        public string FindFilePath(string directoryPath, string searchPattern)
+        {
+            // 搜尋符合條件的檔案
+            var files = Directory.GetFiles(directoryPath, "*", SearchOption.AllDirectories)
+                .Where(file => Path.GetFileName(file).Contains(searchPattern))
+                .ToList();
+
+            // 如果找到檔案，返回第一個檔案的完整路徑
+            return files.Count > 0 ? files[0] : null;
+        }
         public DataTable GetExcelSheetData(int sheetIndex, int firstRow, string filePath)
         {
             // 加載Excel文件
             var workbook = new Workbook(filePath);
             var worksheet = workbook.Worksheets[sheetIndex];
 
-            var dataTable1 =  worksheet.Cells.ExportDataTable(firstRow, 0, worksheet.Cells.MaxDataRow + 1, worksheet.Cells.MaxDataColumn + 1, true);
+            var dataTable1 = worksheet.Cells.ExportDataTable(firstRow, 0, worksheet.Cells.MaxDataRow + 1, worksheet.Cells.MaxDataColumn + 1, true);
             // 剃除 dataTable1 中沒有資料的行
             for (int i = dataTable1.Rows.Count - 1; i >= 0; i--)  // 需要倒序遍歷，因為移除行時會改變索引
             {
@@ -35,16 +46,6 @@ namespace SBD.Infrastructure.Service
             }
 
             return dataTable1;
-        }
-        public string FindFilePath(string directoryPath, string searchPattern)
-        {
-            // 搜尋符合條件的檔案
-            var files = Directory.GetFiles(directoryPath, "*", SearchOption.AllDirectories)
-                .Where(file => Path.GetFileName(file).Contains(searchPattern))
-                .ToList();
-
-            // 如果找到檔案，返回第一個檔案的完整路徑
-            return files.Count > 0 ? files[0] : null;
         }
     }
 }
