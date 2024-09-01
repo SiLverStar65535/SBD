@@ -1,15 +1,15 @@
-﻿using SBD.Domain;
-using SBD.Domain.Interface;
-using SBD.Domain.Models;
-using SBD.Infrastructure.Internel.Interface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using SBD.Domain;
+using SBD.Domain.Interface;
+using SBD.Domain.Models;
+using SBD.Infrastructure.Interface;
 
-namespace SBD.Infrastructure.Service
+namespace SBD.Infrastructure
 {
     public class SBDService : ISBDService
     {

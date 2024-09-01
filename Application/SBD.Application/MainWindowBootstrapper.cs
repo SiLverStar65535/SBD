@@ -6,9 +6,9 @@ using SBD.Views;
 using System;
 using System.Windows;
 using SBD.Domain.Interface;
-using SBD.Infrastructure.Internel.Interface;
+using SBD.Infrastructure;
+using SBD.Infrastructure.Interface;
 using SBD.Infrastructure.Service;
-using SBD.Infrastructure.Internel.Service;
 
 namespace SBD
 {

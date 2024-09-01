@@ -5,9 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SBD.InfraTestApp"
         Title="MainWindow"
-        Width="800"
-        Height="450"
+        Width="600"
+        Height="400"
         Loaded="Window_Loaded"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
-    <Grid />
+
+    <Grid>
+
+        <UniformGrid HorizontalAlignment="Left">
+            <HeaderedContentControl>
+                <HeaderedContentControl.Header>
+                    <TextBlock Margin="10,5"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               Text="SBDService" />
+                </HeaderedContentControl.Header>
+                <UniformGrid Columns="1">
+                    <Button Click="Button_Click" Content="列印條碼貼紙" />
+                    <Button Content="列印明細" />
+                    <Button Content="列印優惠券" />
+                    <Button Content="取得重量" />
+                    <Button Content="取得長寬高" />
+                </UniformGrid>
+            </HeaderedContentControl>
+
+
+            <HeaderedContentControl>
+                <HeaderedContentControl.Header>
+                    <TextBlock Margin="10,5"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               Text="DimensionCameraService" />
+                </HeaderedContentControl.Header>
+                <UniformGrid Columns="1">
+                    <Button Click="Button_Click" Content="列印條碼貼紙" />
+
+                </UniformGrid>
+            </HeaderedContentControl>
+        </UniformGrid>
+
+    </Grid>
+
+
+
+
+
+
 </Window>

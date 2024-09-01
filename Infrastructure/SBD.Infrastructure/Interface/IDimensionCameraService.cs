@@ -1,7 +1,7 @@
-﻿using SBD.Domain.Interface;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using SBD.Domain.Interface;
 
-namespace SBD.Infrastructure.Internel.Interface
+namespace SBD.Infrastructure.Interface
 {
     public interface IDimensionCameraService : IDevice
     {

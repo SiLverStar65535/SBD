@@ -2,7 +2,7 @@
 {
     public interface IDevice
     {
-        string DeviceID { get; }
+        string ID { get; }
         object GetDeviceInformation();
         bool IsConnected();
     }

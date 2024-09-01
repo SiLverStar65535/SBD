@@ -1,4 +1,4 @@
-﻿namespace SBD.Infrastructure.Internel
+﻿namespace SBD.Infrastructure
 {
     class Config
     {

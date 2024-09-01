@@ -56,16 +56,16 @@
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
 
                 <TextBlock Text="掃碼器:" />
-                <TextBlock Text="{Binding QRScaner.DeviceID}" />
+                <TextBlock Text="{Binding QRScaner.ID}" />
 
                 <TextBlock Text="貼紙機:" />
-                <TextBlock Text="{Binding Sticker.DeviceID}" />
+                <TextBlock Text="{Binding Sticker.ID}" />
 
                 <TextBlock Text="打印機:" />
-                <TextBlock Text="{Binding Printer.DeviceID}" />
+                <TextBlock Text="{Binding Printer.ID}" />
 
                 <TextBlock Text="掃描器:" />
-                <TextBlock Text="{Binding DemensionCamera.DeviceID}" />
+                <TextBlock Text="{Binding DemensionCamera.ID}" />
 
                 <TextBlock Text="{Binding DeviceString}" />
 

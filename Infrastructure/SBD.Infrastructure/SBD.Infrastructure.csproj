@@ -44,21 +44,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Internel\Config.cs" />
-    <Compile Include="Internel\Interface\IFileService.cs" />
-    <Compile Include="Internel\Interface\IPrinterService.cs" />
-    <Compile Include="Internel\Interface\IDimensionCameraService.cs" />
-    <Compile Include="Internel\Interface\IQRScanerService.cs" />
-    <Compile Include="Internel\Interface\IStickerService.cs" />
-    <Compile Include="Internel\Interface\IWMIService.cs" />
-    <Compile Include="Internel\Service\PrinterService.cs" />
-    <Compile Include="Internel\Service\QRScaner.cs" />
-    <Compile Include="Internel\Service\StickerService.cs" />
-    <Compile Include="Internel\Service\WMIService.cs" />
-    <Compile Include="Internel\Service\FileService.cs" />
-    <Compile Include="Service\SBDService.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Interface\IFileService.cs" />
+    <Compile Include="Interface\IPrinterService.cs" />
+    <Compile Include="Interface\IDimensionCameraService.cs" />
+    <Compile Include="Interface\IQRScanerService.cs" />
+    <Compile Include="Interface\IStickerService.cs" />
+    <Compile Include="Interface\IWMIService.cs" />
+    <Compile Include="Service\PrinterService.cs" />
+    <Compile Include="Service\QRScaner.cs" />
+    <Compile Include="Service\StickerService.cs" />
+    <Compile Include="Service\WMIService.cs" />
+    <Compile Include="Service\FileService.cs" />
+    <Compile Include="SBDService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Internel\Service\DimensionCameraService.cs" />
+    <Compile Include="Service\DimensionCameraService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Domain\SBD.Domain\SBD.Domain.csproj">

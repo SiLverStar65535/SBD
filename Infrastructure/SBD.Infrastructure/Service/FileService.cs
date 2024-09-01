@@ -3,9 +3,9 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using Aspose.Cells;
-using SBD.Infrastructure.Internel.Interface;
+using SBD.Infrastructure.Interface;
 
-namespace SBD.Infrastructure.Internel.Service
+namespace SBD.Infrastructure.Service
 {
     public class FileService : IFileService
     {

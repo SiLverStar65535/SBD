@@ -1,20 +1,18 @@
 ﻿using System.Threading.Tasks;
-using SBD.Infrastructure.Internel.Interface;
+using SBD.Infrastructure.Interface;
 
-namespace SBD.Infrastructure.Internel.Service
+namespace SBD.Infrastructure.Service
 {
     public class DimensionCameraService(IWMIService wmiService) : IDimensionCameraService
     {
-        public string DeviceID { get; } = Config.DimensionCameraID;
+        public string ID { get; } = Config.DimensionCameraID;
 
-        public bool IsConnected()
-        {
-            var devie = wmiService.QueryDevice<SerialPortQuery>(DeviceID);
-            return devie != null;
-        }
+        public bool IsConnected() => GetDeviceInformation() != null;
+
         public object GetDeviceInformation()
         {
-            return wmiService.QueryDevice<SerialPortQuery>(DeviceID);
+            var result = wmiService.QueryDevice(typeof(WMIQuery.SerialPortQuery), ID);
+            return !string.IsNullOrEmpty(result.Key) ? result : null;
         }
         public async Task<string> GetSize()
         {   

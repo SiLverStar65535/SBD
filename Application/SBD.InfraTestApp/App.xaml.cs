@@ -1,10 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SBD.Domain.Interface;
-using SBD.Infrastructure.Internel.Interface;
-using SBD.Infrastructure.Internel.Service;
 using SBD.Infrastructure.Service;
 using System;
 using System.Windows;
+using SBD.Infrastructure;
+using SBD.Infrastructure.Interface;
 
 namespace SBD.InfraTestApp
 {
