@@ -6,6 +6,6 @@ namespace SBD.Infrastructure.Interface
 {
     public interface IPrinterService : IDevice
     {
-        Task<bool?> PrintListString(List<string> InputTex);
+        Task<bool> PrintListString(List<string> InputTex);
     }
 }

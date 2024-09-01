@@ -103,8 +103,8 @@ namespace SBD.ViewModels
             var AirlineLuggageSizeTask = _sbdService.GetAirlineLuggageSize(Flight.Airline);
             var AirlineLuggageWeightTask = _sbdService.GetAirlineLuggageWeight(Flight.Airline);
 
-            var CustomLuggageSizeTask = _sbdService.GetLuggageSize();
-            var CustomLuggageWeightTask = _sbdService.GetLuggageWieght();
+            var CustomLuggageSizeTask = _sbdService.GetPassengerLuggageSize();
+            var CustomLuggageWeightTask = _sbdService.GetPassengerLuggageWieght();
 
             if (   await AirlineLuggageSizeTask   == null
                 || await AirlineLuggageWeightTask == null

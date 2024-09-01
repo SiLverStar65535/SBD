@@ -17,7 +17,7 @@ namespace SBD.Infrastructure.Service
         public async Task<string> GetSize()
         {   
             await Task.Delay(5000);
-            return string.Empty;
+            return "XXXXX";
         }
 
         public async Task<int?> GetWieght()

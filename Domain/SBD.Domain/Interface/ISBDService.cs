@@ -13,16 +13,16 @@ namespace SBD.Domain.Interface
         Task<int?> GetAirlineLuggageSize(string airline);
         //取得航空公司規定的行李重量
         Task<int?> GetAirlineLuggageWeight(string airline);
-        //取得行李尺寸
-        Task<LuggageSize> GetLuggageSize();
-        //取得行李重量
-        Task<int?> GetLuggageWieght();
+        //取得乘客託運行李尺寸
+        Task<LuggageSize> GetPassengerLuggageSize();
+        //取得乘客託運行李重量
+        Task<int?> GetPassengerLuggageWieght();
         //列印行李條貼紙
-        Task<bool?> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage);
+        Task<bool> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage);
         //列印收據
-        Task<bool?> PrintReceipt();
+        Task<bool> PrintReceipt();
         //列印優惠券
-        Task<bool?> PrintCoupon();
+        Task<bool> PrintCoupon();
 
 
         IDevice GetDevice(eDevice device);

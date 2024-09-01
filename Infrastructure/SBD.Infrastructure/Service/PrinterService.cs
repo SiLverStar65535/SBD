@@ -17,7 +17,7 @@ namespace SBD.Infrastructure.Service
             return !string.IsNullOrEmpty(result.Key) ? result : null;
         }
 
-        public async Task<bool?> PrintListString(List<string> InputTex)
+        public async Task<bool> PrintListString(List<string> InputTex)
         {
             await Task.Run(() => { Post.CallByCommandCode(null, InputTex); });
             return true;

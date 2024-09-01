@@ -94,19 +94,19 @@ namespace SBD.Infrastructure
             return result;
         }
         
-        public async Task<LuggageSize> GetLuggageSize()
+        public async Task<LuggageSize> GetPassengerLuggageSize()
         { 
             await _dimensionCameraService.GetSize(); 
             return new LuggageSize();
         }
         
-        public async Task<int?> GetLuggageWieght() => await _dimensionCameraService.GetWieght();
-        public async Task<bool?> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage)
+        public async Task<int?> GetPassengerLuggageWieght() => await _dimensionCameraService.GetWieght();
+        public async Task<bool> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage)
         {
            return await _printerService.PrintListString(null);
         }
-        public async Task<bool?> PrintReceipt() => await _printerService.PrintListString(null);
-        public async Task<bool?> PrintCoupon() => await _printerService.PrintListString(null);
+        public async Task<bool> PrintReceipt() => await _printerService.PrintListString(null);
+        public async Task<bool> PrintCoupon() => await _printerService.PrintListString(null);
         private List<Flight> GetFlightList(string filePath)
         {
             var dataTable = _fileService.GetExcelSheetData(sheetIndex: 0, firstRow: 4, filePath);
