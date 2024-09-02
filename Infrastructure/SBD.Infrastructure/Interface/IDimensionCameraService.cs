@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using SBD.Domain.Interface;
 
 namespace SBD.Infrastructure.Interface
 {

@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SBD.InfraTestApp"
         Title="MainWindow"
-        Width="800"
         FontSize="16"
         Loaded="Window_Loaded"
-        SizeToContent="Height"
+        SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d">
 
@@ -98,6 +97,13 @@
                            Text="SBDService" />
             </HeaderedContentControl.Header>
             <UniformGrid Columns="1">
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="DeviceComboBox"
+                              Width="180"
+                              ItemsSource="{x:Static local:MainWindow.DeviceList}"
+                              SelectedIndex="0" />
+                    <Button Click="Button_Click" Content="取得設備是否連接" />
+                </StackPanel>
                 <Button Click="SBD_Button_Click_1" Content="取得登機證資訊" />
                 <Button Click="SBD_Button_Click_2" Content="取得航班資訊" />
                 <Button Click="SBD_Button_Click_3" Content="取得航空公司規定的行李尺寸" />
@@ -115,12 +121,17 @@
                                 Margin="5"
                                 VerticalAlignment="Stretch">
             <HeaderedContentControl.Header>
-                <TextBlock Margin="10,5"
-                           HorizontalAlignment="Center"
-                           FontWeight="Bold"
-                           Text="OutputString" />
+                <StackPanel>
+                    <TextBlock Margin="10,5"
+                               HorizontalAlignment="Center"
+                               FontWeight="Bold"
+                               Text="OutputString" />
+                    <Button Click="Button_Click_1" Content="Clear" />
+                </StackPanel>
+
             </HeaderedContentControl.Header>
             <TextBox x:Name="OutputTextBox"
+                     MinWidth="400"
                      MinHeight="300"
                      Text=""
                      TextWrapping="Wrap" />

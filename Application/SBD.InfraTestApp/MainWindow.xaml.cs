@@ -1,10 +1,15 @@
-﻿using SBD.Domain;
+﻿using System.Collections.Generic;
+using SBD.Domain;
 using SBD.Domain.Interface;
 using System.Windows;
 using SBD.Infrastructure.Interface;
 using SBD.Infrastructure.Service;
 using SBD.Domain.Models;
 using SBD.Infrastructure;
+using System;
+using System.Linq;
+using System.Reflection;
+using System.Collections;
 
 namespace SBD.InfraTestApp
 {
@@ -40,6 +45,7 @@ namespace SBD.InfraTestApp
         #endregion
 
         #region Properties
+        public static IEnumerable<eDevice> DeviceList { get; } = Enum.GetValues(typeof(eDevice)).Cast<eDevice>();
         private BoardingPass FakeBoardingPass { get; set; }
         private Luggage FakeLuggage { get; set; }
         #endregion
@@ -69,17 +75,31 @@ namespace SBD.InfraTestApp
                 FlightTagNumber = null
             };
         }
+        private string ClassPropertiesToString(object obj)
+        {
+            var type = obj.GetType();
+            var props = type.GetProperties();
+            var result = string.Empty;
+            foreach (var prop in props)
+            {
+
+                result += $"{prop.Name}:{prop.GetValue(obj)}\n";
+            }
+            return result;
+        }
         #endregion
 
-        #region WindowEvent
+        #region Event
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             GenerateFakeData();
             var temp1 = _wmiService.QueryWMI("SELECT * FROM Win32_PnPEntity");
             var temp3 = _wmiService.QueryDevices(typeof(WMIQuery.KeyboardQuery));
             var temp2 = _wmiService.QueryDevice(typeof(WMIQuery.KeyboardQuery), "USB\\VID_2EFD&PID_7812\\6&3365FBAF&0&13");
-
-         
+        }
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            OutputTextBox.Text = string.Empty;
         }
         #endregion
 
@@ -92,7 +112,8 @@ namespace SBD.InfraTestApp
         //取得設備資訊
         private void QRScanner_Button_Click2(object sender, RoutedEventArgs e)
         {
-            OutputTextBox.Text = _qrScanerService.GetDeviceInformation().ToString();
+            var temp = _qrScanerService.GetDeviceInformation();
+            OutputTextBox.Text = temp != null ? temp.ToString() : "取得失敗";
         }
         //是否連接
         private void QRScanner_Button_Click3(object sender, RoutedEventArgs e)
@@ -111,7 +132,7 @@ namespace SBD.InfraTestApp
         private void DimensionCamera_Button_Click_2(object sender, RoutedEventArgs e)
         {
             var temp = _dimensionCameraService.GetDeviceInformation();
-            OutputTextBox.Text = temp != null ? temp.ToString() : "null";
+            OutputTextBox.Text = temp != null ? temp.ToString() : "取得失敗";
         }
         //是否連接
         private void DimensionCamera_Button_Click_3(object sender, RoutedEventArgs e)
@@ -137,17 +158,19 @@ namespace SBD.InfraTestApp
         private void Printer_Button_Click_2(object sender, RoutedEventArgs e)
         {
             var temp = _printerService.GetDeviceInformation();
-            OutputTextBox.Text = temp != null ? temp.ToString() : "null";
+            OutputTextBox.Text = temp != null ? temp.ToString() : "取得失敗";
         }
         //是否連接
         private void Printer_Button_Click_3(object sender, RoutedEventArgs e)
         {
-            
+            OutputTextBox.Text = _printerService.IsConnected().ToString();
         }
         //列印文字
-        private void Printer_Button_Click_4(object sender, RoutedEventArgs e)
+        private async void Printer_Button_Click_4(object sender, RoutedEventArgs e)
         {
-            
+            OutputTextBox.Text = string.Empty;
+            var temp = await _printerService.PrintListString(new List<string>());
+            OutputTextBox.Text = temp.ToString();
         }
         #endregion
 
@@ -175,24 +198,36 @@ namespace SBD.InfraTestApp
         #endregion
 
         #region SBDService
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(DeviceComboBox.SelectedValue is eDevice selectedDevice)
+            {
+                OutputTextBox.Text = _sbdervice.IsDeviceConnected(selectedDevice).ToString();
+            }
+        }
         //取得登機證資訊
         private void SBD_Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            //var scaneString = "M1CE/SHI               6JAWL7 TSAMZGAE 0381 275Y026A0016 34C>5180  3275BAE              2A             0 AE                        N,測試,";
-            var scaneString = string.Empty;
-            var boardingPass = _sbdervice.CreateBoardingPassData(scaneString);
-
-            //OutputTextBox.Text = boardingPass
+        {            
+            //var scaneString = string.Empty;
+            var scaneString = "M1CE/SHI               6JAWL7 TSAMZGAE 0381 275Y026A0016 34C>5180  3275BAE              2A             0 AE                        N,測試,";
+            var temp = _sbdervice.CreateBoardingPassData(scaneString);
+            OutputTextBox.Text = temp != null
+                ? ClassPropertiesToString(temp)
+                : "取得失敗";
         }
         //取得航班資訊
         private void SBD_Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //_sbdervice.GetBoardingPassData();
+            var temp = _sbdervice.GetFlightDetail("AE0381");
+
+            OutputTextBox.Text = temp != null 
+                ? ClassPropertiesToString(temp) 
+                : "取得失敗";
         }
         //取得航空公司規定的行李尺寸
-        private void SBD_Button_Click_3(object sender, RoutedEventArgs e)
+        private async void SBD_Button_Click_3(object sender, RoutedEventArgs e)
         {
-            _sbdervice.GetAirlineLuggageSize("");
+            await _sbdervice.GetAirlineLuggageSize("華信");
         }
         //取得航空公司規定的行李重量
         private void SBD_Button_Click_4(object sender, RoutedEventArgs e)

@@ -1,12 +1,7 @@
 ﻿namespace SBD.Domain.Models
 {
-
-
-
-
-
     /// <summary>
-    /// 代表乘客的行李詳情。
+    /// 代表乘客的行李物件
     /// </summary>
     public class Luggage
     {

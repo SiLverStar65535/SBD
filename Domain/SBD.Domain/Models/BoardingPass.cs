@@ -1,5 +1,8 @@
 ﻿namespace SBD.Domain.Models
 {
+    /// <summary>
+    /// 登機證物件
+    /// </summary>
     public class BoardingPass
     {   
         /// <summary>
@@ -8,7 +11,7 @@
         public string DepartureAirport { get; set; }
 
         /// <summary>
-        /// 出發機場
+        /// 出發機場(英)
         /// </summary>
         public string DepartureAirportENG { get; set; }
 

@@ -5,6 +5,7 @@ using SBD.Domain;
 using SBD.Domain.Interface;
 using SBD.Provider;
 using System;
+using SBD.Infrastructure.Interface;
 
 namespace SBD
 {
@@ -74,17 +75,17 @@ namespace SBD
         public DelegateCommand LoadedCommand => _loadedCommand ??= new DelegateCommand(ExecuteLoadedCommand);
         private void ExecuteLoadedCommand()
         {
-            QRScaner = _sbdService.GetDevice(eDevice.QRScaner);
-            var IsQRScanerConnected = QRScaner.IsConnected();
+           
+            var IsQRScanerConnected = _sbdService.IsDeviceConnected(eDevice.QRScaner);
 
-            DemensionCamera = _sbdService.GetDevice(eDevice.DemensionCamera);
-            var IsDemensionCameraConnected = QRScaner.IsConnected();
+      
+            var IsDemensionCameraConnected =  _sbdService.IsDeviceConnected(eDevice.DemensionCamera);
 
-            Printer = _sbdService.GetDevice(eDevice.Printer);
-            var IsPrinterConnected = QRScaner.IsConnected();
+         
+            var IsPrinterConnected = _sbdService.IsDeviceConnected(eDevice.Printer);
 
-            Sticker = _sbdService.GetDevice(eDevice.Sticker);
-            var IsStickerConnected = QRScaner.IsConnected();
+         
+            var IsStickerConnected = _sbdService.IsDeviceConnected(eDevice.Sticker);
 
             RaisePropertyChanged(nameof(QRScaner));
             RaisePropertyChanged(nameof(DemensionCamera));

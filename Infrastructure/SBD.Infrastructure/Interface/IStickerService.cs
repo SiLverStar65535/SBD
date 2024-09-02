@@ -1,5 +1,4 @@
-﻿using SBD.Domain.Interface;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SBD.Infrastructure.Interface

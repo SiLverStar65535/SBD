@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="Interface\IDevice.cs" />
     <Compile Include="Interface\IFileService.cs" />
     <Compile Include="Interface\IPrinterService.cs" />
     <Compile Include="Interface\IDimensionCameraService.cs" />

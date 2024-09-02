@@ -64,14 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="eDevice.cs" />
-    <Compile Include="Interface\IDevice.cs" />
     <Compile Include="Interface\ISBDService.cs" />
     <Compile Include="Models\BoardingPass.cs" />
     <Compile Include="Models\DataList.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\Luggage.cs" />
     <Compile Include="Models\LuggageSize.cs" />
-    <Compile Include="Models\DeviceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

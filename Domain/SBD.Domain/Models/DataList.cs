@@ -2,11 +2,9 @@
 
 namespace SBD.Domain.Models
 {
-  
-
     public static class DataList
     {
-
+        //取得機場中文用
         public static Dictionary<string, string>  AirportNameDictionary = new Dictionary<string, string>()
         {
             { "TPE", "中正"},
@@ -21,7 +19,7 @@ namespace SBD.Domain.Models
             { "KYD", "蘭嶼"},
             { "PIF", "屏東"},
             { "WOT", "望安"},
-            { "TSA", "松山"},
+            { "SAM", "松山"},
             { "TXG", "台中"},
             { "TTT", "台東"},
             { "TNN", "台南"},
