@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="SBD.Page4AControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SBD"
+             mc:Ignorable="d" 
+             d:DesignHeight="521" d:DesignWidth="1052" Background="#FFF3E9E9">
+    <Grid>
+        <Grid x:Name="Page3BX" Margin="0,0,-1052,-521" Grid.Row="3" Background="White">
+            <Viewbox Margin="1305,269.167,622,0" Stretch="Fill" Height="132.499" VerticalAlignment="Top">
+                <Grid x:Name="grid2" RenderTransformOrigin="0.5,0.5" Height="351.999" Width="245.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF9FA9AB" Data="F1 M 201,260.167L 261.5,260.167C 264.261,260.167 266.5,262.405 266.5,265.167L 266.5,354.167C 266.5,356.928 264.261,359.167 261.5,359.167L 201,359.167C 198.239,359.167 196,356.928 196,354.167L 196,265.167C 196,262.405 198.239,260.167 201,260.167 Z " Margin="0,44.715,0,22.852"/>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFFFFFFF" Data="F1 M 222.5,245.167L 242,245.167C 244.761,245.167 247,247.405 247,250.167L 247,254.167C 247,256.928 244.761,259.167 242,259.167L 222.5,259.167C 219.739,259.167 217.5,256.928 217.5,254.167L 217.5,250.167C 217.5,247.405 219.739,245.167 222.5,245.167 Z " Margin="72.92,0,66.136,320.951"/>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF191919" Data="F1 M 214.467,358.833L 214.467,358.833C 212.607,358.833 211.1,360.341 211.1,362.2L 211.1,363.467C 211.1,365.326 212.607,366.833 214.467,366.833L 214.467,366.833C 216.326,366.833 217.833,365.326 217.833,363.467L 217.833,362.2C 217.833,360.341 216.326,358.833 214.467,358.833 Z " Margin="51.213,338.838,165.06,0"/>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FF1D1A1A" Data="F1 M 244.833,358.833L 244.833,358.833C 242.974,358.833 241.467,360.341 241.467,362.2L 241.467,363.467C 241.467,365.326 242.974,366.833 244.833,366.833L 244.833,366.833C 246.693,366.833 248.2,365.326 248.2,363.467L 248.2,362.2C 248.2,360.341 246.693,358.833 244.833,358.833 Z " Margin="154.206,338.838,62.067,0"/>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFFFFFFF" Data="F1 M 218,262.167L 218,262.167C 219.933,262.167 221.5,263.734 221.5,265.667L 221.5,353.333C 221.5,355.266 219.933,356.833 218,356.833L 218,356.833C 216.067,356.833 214.5,355.266 214.5,353.333L 214.5,265.667C 214.5,263.734 216.067,262.167 218,262.167 Z " Margin="62.745,50.677,152.623,29.807"/>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFFFFFFF" Data="F1 M 244.5,262.167L 244.5,262.167C 246.433,262.167 248,263.734 248,265.667L 248,353.333C 248,355.266 246.433,356.833 244.5,356.833L 244.5,356.833C 242.567,356.833 241,355.266 241,353.333L 241,265.667C 241,263.734 242.567,262.167 244.5,262.167 Z " Margin="152.623,50.677,62.745,29.807"/>
+                    <Path Stretch="Fill" StrokeLineJoin="Round" Stroke="#FF000000" Fill="#FFFFFFFF" Data="F1 M 226.417,246.5L 237.5,246.5C 240.261,246.5 242.5,248.739 242.5,251.5L 242.5,252.5C 242.5,255.261 240.261,257.5 237.5,257.5L 226.417,257.5C 223.655,257.5 221.417,255.261 221.417,252.5L 221.417,251.5C 221.417,248.739 223.655,246.5 226.417,246.5 Z " Margin="86.204,3.973,81.399,325.921"/>
+
+                </Grid>
+            </Viewbox>
+            <Rectangle Fill="#FF9FA9AB" HorizontalAlignment="Left" Height="287.666" Margin="536,82,0,0" Stroke="#FF000000" StrokeLineJoin="Round" VerticalAlignment="Top" Width="106" Grid.Row="1" Grid.Column="1" RadiusX="22" RadiusY="22"/>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="267,452,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"><Run Text="60"/><Run Text="cm"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="449,216,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="78" RenderTransformOrigin="0.5,0.5">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="89.425"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run Text="70"/><Run Text="cm"/></TextBlock>
+            <TextBlock HorizontalAlignment="Left" Height="16" Margin="565,407,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52"><Run Text="3"/><Run Text="0"/><Run Text="cm"/></TextBlock>
+            <Rectangle Fill="#FFFFFFFF" HorizontalAlignment="Left" Height="25" Margin="576,43,0,0" Stroke="#FF000000" StrokeLineJoin="Round" VerticalAlignment="Top" Width="40" RadiusX="20" RadiusY="20"/>
+            <Grid Margin="770,338,1116,587" Opacity="0.5">
+                <TextBlock HorizontalAlignment="Left" Height="98" Margin="4,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Cursor="No" FontSize="72" Text="30KG"/>
+                <Rectangle HorizontalAlignment="Left" Height="116" StrokeThickness="5" StrokeLineJoin="Round" VerticalAlignment="Top" Width="204" RadiusX="30" RadiusY="30" Stroke="#FFFB0000"/>
+                <TextBlock Margin="27,32,32,28" TextWrapping="Wrap" Text="重量不符" FontSize="36" Foreground="#FFFF0808"/>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

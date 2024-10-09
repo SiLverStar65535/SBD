@@ -1,0 +1,17 @@
+﻿<Window x:Class="NO6_FunctionTest.Window3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NO6_FunctionTest"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Height="55" Margin="56,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="276"><Run Language="zh-tw" Text="l"/></TextBlock>
+        <Image Margin="386,10,10,25.5" Source="/Image5.png" Stretch="Fill"/>
+        <TextBlock HorizontalAlignment="Left" Height="56" Margin="400,341,0,0" TextWrapping="Wrap" Text="需要200元的经典牛肉面，现在推出特别优惠，只要150元。只需出示优惠券，便可以这一惊人的折扣价享受到这碗口味纯正、香气扑鼻的牛肉面。无论是汤头的浓郁还是牛肉的鲜嫩，都保证让您物超所值。" VerticalAlignment="Top" Width="372" Foreground="White"/>
+        <Image Margin="42,37,454,118" Source="/Image3.png" Stretch="Fill"/>
+        <Button Content="列印優惠卷" HorizontalAlignment="Left" Height="39" Margin="42,358,0,0" VerticalAlignment="Top" Width="304"/>
+
+    </Grid>
+</Window>

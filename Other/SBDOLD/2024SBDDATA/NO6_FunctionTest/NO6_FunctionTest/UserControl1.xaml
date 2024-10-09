@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="NO6_FunctionTest.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NO6_FunctionTest"
+             mc:Ignorable="d" 
+             d:DesignHeight="784.76" d:DesignWidth="1280" UseLayoutRounding="False">
+    <Grid>
+        <Grid x:Name="G1" Background="#FFE6ECF1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="57*"/>
+                <ColumnDefinition Width="103*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="128*"/>
+            </Grid.RowDefinitions>
+            <TextBlock HorizontalAlignment="Left" Height="15" Margin="104,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="62"><Run Language="zh-tw"/></TextBlock>
+            <TextBlock Height="53" Margin="15,13,99,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="48" Grid.ColumnSpan="2" HorizontalAlignment="Center"><Run Text="請出示登機證進行掃瞄"/><Run Language="zh-tw" Text=":"/></TextBlock>
+            <Image Margin="352,39,384,193" Grid.Row="1" Source="/boarding_pass_white_background_icon.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+            <Label x:Name="LB1" Content="" HorizontalAlignment="Left" Margin="10,505,0,0" Grid.Row="1" VerticalAlignment="Top" Width="1225" Height="75" FontSize="10" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="T11" HorizontalAlignment="Left" Height="23" Margin="10,610.5,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="1176" Grid.ColumnSpan="2" SpellCheck.IsEnabled="False"  AutomationProperties.IsColumnHeader="False"/>
+
+        </Grid>
+
+    </Grid>
+</UserControl>

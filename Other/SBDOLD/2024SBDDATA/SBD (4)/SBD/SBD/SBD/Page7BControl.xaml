@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="SBD.Page7BControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SBD"
+             mc:Ignorable="d" 
+             d:DesignHeight="741" d:DesignWidth="1072" Background="#FFCFCFCF">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="102*"/>
+            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="114*"/>
+            <ColumnDefinition Width="93*"/>
+            <ColumnDefinition Width="120*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="452*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="145*"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="ToolBar1" Margin="10,5,10,1" Grid.Row="3" 
+                Grid.ColumnSpan="5" 
+                >
+            <Button x:Name="OKUSERDATA" Content="完成行李託運" HorizontalAlignment="Left" Height="381.659" VerticalAlignment="Top" Width="456.779" Style="{DynamicResource ButtonStyle2}" Foreground="White" FontSize="72" 
+                Canvas.Left="581.06" Click="OKUSERDATA_Click" Canvas.Top="-392.88"/>
+            <Button x:Name="CancelBT" Content="下一件行李" HorizontalAlignment="Left" Height="381.659" VerticalAlignment="Top" Width="438.98" Style="{DynamicResource ButtonStyle2}" FontSize="72" Foreground="White" Canvas.Left="13.08" Click="CancelBT_Click" Canvas.Top="-392.88"/>
+        </Canvas>
+
+    </Grid>
+</UserControl>

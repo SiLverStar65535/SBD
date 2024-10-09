@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="SBD.ScanButtonControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SBD"
+             mc:Ignorable="d" Height="200" Width="200">
+    <Grid>
+        <Ellipse Stretch="Fill" Fill="#FF0772EE" Margin="28.816,29.13,0,0" HorizontalAlignment="Left" Width="138.35" Height="147.44" VerticalAlignment="Top"/>
+        <TextBlock TextAlignment="Left" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-25.504,-266.365,0,0" Height="45.411" Width="102.369" FontSize="36">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1.333" ScaleX="1.333"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="57.5483" Y="334.996"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform><Run FontFamily="微軟正黑體" Text="SCAN" Foreground="#FFFBFDFF"/></TextBlock>
+        <Path Stretch="Fill" Data="F1 M 85.1645,312.281C 106.98,312.281 124.665,329.966 124.665,351.781C 124.665,373.596 108.657,363.844 92.4146,349.281C 85.1646,342.781 45.9145,371.596 45.9145,349.781C 45.9145,327.966 63.3493,312.281 85.1645,312.281 Z " Margin="30.567,29.13,0,0" HorizontalAlignment="Left" Width="137.912" Height="97.542" VerticalAlignment="Top">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="1.31429,-0.741429" EndPoint="4.36892,-0.741429">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <SkewTransform CenterX="1.31429" CenterY="-0.741429" AngleX="-21.4113" AngleY="0"/>
+                            <RotateTransform CenterX="1.31429" CenterY="-0.741429" Angle="114.302"/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                    <GradientStop Color="#11FFFFFF" Offset="0.925532"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+        <Path Stretch="Fill" Data="M 83.4205,302.031C 110.62,302.031 132.67,324.081 132.67,351.281C 132.67,378.481 110.62,400.531 83.4205,400.531C 56.2204,400.531 34.1705,378.481 34.1705,351.281C 34.1705,324.081 56.2205,302.031 83.4205,302.031 Z M 83.6645,312.281C 105.48,312.281 123.165,329.966 123.165,351.781C 123.165,373.596 105.48,391.281 83.6645,391.281C 61.8493,391.281 44.1645,373.596 44.1645,351.781C 44.1645,329.966 61.8493,312.281 83.6645,312.281 Z " Margin="10,10,0,0" HorizontalAlignment="Left" Width="172.5" Height="183.833" VerticalAlignment="Top">
+            <Path.Fill>
+                <LinearGradientBrush StartPoint="0.169991,0.187817" EndPoint="0.771514,0.850254">
+                    <GradientStop Color="#FFFFFFFF" Offset="0.0496454"/>
+                    <GradientStop Color="#70111111" Offset="0.925532"/>
+                </LinearGradientBrush>
+            </Path.Fill>
+        </Path>
+    </Grid>
+</UserControl>

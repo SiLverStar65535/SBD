@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SBD", "SBD\SBD.csproj", "{68AA670D-2EFD-44B0-A847-E9975A351AB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thermal_Printer", "Thermal_Printer\Thermal_Printer.csproj", "{8D665066-07F7-491E-9D2E-5FD0DE421B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Therm_Sticker", "ThermSticker\Therm_Sticker.csproj", "{A6D05D46-A489-4EEE-95AF-E64979D005E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLibrary", "DataLibrary\DataLibrary.csproj", "{22B7C19A-737D-43E5-BB18-F3F9A4D80531}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM64 = Debug|ARM64
+		Release|Any CPU = Release|Any CPU
+		Release|ARM64 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Debug|ARM64.Build.0 = Debug|ARM64
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Release|ARM64.ActiveCfg = Release|ARM64
+		{68AA670D-2EFD-44B0-A847-E9975A351AB8}.Release|ARM64.Build.0 = Release|ARM64
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Debug|ARM64.Build.0 = Debug|ARM64
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Release|ARM64.ActiveCfg = Release|ARM64
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Release|ARM64.Build.0 = Release|ARM64
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Debug|ARM64.Build.0 = Debug|ARM64
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|ARM64.ActiveCfg = Release|ARM64
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|ARM64.Build.0 = Release|ARM64
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Debug|ARM64.Build.0 = Debug|ARM64
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Release|ARM64.ActiveCfg = Release|ARM64
+		{22B7C19A-737D-43E5-BB18-F3F9A4D80531}.Release|ARM64.Build.0 = Release|ARM64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D2DF6FA-EAAB-42C3-BE0E-FBB4145B0B02}
+		VisualSVNWorkingCopyRoot = .
+	EndGlobalSection
+EndGlobal

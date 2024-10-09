@@ -1,0 +1,22 @@
+﻿<Window x:Class="NO6_FunctionTest.Window4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NO6_FunctionTest"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="229*"/>
+            <RowDefinition Height="206*"/>
+        </Grid.RowDefinitions>
+        <Image Margin="0,19,574,11" Source="/Image1.png" Stretch="Fill"/>
+        <Image Margin="26,11,600,11" Source="/Image2.png" Stretch="Fill" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Center" Height="56" Margin="281.5,85.452,398.205,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115.295" FontSize="48" Text="合格"/>
+        <TextBlock HorizontalAlignment="Center" Height="56" Margin="281.5,85,379.858,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="133.642" FontSize="48" Grid.Row="1"><Run Language="zh-tw" Text="5KG"/></TextBlock>
+        <Button Content="條碼輸出" HorizontalAlignment="Left" Height="46.885" Margin="607.013,107.79,0,0" Grid.Row="1" VerticalAlignment="Top" Width="109.06" FontSize="24"/>
+        <TextBlock HorizontalAlignment="Left" Height="56" Margin="473,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" FontSize="48" Text="不合格" Foreground="#FFE41616"/>
+
+    </Grid>
+</Window>

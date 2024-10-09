@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1705
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NO6_FunctionTest", "NO6_FunctionTest\NO6_FunctionTest.csproj", "{9E1939E5-122E-417F-8322-A0CD97394B58}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5} = {A6D05D46-A489-4EEE-95AF-E64979D005E5}
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A} = {8D665066-07F7-491E-9D2E-5FD0DE421B0A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thermal_Printer", "Thermal_Printer\Thermal_Printer.csproj", "{8D665066-07F7-491E-9D2E-5FD0DE421B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Therm_Sticker", "ThermSticker\Therm_Sticker.csproj", "{A6D05D46-A489-4EEE-95AF-E64979D005E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E1939E5-122E-417F-8322-A0CD97394B58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E1939E5-122E-417F-8322-A0CD97394B58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E1939E5-122E-417F-8322-A0CD97394B58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E1939E5-122E-417F-8322-A0CD97394B58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D665066-07F7-491E-9D2E-5FD0DE421B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6D05D46-A489-4EEE-95AF-E64979D005E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26A550BD-A145-4823-BB96-002BB80FD536}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Thermal_Printer</name>
+    </assembly>
+    <members>
+        <member name="F:Thermal_Printer.PosFormat.RealTimeRequestPrinterStatus1">
+            <summary>
+            回傳狀態
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectPageMode">
+             <summary>
+            選擇整頁模式
+             </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.FeedPartialCut1">
+            <summary>
+            送紙及切紙
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectGlobalFontW1H1">
+            <summary>
+            設定字體大小 寬1高1 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectGlobalFontW1H2">
+            <summary>
+            設定字體大小 寬1高2 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectGlobalFontW2H1">
+            <summary>
+            設定字體大小 寬2高1 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectGlobalFontW2H2">
+            <summary>
+            設定字體大小 寬2高2 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectGlobalFontW2H3">
+            <summary>
+            設定字體大小 寬2高3 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectFontBoldMode">
+            <summary>
+            設定字體 粗體
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.CancelFontBoldMode">
+            <summary>
+            取消粗體
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PaperFeed24Dots">
+            <summary>
+            送紙24點
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PaperFeed12Dots">
+            <summary>
+            送紙12點
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PaperBackFeed100Dots">
+            <summary>
+            指針倒退 -- 100 dots
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PaperBackFeed31Dots">
+            <summary>
+            指針倒退 -- 31 dots
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PaperBackFeed72Dots">
+            <summary>
+            指針倒退 -- 72 dots
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectAlignLeft">
+            <summary>
+            設定文字靠左
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectAlignCenter">
+            <summary>
+            設定文字至中
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectAlignRight">
+            <summary>
+            設定文字靠右
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectBarCodeWidthDot1">
+            <summary>
+            設定條碼寬度為 1 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectBarCodeHighDot48">
+            <summary>
+            設定條碼高度為 48 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectBarCodeWidthDot3">
+            <summary>
+             設定條碼寬度為 3 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.SelectBarCodeHighDot12">
+            <summary>
+             設定條碼高度為 12 dot
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PrnBarCode39Start">
+            <summary>
+            開始列印39code條碼，需搭配PrnBarCode39End使用。
+            </summary>
+        </member>
+        <member name="F:Thermal_Printer.PosFormat.PrnBarCode39End">
+            <summary>
+            結束列印39code條碼，需搭配PrnBarCode39Start使用。
+            </summary>
+        </member>
+        <member name="T:Thermal_Printer.Post">
+            <summary>
+            version 1.2     update 2024/04/18
+            </summary>
+        </member>
+        <member name="M:Thermal_Printer.Post.CallByCommandCode(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            comport放印表機的port號(格式:COM1)，
+            List_data放你想列印的資料會自動排列
+            </summary>
+        </member>
+        <member name="M:Thermal_Printer.Post.Comport_check(System.Int32)">
+            <summary>
+            成功則回傳comport號，失敗則回傳空字串。
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

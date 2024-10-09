@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SBD.MainWindow" Collapsed="true">
+    <Position X="12.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RARCBAsDAJABCgAQhQAAhIsAIUABQCU0AAAkABEIAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SBD.Page2AControl" Collapsed="true">
+    <Position X="8" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QICAEAAAgUABBAAAAQAAAgFAIAAAABAkAAAAAQCCIAA=</HashCode>
+      <FileName>Page2AControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SBD.Page3BControl" Collapsed="true">
+    <Position X="10" Y="5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>QQAAEAAAgUAAAAAAAQAAAoAAAAAAABCAAAAAAQCCAAA=</HashCode>
+      <FileName>Page3BControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SBD.Page7AControl" Collapsed="true">
+    <Position X="4.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QQAAEAgAgVAAAAAAAQAAAoAAIAAAABCAAAAAAQCCAAA=</HashCode>
+      <FileName>Page7AControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IPrintInterface" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="SBD.InterfacePool.IDataLinkInterface">
+    <Position X="3.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>InterfacePool\DataLinkInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SBD.InterfacePool.PageInterface">
+    <Position X="1" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAUAAAAAAAAAAAgAAAAAAABAAAAAAAQCAAAA=</HashCode>
+      <FileName>InterfacePool\PageInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SBD.InterfacePool.WorkStepInterface">
+    <Position X="1.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABAIAAAAACgAAAAAABAIAAAAAAAEAAAAAABAIAAA=</HashCode>
+      <FileName>InterfacePool\WorkStepInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SBD.InterfacePool.PrintInterface">
+    <Position X="1.5" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InterfacePool\PrintInterface.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SBD.enumPool.PrintBarCodeStatus">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>enumPool\PrintBarCodeStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft JhengHei UI" Size="9" />
+</ClassDiagram>
