@@ -235,12 +235,9 @@ namespace SBD.InfraTestApp
             _sbdervice.GetAirlineLuggageWeight("");
         }
         //取得乘客託運行李尺寸
-        private async void SBD_Button_Click_5(object sender, RoutedEventArgs e)
+        private void SBD_Button_Click_5(object sender, RoutedEventArgs e)
         {
-
-            LuggageSize luggageSize = await _sbdervice.GetPassengerLuggageSize();
-            OutputTextBox.Text = luggageSize.Height.ToString()+"\n"+ luggageSize.Width.ToString() + "\n" + luggageSize.Length.ToString();
-
+            _sbdervice.GetPassengerLuggageSize();
         }
         //取得乘客託運行李重量
         private void SBD_Button_Click_6(object sender, RoutedEventArgs e)

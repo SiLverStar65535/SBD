@@ -138,16 +138,8 @@ namespace SBD.Infrastructure
         }
         public async Task<LuggageSize> GetPassengerLuggageSize()
         { 
-            var Size  = await _dimensionCameraService.GetSize();
-            var sizeValues = Size.Split(',');
-
-
-            LuggageSize luggage = new LuggageSize();
-            luggage.Width = double.Parse(sizeValues[0]);  // 將第一個值填入 Width
-            luggage.Height = double.Parse(sizeValues[1]); // 將第二個值填入 Height
-            luggage.Length = double.Parse(sizeValues[2]); // 將第三個值填入 Length
-
-            return luggage;
+            await _dimensionCameraService.GetSize(); 
+            return new LuggageSize();
         }
         public async Task<int?> GetPassengerLuggageWieght() => await _dimensionCameraService.GetWieght();
         public async Task<bool> PrintLuggageSticker(BoardingPass boardingPass, Luggage luggage)

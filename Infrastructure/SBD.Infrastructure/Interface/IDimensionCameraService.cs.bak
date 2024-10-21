@@ -6,11 +6,5 @@ namespace SBD.Infrastructure.Interface
     {
         Task<string> GetSize();
         Task<int?> GetWieght();
-
-
-        //--
-        void LoadParameters(string filePath);
-
-
     }
 }
